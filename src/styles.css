@@ -5,15 +5,17 @@
   padding: 0;
   border: 0;
   font-family: "Noto Sans", sans-serif;
+  box-sizing: border-box;
 }
 :root {
-  --irrYellow: 246, 200, 68;
-  --irrBlue: 196, 240, 253;
+  --irrYellow: 246 200 68;
+  --irrBlue: 196 240 253;
 
-  --white: 252, 252, 252;
-  --black: 38, 38, 38;
-  --blue: 66, 139, 193;
-  --darkGrey: 109, 109, 109;
+  --white: 252 252 252;
+  --black: 38 38 38;
+  --blue: 66 139 193;
+  --grey1: 230 230 230;
+  --darkGrey: 109 109 109;
 
   --titleText: 16px;
   --subtitleText: 14px;
@@ -28,12 +30,42 @@
   background-color: rgb(var(--white));
 }
 
+button {
+  height: 40px;
+  border-radius: 4px;
+  font-size: var(--titleText);
+  font-weight: 600;
+}
+
+input {
+  background-color: rgb(var(--white));
+  height: 56px;
+  font-size: var(--titleText);
+  font-weight: 300;
+}
+
+select {
+  height: 56px;
+  font-size: var(--titleText);
+  font-weight: 300;
+}
+
+.main-body-container {
+  padding: 32px;
+}
+
+.button-active {
+  background-color: rgb(var(--irrYellow)) !important;
+  border-color: rgb(var(--irrYellow)) !important;
+  color: rgb(var(--black)) !important;
+}
+
 /* ====================================================================== */
 /* ============================ Phone Styles ============================ */
 /* ====================================================================== */
 @media screen and (min-width: 300px) {
   body {
-    background-color: white;
+    background-color: rgb(var(--white));
   }
 
   /* =============================== Header =============================== */
@@ -68,7 +100,7 @@
   }
 
   .navBar--links {
-    color: #ffffff;
+    color: rgb(var(--white));
     font-size: 16px;
     text-decoration: none;
     margin: 15px;
@@ -83,7 +115,7 @@
     bottom: 0;
     width: 0;
     height: 2px;
-    background: #ffffff;
+    background: rgb(var(--white));
     transition: all 0.5s;
   }
 
@@ -334,6 +366,191 @@
 }
 .donate-header-font {
   font-size: var(--titleText);
+}
+
+/* =============================== Language Selection =============================== */
+.language-option-button {
+  width: 94px;
+  border: 1px solid rgb(var(--black));
+  background-color: rgb(var(--white));
+}
+
+.language-enter-button {
+  width: 94px;
+  margin-top: 96px;
+  border: 1px solid rgb(var(--darkGrey));
+  background-color: rgb(var(--darkGrey));
+  color: rgb(var(--white));
+}
+
+/* =============================== Login =============================== */
+.login-input {
+  width: 100%;
+  padding: 16px 14px;
+  border: 1px solid rgb(var(--black));
+  border-radius: 4px;
+
+  font-size: var(--titleText);
+  line-height: 24px;
+}
+
+.login-username {
+  background-image: url(../assets/email.svg);
+  background-position: 16px 20px;
+  background-repeat: no-repeat;
+  text-indent: 40px;
+}
+
+.login-password {
+  background-image: url(../assets/key.svg);
+  background-position: 16px 20px;
+  background-repeat: no-repeat;
+  text-indent: 40px;
+}
+
+.login-button {
+  width: 76px;
+  border: 1px solid rgb(var(--darkGrey));
+
+  background-color: rgb(var(--darkGrey));
+  color: rgb(var(--white));
+}
+
+.signup-button {
+  width: 91px;
+  border: 1px solid rgb(var(--black));
+
+  background-color: rgb(var(--white));
+}
+
+/* =============================== Create Account =============================== */
+.createAccount-title {
+  font-size: var(--titleText);
+  font-weight: 700;
+}
+
+.createAccount-subtitle {
+  font-size: var(--subtitleText);
+  font-weight: 300;
+}
+
+.createAccount-subsubtitle {
+  font-size: var(--subsubtitleText);
+  font-weight: 600;
+}
+
+.createAccount-option-button {
+  width: 200px;
+  background-color: rgb(var(--irrYellow));
+  border-radius: 4px;
+}
+
+.createAccount-label {
+  margin: 0 auto;
+  width: 100%;
+  align-self: flex-start;
+  font-weight: 600;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-overlay {
+  position: absolute;
+  top: -8px;
+  left: 14px;
+  z-index: 1;
+
+  padding: 0 4px;
+
+  font-size: 11px;
+  line-height: 16px;
+  color: rgb(var(--darkGrey));
+
+  background-color: rgb(var(--white));
+}
+
+.createAccount-input {
+  width: 100%;
+  padding: 16px 14px;
+  border: 1px solid rgb(var(--black));
+  border-radius: 4px;
+
+  font-size: var(--titleText);
+  line-height: 24px;
+}
+
+.createAccount-username {
+  background-image: url(../assets/email.svg);
+  background-position: 16px 20px;
+  background-repeat: no-repeat;
+  text-indent: 40px;
+  position: relative;
+}
+
+.createAccount-password,
+.createAccount-confirmPassword {
+  background-image: url(../assets/key.svg);
+  background-position: 16px 20px;
+  background-repeat: no-repeat;
+  text-indent: 40px;
+  position: relative;
+}
+
+.createAccount-button {
+  margin-top: 104px;
+  margin-bottom: 56px;
+  padding: 8px 16px;
+
+  background-color: rgb(var(--darkGrey));
+  color: rgb(var(--white));
+}
+
+.signin-prompt {
+  color: rgb(var(--blue));
+  font-size: var(--subtitleText);
+}
+
+.createAccount-dropdown {
+  border: 1px solid rgb(var(--black));
+  border-radius: 4px;
+
+  width: 296px;
+  padding: 16px;
+
+  -webkit-appearance: none;
+
+  background-image: linear-gradient(
+      45deg,
+      transparent 50%,
+      rgb(var(--black)) 50%
+    ),
+    linear-gradient(135deg, rgb(var(--black)) 50%, transparent 50%);
+  background-position: calc(100% - 29px) 26px, calc(100% - 24px) 26px;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.createAccount-dropdown:focus {
+  background-image: linear-gradient(
+      45deg,
+      rgb(var(--black)) 50%,
+      transparent 50%
+    ),
+    linear-gradient(135deg, transparent 50%, rgb(var(--black)) 50%);
+  background-position: calc(100% - 24px) 26px, calc(100% - 29px) 26px;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  outline: 0;
+}
+
+.createAccount-enter-button {
+  margin-top: 315px;
+  padding: 8px 16px;
+
+  background-color: rgb(var(--irrYellow));
 }
 
 /* ============================ Tablet Styles ============================ */
