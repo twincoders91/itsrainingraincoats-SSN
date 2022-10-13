@@ -1,16 +1,15 @@
 import React from "react";
-import { UilUserCircle } from "@iconscout/react-unicons";
-import raincoat from "./assets/raincoat.png";
+import union from "./assets/union.png";
+import irrlogo from "./assets/irrlogo.png";
 
 const Header = () => {
   return (
     <div className="Navbar">
       <div className="nav-middle-item">
-        <img className="nav-logo-image" src={raincoat} alt="raincoatlogo" />
-        <span className="nav-logo">ItsRainingRaincoats</span>
+        <img className="nav-logo-image" src={irrlogo} alt="raincoatlogo" />
       </div>
       <div className="nav-left-item">
-        <UilUserCircle className="nav-user-icon" />
+        <img src={union} className="nav-user-icon" alt="user-profile" />
       </div>
     </div>
   );

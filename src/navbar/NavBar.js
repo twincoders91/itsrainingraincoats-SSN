@@ -1,26 +1,30 @@
 import React from "react";
-import { UilEstate } from "@iconscout/react-unicons";
-import { UilClipboardAlt } from "@iconscout/react-unicons";
-import { UilEllipsisH } from "@iconscout/react-unicons";
+import home from "../assets/homeunfilled.png";
+import applicationunfilled from "../assets/applicationunfilled.png";
+import moredots from "../assets/moredots.png";
 
 const NavBar = () => {
   return (
     <div className="navbar-container">
       <div className="navbar-individual-boxes">
         <div className="navbar-icon-box">
-          <UilEstate className="navbar-icon" />
+          <img src={home} className="navbar-icon" alt="navbaricons" />
         </div>
         <p className="navbar-fonts">Home</p>
       </div>
       <div className="navbar-individual-boxes">
         <div className="navbar-icon-box">
-          <UilClipboardAlt className="navbar-icon" />
+          <img
+            src={applicationunfilled}
+            className="navbar-icon"
+            alt="navbaricons"
+          />
         </div>
         <p className="navbar-fonts">Application</p>
       </div>
       <div className="navbar-individual-boxes">
         <div className="navbar-icon-box">
-          <UilEllipsisH className="navbar-icon" />
+          <img src={moredots} className="navbar-icon" alt="navbaricons" />
         </div>
         <p className="navbar-fonts">More</p>
       </div>
