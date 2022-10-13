@@ -3,7 +3,7 @@ import React from "react";
 export default function CreateAccountWorker2() {
   return (
     <div className="col">
-      <span className="createAccount-label createAccount-title mb-1">
+      <span className="createAccount-label createAccount-title mb-1 fw-700">
         Account Created
       </span>
       <span className="createAccount-subtitle mb-2">
@@ -12,14 +12,21 @@ export default function CreateAccountWorker2() {
       <span className="createAccount-label createAccount-subsubtitle mb-4">
         Step 2 of 3
       </span>
-      <span className="createAccount-label createAccount-title mb-2">
+      <span className="createAccount-label createAccount-title mb-2 fw-700">
         Profile Details
       </span>
       <span className="createAccount-label createAccount-subtitle mb-1">
         Salutation
       </span>
       <select className="createAccount-dropdown mb-2">
-        <option value="0">Mr.</option>
+        <option value="0" selected disabled>
+          - Select Salutation -
+        </option>
+        <option>Mr</option>
+        <option>Ms</option>
+        <option>Mrs</option>
+        <option>Dr</option>
+        <option>CPT</option>
       </select>
       <span className="createAccount-label createAccount-subtitle mb-1">
         Name (as per NRIC/FIN/Passport)
@@ -30,13 +37,17 @@ export default function CreateAccountWorker2() {
         Nationality
       </span>
       <select className="createAccount-dropdown mb-2">
-        <option value="0">- Select Country - </option>
+        <option value="0" selected disabled>
+          - Select Country -{" "}
+        </option>
       </select>
       <span className="createAccount-label createAccount-subtitle mb-1">
         Resident Status
       </span>
       <select className="createAccount-dropdown mb-2">
-        <option value="0">- Select Status -</option>
+        <option value="0" selected disabled>
+          - Select Status -
+        </option>
       </select>
       <span className="createAccount-label createAccount-subtitle mb-1">
         NRIC/FIN/Passport No.
@@ -73,7 +84,7 @@ export default function CreateAccountWorker2() {
           <circle cx="5" cy="5" r="5" fill="rgb(var(--blue))" />
         </svg>
         <svg width="10px" height="10px" className="ml-2">
-          <circle cx="5" cy="5" r="5" fill="#E6E6E6" />
+          <circle cx="5" cy="5" r="5" fill="rgb(var(--grey1))" />
         </svg>
       </div>
     </div>
