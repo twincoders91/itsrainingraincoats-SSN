@@ -36,6 +36,7 @@ button {
   font-size: var(--titleText);
   font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.5s, border-color 0.5s, color 0.5s;
 }
 
 button:disabled {
@@ -378,7 +379,6 @@ select {
   width: 94px;
   border: 1px solid rgb(var(--black));
   background-color: rgb(var(--white));
-  transition: background-color 0.5s, border-color 0.5s;
 }
 
 .language-enter-button {
@@ -386,7 +386,6 @@ select {
   border: 1px solid rgb(var(--darkGrey));
   background-color: rgb(var(--darkGrey));
   color: rgb(var(--white));
-  transition: background-color 0.5s, border-color 0.5s, color 0.5s;
 }
 
 /* =============================== Login =============================== */

@@ -22,7 +22,6 @@ export default function ReactApp() {
         <Routes>
           <Route path="/language-select" element={<LanguageSelect />} />
           <Route path="/login" element={<Login />} />
-          {/* <Login /> */}
           {/* <CreateAccountSelection /> */}
           {/* <CreateAccountWorker1 /> */}
           {/* <CreateAccountWorker2 /> */}
