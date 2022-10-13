@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ModalDonateInstructions from "../components/ModalDonateInstructions";
+import ModalDonateInstructions from "../components/donateModals/ModalDonateInstructions";
 
 import NavBarDonate from "../navbar/NavBarDonate";
 
