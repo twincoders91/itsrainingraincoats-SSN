@@ -3,8 +3,8 @@ import React from "react";
 export default function CreateAccountWorker1() {
   return (
     <div className="col">
-      <span className="createAccount-label">Create Account</span>
-      <div className="input-container">
+      <span className="createAccount-label mb-2">Create Account</span>
+      <div className="input-container mb-4">
         <span className="input-overlay">username</span>
         <input
           className="createAccount-input createAccount-username"
@@ -12,8 +12,8 @@ export default function CreateAccountWorker1() {
           placeholder="username"
         />
       </div>
-      <span className="createAccount-label">Create Password</span>
-      <div className="input-container">
+      <span className="createAccount-label mb-2">Create Password</span>
+      <div className="input-container mb-2">
         <span className="input-overlay">password</span>
         <input
           className="createAccount-input createAccount-password"

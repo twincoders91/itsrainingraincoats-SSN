@@ -3,8 +3,10 @@ import Header from "../Header";
 import NavBar from "../navbar/NavBar";
 
 import "./andrewStyles.css";
+import "./utility.css";
 import CreateAccountSelection from "./CreateAccountSelection";
 import CreateAccountWorker1 from "./CreateAccountWorker1";
+import CreateAccountWorker2 from "./CreateAccountWorker2";
 import LanguageSelect from "./LanguageSelect";
 import Login from "./Login";
 
@@ -15,10 +17,11 @@ export default function ReactApp() {
         <Header />
       </div>
       <div className="main-body-container">
-        {/* <LanguageSelect /> */}
+        <LanguageSelect />
         {/* <Login /> */}
         {/* <CreateAccountSelection /> */}
-        <CreateAccountWorker1 />
+        {/* <CreateAccountWorker1 /> */}
+        {/* <CreateAccountWorker2 /> */}
       </div>
       <div className="main-navbar">{/* <NavBar /> */}</div>
     </div>

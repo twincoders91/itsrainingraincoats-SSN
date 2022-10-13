@@ -7,9 +7,7 @@ function App() {
   return (
     <div className="main-app-container">
       <>
-        <div className="main-body-container">
-          <ReactApp />
-        </div>
+        <ReactApp />
       </>
     </div>
   );
