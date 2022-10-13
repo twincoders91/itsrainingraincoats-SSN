@@ -2,6 +2,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
 import "./styles.css";
+import "./components/utility.css";
 import App from "./App";
 
 ReactDOM.render(
