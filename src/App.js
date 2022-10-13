@@ -3,18 +3,17 @@ import { Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Donate from "./pages/Donate";
-import ReactApp from "./components/ReactApp";
+import LanguageSelect from "./pages/LanguageSelect";
+import Login from "./pages/Login";
+import CreateAccount from "./pages/CreateAccount";
 
 function App() {
   const [openModalDonateInstructions, setopenModalDonateInstructions] =
     useState(false);
   return (
     <div className="main-app-container">
-      <ReactApp />
-      {/* <Routes>
-        <>
-          <Route path="/" element={<Home />} />
-        </>
+      <Routes>
+        <Route path="/" element={<Home />} />
         <Route
           path="/donate"
           element={
@@ -24,7 +23,10 @@ function App() {
             />
           }
         />
-      </Routes> */}
+        <Route path="/language-select" element={<LanguageSelect />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/create-account" element={<CreateAccount />} />
+      </Routes>
     </div>
   );
 }

@@ -11,6 +11,7 @@ import CreateAccountWorker3 from "./CreateAccountWorker3";
 import LanguageSelect from "./LanguageSelect";
 import Login from "./Login";
 import CreateAccountWorker4 from "./CreateAccountWorker4";
+import CreateAccount from "../pages/CreateAccount";
 
 export default function ReactApp() {
   return (
@@ -22,11 +23,7 @@ export default function ReactApp() {
         <Routes>
           <Route path="/language-select" element={<LanguageSelect />} />
           <Route path="/login" element={<Login />} />
-          {/* <CreateAccountSelection /> */}
-          {/* <CreateAccountWorker1 /> */}
-          {/* <CreateAccountWorker2 /> */}
-          {/* <CreateAccountWorker3 /> */}
-          {/* <CreateAccountWorker4 /> */}
+          <Route path="/create-account" element={<CreateAccount />} />
         </Routes>
       </div>
       <div className="main-navbar">{/* <NavBar /> */}</div>

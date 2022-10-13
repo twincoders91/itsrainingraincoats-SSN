@@ -1,6 +1,33 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-export default function CreateAccountWorker2() {
+export default function CreateAccountWorker2(props) {
+  const [tshirt, setTshirt] = useState("");
+  const [shoe, setShoe] = useState("");
+  const [diet, setDiet] = useState("");
+  const buttonRef = useRef();
+
+  const handleTshirtChange = (event) => {
+    setTshirt(event.target.value);
+  };
+
+  const handleShoeChange = (event) => {
+    setShoe(event.target.value);
+  };
+
+  const handleDietChange = (event) => {
+    setDiet(event.target.value);
+  };
+
+  useEffect(() => {
+    if (tshirt && shoe && diet) {
+      buttonRef.current.removeAttribute("disabled", "");
+      buttonRef.current.classList.add("button-active");
+    } else {
+      buttonRef.current.setAttribute("disabled", "");
+      buttonRef.current.classList.remove("button-active");
+    }
+  }, [tshirt, shoe, diet]);
+
   return (
     <div className="col">
       <span className="createAccount-label createAccount-title mb-1 fw-700">
@@ -18,7 +45,10 @@ export default function CreateAccountWorker2() {
       <span className="createAccount-label createAccount-subtitle mb-1">
         T-Shirt size
       </span>
-      <select className="createAccount-dropdown mb-2">
+      <select
+        className="createAccount-dropdown mb-2"
+        onChange={handleTshirtChange}
+      >
         <option value="0" selected disabled>
           - Select Size -
         </option>
@@ -36,7 +66,10 @@ export default function CreateAccountWorker2() {
       <span className="createAccount-label createAccount-subtitle mb-1">
         Shoe size
       </span>
-      <select className="createAccount-dropdown mb-2">
+      <select
+        className="createAccount-dropdown mb-2"
+        onChange={handleShoeChange}
+      >
         <option value="0" selected disabled>
           - Select Size -
         </option>
@@ -54,7 +87,10 @@ export default function CreateAccountWorker2() {
       <span className="createAccount-label createAccount-subtitle mb-1">
         Dietary requirement
       </span>
-      <select className="createAccount-dropdown mb-2">
+      <select
+        className="createAccount-dropdown mb-2"
+        onChange={handleDietChange}
+      >
         <option value="0" selected disabled>
           None
         </option>
@@ -65,7 +101,13 @@ export default function CreateAccountWorker2() {
         <option>No Food</option>
       </select>
 
-      <button className="createAccount-button mt-2 mb-4">Create Account</button>
+      <button
+        className="createAccount-button mt-2 mb-4"
+        onClick={() => props.setCurrentPage("worker4")}
+        ref={buttonRef}
+      >
+        Create Account
+      </button>
       <div className="row">
         <svg width="10px" height="10px" className="mr-2">
           <circle cx="5" cy="5" r="5" fill="rgb(var(--blue))" />

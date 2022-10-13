@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import { NavLink } from "react-router-dom";
 
-import Button from "./Button";
+import Button from "../components/Button";
 
 export default function LanguageSelect() {
   const [activeButton, setActiveButton] = useState("");

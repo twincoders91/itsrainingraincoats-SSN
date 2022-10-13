@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export default function CreateAccountWorker4() {
   return (
@@ -7,7 +8,10 @@ export default function CreateAccountWorker4() {
       <span className="createAccount-subtitle">
         You can start requesting for items now!
       </span>
-      <button className="createAccount-enter-button mb-8 fw-600">Enter</button>
+      <div className="spacer" style={{ height: "315px" }}></div>
+      <NavLink to="/">
+        <button className="createAccount-enter-button fw-600">Enter</button>
+      </NavLink>
     </div>
   );
 }
