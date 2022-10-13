@@ -68,15 +68,15 @@ button {
 }
 
 .login-username {
-  background-image: url(../assets/email.png);
-  background-position: 14px 16px;
+  background-image: url(../assets/email.svg);
+  background-position: 16px 20px;
   background-repeat: no-repeat;
   text-indent: 40px;
 }
 
 .login-password {
-  background-image: url(../assets/key.png);
-  background-position: 14px 16px;
+  background-image: url(../assets/key.svg);
+  background-position: 16px 20px;
   background-repeat: no-repeat;
   text-indent: 40px;
 }
@@ -159,8 +159,8 @@ button {
 }
 
 .createAccount-username {
-  background-image: url(../assets/email.png);
-  background-position: 14px 16px;
+  background-image: url(../assets/email.svg);
+  background-position: 16px 20px;
   background-repeat: no-repeat;
   text-indent: 40px;
   position: relative;
@@ -168,8 +168,8 @@ button {
 
 .createAccount-password,
 .createAccount-confirmPassword {
-  background-image: url(../assets/key.png);
-  background-position: 14px 16px;
+  background-image: url(../assets/key.svg);
+  background-position: 16px 20px;
   background-repeat: no-repeat;
   text-indent: 40px;
   position: relative;
