@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import Header from "../Header";
 import CreateAccountSelection from "../components/CreateAccountSelection";
 import CreateAccountWorker1 from "../components/CreateAccountWorker1";
 import CreateAccountWorker2 from "../components/CreateAccountWorker2";
@@ -11,21 +12,26 @@ export default function CreateAccount() {
 
   return (
     <>
-      {currentPage === "selection" ? (
-        <CreateAccountSelection setCurrentPage={setCurrentPage} />
-      ) : null}
-      {currentPage === "worker1" ? (
-        <CreateAccountWorker1 setCurrentPage={setCurrentPage} />
-      ) : null}
-      {currentPage === "worker2" ? (
-        <CreateAccountWorker2 setCurrentPage={setCurrentPage} />
-      ) : null}
-      {currentPage === "worker3" ? (
-        <CreateAccountWorker3 setCurrentPage={setCurrentPage} />
-      ) : null}
-      {currentPage === "worker4" ? (
-        <CreateAccountWorker4 setCurrentPage={setCurrentPage} />
-      ) : null}
+      <div className="main-header-container">
+        <Header />
+      </div>
+      <div className="main-body-container">
+        {currentPage === "selection" ? (
+          <CreateAccountSelection setCurrentPage={setCurrentPage} />
+        ) : null}
+        {currentPage === "worker1" ? (
+          <CreateAccountWorker1 setCurrentPage={setCurrentPage} />
+        ) : null}
+        {currentPage === "worker2" ? (
+          <CreateAccountWorker2 setCurrentPage={setCurrentPage} />
+        ) : null}
+        {currentPage === "worker3" ? (
+          <CreateAccountWorker3 setCurrentPage={setCurrentPage} />
+        ) : null}
+        {currentPage === "worker4" ? (
+          <CreateAccountWorker4 setCurrentPage={setCurrentPage} />
+        ) : null}
+      </div>
     </>
   );
 }

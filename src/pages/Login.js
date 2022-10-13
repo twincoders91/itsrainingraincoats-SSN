@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 
+import Header from "../Header";
+
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -25,29 +27,36 @@ export default function Login() {
   }, [username, password]);
 
   return (
-    <div className="col">
-      <span className="mb-2 fw-700">Login</span>
-      <input
-        className="login-input login-username mb-2"
-        type="text"
-        placeholder="username"
-        onChange={handleUsernameChange}
-      />
-      <input
-        className="login-input login-password mb-4"
-        type="password"
-        placeholder="password"
-        onChange={handlePasswordChange}
-      />
-      <NavLink to="/">
-        <button className="login-button" ref={buttonRef}>
-          Login
-        </button>
-      </NavLink>
-      <span className="mt-4 mb-4 fw-300">Don't have an account yet?</span>
-      <NavLink to="/create-account">
-        <button className="signup-button">Sign up</button>
-      </NavLink>
-    </div>
+    <>
+      <div className="main-header-container">
+        <Header />
+      </div>
+      <div className="main-body-container">
+        <div className="col">
+          <span className="mb-2 fw-700">Login</span>
+          <input
+            className="login-input login-username mb-2"
+            type="text"
+            placeholder="username"
+            onChange={handleUsernameChange}
+          />
+          <input
+            className="login-input login-password mb-4"
+            type="password"
+            placeholder="password"
+            onChange={handlePasswordChange}
+          />
+          <NavLink to="/">
+            <button className="login-button" ref={buttonRef}>
+              Login
+            </button>
+          </NavLink>
+          <span className="mt-4 mb-4 fw-300">Don't have an account yet?</span>
+          <NavLink to="/create-account">
+            <button className="signup-button">Sign up</button>
+          </NavLink>
+        </div>
+      </div>
+    </>
   );
 }
