@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import closebutton from "../assets/closebutton.png";
 import instructionsImage1 from "../assets/instructionsImage1.png";
-import buttonsnext from "../assets/buttonsnext.png";
 import bluecircle from "../assets/bluecircle.png";
 import greycircle from "../assets/greycircle.png";
 
@@ -37,11 +36,7 @@ const ModalDonateInstructions = (props) => {
             <img src={instructionsImage1} alt="instructionimages" />
           </div>
           <div className="instructionsButton-container">
-            <img
-              src={buttonsnext}
-              alt="buttonimages"
-              className="instructions-button-next"
-            />
+            <button className="instructions-button-next">Next</button>
           </div>
           <div className="instructions-scroller">
             <img
