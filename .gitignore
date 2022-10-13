@@ -116,5 +116,8 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 
+# Ignore obsidian files
+.obsidian/
+
 .idea/
 .vscode/

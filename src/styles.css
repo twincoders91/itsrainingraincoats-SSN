@@ -1,19 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,200;0,300;0,400;0,500;0,700;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 /* ============================== MAIN APP ============================== */
 * {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: "Oswald", sans-serif;
+  font-family: "Noto Sans", sans-serif;
+}
+:root {
+  --irrYellow: 246, 200, 68;
+  --irrBlue: 196, 240, 253;
 }
 
 .main-app-container {
   /* width: 100%; */
-  width: 414px;
+  width: 360px;
   height: 100vh;
   margin: auto;
-  background-color: rgb(var(--white));
+  background-color: rgb(247, 247, 247);
 }
 
 /* ====================================================================== */
@@ -26,7 +29,7 @@
 
   /* =============================== Header =============================== */
   .main-header-container {
-    height: 8%;
+    height: 64px;
   }
 
   .Navbar {
@@ -43,23 +46,16 @@
     align-items: center;
     height: 100%;
   }
-  .nav-logo {
-    font-weight: 800;
-    text-align: center;
-    width: fit-content;
-    font-size: 1.3rem;
-    color: black;
-  }
+
   .nav-logo-image {
-    height: 80%;
-    margin-right: 2%;
+    height: 70%;
   }
   .nav-user-icon {
     position: absolute;
     top: 30%;
     right: 5%;
     color: black;
-    transform: scale(1.4);
+    width: 26.67px;
   }
 
   .navBar--links {
@@ -87,11 +83,19 @@
   }
 
   /* =============================== Home =============================== */
-  h1 {
+  .home-h1-22 {
     color: black;
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 6%;
+  }
+  .home-h2-14 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 5%;
   }
   .home-container {
-    padding: 8%;
+    padding: 5%;
   }
   .item-application-container {
     display: flex;
@@ -113,11 +117,14 @@
   .item-application-box:hover {
     background-color: rgb(255, 230, 88);
   }
+  .donate-application-icon {
+    transform: scale(1.2);
+  }
   .item-application-icon {
-    transform: scale(1.8);
+    transform: scale(1);
   }
   .home-bottom-section {
-    margin-top: 10%;
+    margin-top: 5%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -129,6 +136,7 @@
     align-items: center;
     margin: 3%;
     width: 30%;
+    text-align: center;
   }
   .activity-icon-box {
     border: rgb(104, 104, 104) 0.5px solid;
@@ -138,17 +146,22 @@
     display: flex;
     justify-content: center;
     margin-bottom: 8%;
+    height: 22%;
+    width: 28%;
   }
   .activity-icon {
     transform: scale(1.8);
   }
 }
+.noto-12 {
+  font-size: 12px;
+}
 /* =============================== Navbar =============================== */
 .navbar-container {
   display: flex;
   position: absolute;
-  bottom: 0;
-  width: 414px;
+  bottom: 2%;
+  width: 360px;
   justify-content: center;
   align-items: center;
 }
@@ -167,16 +180,70 @@
   align-items: center;
 }
 .navbar-icon {
-  transform: scale(1.5);
-  color: rgb(122, 122, 122);
+  height: 20px;
   margin-bottom: 20%;
 }
 .navbar-fonts {
-  font-family: "Alegreya Sans", sans-serif;
   font-size: 0.8rem;
 }
 
+/* ========================= Modal (Instructions) ========================= */
+.overlay {
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.donate-instructions-container {
+  border-radius: 20px;
+  height: 544px;
+  width: 328px;
+  background-color: #e2f5fe;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.instructions-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.instructions-top-section {
+  margin-top: 5%;
+  margin-bottom: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.instructions-h1-16 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5%;
+}
+.instructionsImage1-container {
+  margin-bottom: 15%;
+}
+.instructions-button-next {
+  width: 70px;
+  margin-bottom: 20%;
+}
+.instructions-scroller {
+  width: 11%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.scroller-circles {
+  width: 10px;
+}
+
 /* ========================= Modal (Apply items) ========================= */
+
 .main-modal-applyforitems-container {
   height: 100%;
 }
@@ -197,14 +264,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 0.7rem;
 }
+.howtodonate-h1-16 {
+  font-size: 16px;
+  margin-top: 3%;
+}
+.steps-font {
+  font-size: 14px;
+  font-weight: 600;
+}
+.howtodonate-p1-14 {
+  font-size: 14px;
+  font-weight: 200;
+}
+
 .steps-boxes {
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 8%;
+  margin-top: 3%;
 }
 .steps-individual-box {
   display: flex;
@@ -217,10 +297,8 @@
 }
 .steps-icon {
   color: black;
-  margin-right: 5%;
-  transform: scale(1.3);
-}
-.steps-font {
+  margin-right: 9.83px;
+  height: 18.33px;
 }
 
 /* ============================ Tablet Styles ============================ */
