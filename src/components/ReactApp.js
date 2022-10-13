@@ -17,11 +17,11 @@ export default function ReactApp() {
         <Header />
       </div>
       <div className="main-body-container">
-        <LanguageSelect />
+        {/* <LanguageSelect /> */}
         {/* <Login /> */}
         {/* <CreateAccountSelection /> */}
         {/* <CreateAccountWorker1 /> */}
-        {/* <CreateAccountWorker2 /> */}
+        <CreateAccountWorker2 />
       </div>
       <div className="main-navbar">{/* <NavBar /> */}</div>
     </div>
