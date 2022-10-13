@@ -1,10 +1,23 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
+import { useRef } from "react";
 import { NavLink } from "react-router-dom";
 
 import Button from "./Button";
 
 export default function LanguageSelect() {
   const [activeButton, setActiveButton] = useState("");
+  const buttonRef = useRef();
+
+  useEffect(() => {
+    if (activeButton) {
+      buttonRef.current.removeAttribute("disabled", "");
+      buttonRef.current.classList.add("button-active");
+    } else {
+      buttonRef.current.setAttribute("disabled", "");
+      buttonRef.current.classList.remove("button-active");
+    }
+  }, [activeButton]);
 
   return (
     <div className="col">
@@ -41,8 +54,11 @@ export default function LanguageSelect() {
       >
         简体中文
       </Button>
+      <div className="spacer" style={{ height: "96px" }}></div>
       <NavLink to="/login">
-        <button className="language-enter-button">Enter</button>
+        <button className="language-enter-button" ref={buttonRef}>
+          Enter
+        </button>
       </NavLink>
     </div>
   );
