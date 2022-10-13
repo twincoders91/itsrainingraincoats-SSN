@@ -251,6 +251,7 @@ select {
 }
 
 .donate-instructions-container {
+  position: relative;
   border-radius: 20px;
   height: 544px;
   width: 328px;
@@ -276,25 +277,59 @@ select {
 .instructions-h1-16 {
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 5%;
+  /* margin-bottom: 5%; */
 }
 .instructionsImage1-container {
-  margin-bottom: 15%;
+  margin-bottom: 47px;
 }
+.instructionsButton-container {
+  position: absolute;
+  width: 100%;
+  bottom: 48px;
+}
+.backarrowIcon {
+  position: absolute;
+  top: 30%;
+  left: 35.33px;
+}
+
 .instructions-button-next {
-  margin-bottom: 30%;
   background-color: rgb(var(--irrYellow));
   padding: 8px 16px;
   font-size: var(--titleText);
+  font-weight: 500;
 }
 .instructions-scroller {
-  width: 11%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  position: absolute;
+  bottom: 16px;
 }
 .scroller-circles {
   width: 10px;
+}
+.instructionsImage2-container {
+  display: flex;
+  flex-direction: row;
+}
+.instructionsImage3-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 71px;
+}
+.instructions2-font-box {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.instructions2-font1 {
+  font-size: var(--subtitleText);
+  font-weight: 600;
+}
+.instructions2-font2 {
+  font-size: var(--subtitleText);
+  font-weight: 300;
 }
 
 /* ========================= Modal (Apply items) ========================= */
