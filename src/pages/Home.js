@@ -1,19 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../Header";
 import NavBar from "../navbar/NavBar";
+import { Link } from "react-router-dom";
 
 import donate from "../assets/donate.png";
 import education from "../assets/education.png";
 import love from "../assets/love.png";
 import corporatepartnership from "../assets/corporatepartnership.png";
-import ModalDonateInstructions from "../components/ModalDonateInstructions";
-import ModalHowToDonateForItems from "../components/ModalHowToDonateForItems";
 
 const Home = () => {
-  const [openModalDonateInstructions, setopenModalDonateInstructions] =
-    useState(false);
-  const [openModalApplyItems, setOpenModalApplyItems] = useState(false);
-
   return (
     <>
       <div className="main-home-container">
@@ -25,19 +20,15 @@ const Home = () => {
             <h1 className="home-h1-22">Hi, Sophie</h1>
             <p className="home-h2-14">How can you help?</p>
             <div className="item-application-container">
-              <div
-                className="item-application-box"
-                onClick={() => {
-                  setopenModalDonateInstructions(true);
-                  console.log(openModalApplyItems);
-                }}
-              >
-                <img
-                  src={donate}
-                  alt="donateimage"
-                  className="donate-application-icon"
-                />
-              </div>
+              <Link to="/donate" className="item-application-box">
+                <div>
+                  <img
+                    src={donate}
+                    alt="donateimage"
+                    className="donate-application-icon"
+                  />
+                </div>
+              </Link>
               <p className="noto-12">Donate</p>
             </div>
           </div>
@@ -78,17 +69,14 @@ const Home = () => {
           <NavBar />
         </div>
       </div>
-      <ModalDonateInstructions
-        openModalDonateInstructions={openModalDonateInstructions}
-        setopenModalDonateInstructions={setopenModalDonateInstructions}
-      />
+      {/* 
       <div className="main-modal-applyforitems-container">
         <ModalHowToDonateForItems
           setOpenModalApplyItems={setOpenModalApplyItems}
           openModalApplyItems={openModalApplyItems}
           className="main-modal-applyforitems-container"
         />
-      </div>
+      </div> */}
     </>
   );
 };
