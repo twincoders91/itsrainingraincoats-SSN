@@ -20,28 +20,27 @@ button {
   height: 40px;
 }
 
-.col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+input {
+  background-color: rgb(var(--white));
 }
 
-.language-select-title {
-  margin-top: 64px;
-  margin-bottom: 32px;
+.main-body-container {
+  padding: 32px;
 }
 
 .language-option-button {
   width: 94px;
-  margin-bottom: 16px;
   border: 1px solid rgb(var(--black));
   border-radius: 4px;
+  background-color: rgb(var(--white));
 }
 
 .language-enter-button {
   width: 94px;
-  margin-top: 80px;
-  border: 1px solid rgb(var(--black));
+  margin-top: 96px;
+  border: 1px solid rgb(var(--darkGrey));
+  background-color: rgb(var(--darkGrey));
+  color: rgb(var(--white));
   border-radius: 4px;
 }
 
@@ -51,15 +50,9 @@ button {
   color: rgb(var(--black)) !important;
 }
 
-.login-title {
-  margin-top: 32px;
-  margin-bottom: 16px;
-}
-
 .login-input {
-  width: 296px;
+  width: 100%;
   padding: 16px 14px;
-  margin-bottom: 16px;
   border: 1px solid rgb(var(--black));
   border-radius: 4px;
 
@@ -68,32 +61,26 @@ button {
 }
 
 .login-username {
-  background-image: url(../assets/email.png);
-  background-position: 14px 16px;
+  background-image: url(../assets/email.svg);
+  background-position: 16px 20px;
   background-repeat: no-repeat;
   text-indent: 40px;
 }
 
 .login-password {
-  background-image: url(../assets/key.png);
-  background-position: 14px 16px;
+  background-image: url(../assets/key.svg);
+  background-position: 16px 20px;
   background-repeat: no-repeat;
   text-indent: 40px;
 }
 
 .login-button {
   width: 76px;
-  margin-top: 16px;
-  margin-bottom: 32px;
   border: 1px solid rgb(var(--darkGrey));
   border-radius: 4px;
 
   background-color: rgb(var(--darkGrey));
   color: rgb(var(--white));
-}
-
-.signup-prompt {
-  margin-bottom: 32px;
 }
 
 .signup-button {
@@ -104,13 +91,19 @@ button {
   background-color: rgb(var(--white));
 }
 
-.createAccount-selection-title {
-  margin-top: 32px;
+.createAccount-title {
+  font-size: var(--titleText);
+}
+
+.createAccount-subtitle {
+  font-size: var(--subtitleText);
+}
+
+.createAccount-subsubtitle {
+  font-size: var(--subsubtitleText);
 }
 
 .createAccount-option-button {
-  margin-top: 32px;
-  margin-bottom: 8px;
   width: 200px;
 
   background-color: rgb(var(--irrYellow));
@@ -118,23 +111,20 @@ button {
   border-radius: 4px;
 }
 
-.createAccount-subtitle {
-  font-size: var(--subtitleText);
-}
-
 .createAccount-label {
-  margin: 32px auto 0 auto;
-  width: 296px;
+  margin: 0 auto;
+  width: 100%;
   align-self: flex-start;
 }
 
 .input-container {
   position: relative;
+  width: 100%;
 }
 
 .input-overlay {
   position: absolute;
-  top: 8px;
+  top: -8px;
   left: 14px;
   z-index: 1;
 
@@ -148,9 +138,8 @@ button {
 }
 
 .createAccount-input {
-  width: 296px;
+  width: 100%;
   padding: 16px 14px;
-  margin-top: 16px;
   border: 1px solid rgb(var(--black));
   border-radius: 4px;
 
@@ -159,8 +148,8 @@ button {
 }
 
 .createAccount-username {
-  background-image: url(../assets/email.png);
-  background-position: 14px 16px;
+  background-image: url(../assets/email.svg);
+  background-position: 16px 20px;
   background-repeat: no-repeat;
   text-indent: 40px;
   position: relative;
@@ -168,8 +157,8 @@ button {
 
 .createAccount-password,
 .createAccount-confirmPassword {
-  background-image: url(../assets/key.png);
-  background-position: 14px 16px;
+  background-image: url(../assets/key.svg);
+  background-position: 16px 20px;
   background-repeat: no-repeat;
   text-indent: 40px;
   position: relative;
@@ -178,7 +167,7 @@ button {
 .createAccount-button {
   margin-top: 104px;
   margin-bottom: 56px;
-  width: 152px;
+  padding: 8px 16px;
 
   background-color: rgb(var(--darkGrey));
   color: rgb(var(--white));
@@ -189,4 +178,14 @@ button {
 .signin-prompt {
   color: rgb(var(--blue));
   font-size: var(--subtitleText);
+}
+
+.createAccount-dropdown {
+  border: 1px solid rgb(var(--black));
+  border-radius: 4px;
+
+  width: 296px;
+  padding: 16px;
+
+  -webkit-appearance: none;
 }

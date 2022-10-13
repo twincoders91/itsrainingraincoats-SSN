@@ -6,17 +6,13 @@
   border: 0;
   font-family: "Noto Sans", sans-serif;
 }
-:root {
-  --irrYellow: 246, 200, 68;
-  --irrBlue: 196, 240, 253;
-}
 
 .main-app-container {
   /* width: 100%; */
   width: 360px;
   height: 100vh;
   margin: auto;
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(var(--white));
 }
 
 /* ====================================================================== */
