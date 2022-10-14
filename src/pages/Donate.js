@@ -1,53 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "../navbar/NavBar";
 // import donateCategoryData from "../datasets/donateCat4";
-import meals from "../assets/meals.svg";
-import carepack from "../assets/carepack.svg";
-import donateitem from "../assets/donateitem.svg";
-import fundraising from "../assets/fundraising.svg";
 import infoicon from "../assets/infoicon.svg";
 
 import NavBarDonate from "../navbar/NavBarDonate";
+import DonateInNeed from "../components/DonateInNeed";
+import Instruction3 from "../components/donateModals/Instruction3";
+import ModalHowToApplyForItems from "../components/donateModals/ModalHowToDonateForItems";
+import DonateCat4 from "../components/DonateCat4";
 
 const Donate = () => {
+  const [donateInstruction3, setDonateInstruction3] = useState(false);
+  const handleDonateInstruction3Click = () => {
+    setDonateInstruction3(true);
+  };
+  const [donateSteps, setDonateSteps] = useState(false);
+  const handleDonateSteps = () => {
+    setDonateSteps(true);
+  };
+
   return (
     <div>
       <NavBarDonate />
       <div className="main-donate-container ml-2 mr-2 mt-2">
         <span className="donate-font1 ">I would like to donate...</span>
-        <div className="donate-category-box">
-          <div className="donate-individual-categories-box mr-2">
-            <div className="donate-categoryicons-box bs mb-1 mt-2">
-              <img src={meals} alt="categoryicons" />
-            </div>
-            <span className="donate-category-font">Meals</span>
-          </div>
-          <div className="donate-individual-categories-box mr-2">
-            <div className="donate-categoryicons-box bs mb-1 mt-2">
-              <img src={carepack} alt="categoryicons" />
-            </div>
-            <span className="donate-category-font">Care Pack</span>
-          </div>
-          <div className="donate-individual-categories-box mr-2">
-            <div className="donate-categoryicons-box bs mb-1 mt-2">
-              <img src={donateitem} alt="categoryicons" />
-            </div>
-            <span className="donate-category-font">Preloved Item</span>
-          </div>
-          <div className="donate-individual-categories-box">
-            <div className="donate-categoryicons-box bs mb-1 mt-2">
-              <img src={fundraising} alt="categoryicons" />
-            </div>
-            <span className="donate-category-font">Financial Support</span>
-          </div>
-        </div>
+        <DonateCat4 />
         <div className="donate-inneedof-box mt-4">
           <span className="donate-font1 mr-1">
             We are currently in need of...
           </span>
-          <img className="infoicon" src={infoicon} alt="infoicon" />
+          <img
+            className="infoicon"
+            src={infoicon}
+            alt="infoicon"
+            onClick={() => {
+              handleDonateInstruction3Click();
+            }}
+          />
         </div>
       </div>
+      <DonateInNeed />
+      <Instruction3
+        setDonateInstruction3={setDonateInstruction3}
+        donateInstruction3={donateInstruction3}
+      />
+      <ModalHowToApplyForItems
+        donateSteps={donateSteps}
+        setDonateSteps={setDonateSteps}
+      />
       <div className="main-navbar">
         <NavBar />
       </div>

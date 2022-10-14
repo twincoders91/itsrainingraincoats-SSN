@@ -7,11 +7,9 @@ import moderateIndicator from "../../assets/moderateIndicator.svg";
 import sufficientIndicator from "../../assets/sufficientIndicator.svg";
 
 const Instruction3 = (props) => {
-  const { setDonateInstruction3 } = props;
-  //   const handleClickToDonatePage = () => {
-  //     setDonateInstruction3(false);
+  const { setDonateInstruction3, donateInstruction3 } = props;
 
-  //   }
+  if (!donateInstruction3) return null;
 
   return (
     <div className="overlay">

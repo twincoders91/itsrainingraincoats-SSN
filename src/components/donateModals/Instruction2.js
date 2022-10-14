@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import closebutton from "../../assets/closebutton.png";
 
 import instructionsImage2a from "../../assets/instructionsImage2a.svg";
@@ -8,19 +9,11 @@ import bluecircle from "../../assets/bluecircle.png";
 import backarrow from "../../assets/backarrow.svg";
 
 const Instruction2 = (props) => {
-  const {
-    setDonateInstruction2,
-    setopenModalDonateInstructions,
-    setDonateInstruction3,
-  } = props;
+  const { setDonateInstruction2, setopenModalDonateInstructions } = props;
 
   const handleInstructionBack1 = () => {
     setopenModalDonateInstructions(true);
     setDonateInstruction2(false);
-  };
-  const handleInstructionChange2 = () => {
-    setDonateInstruction2(false);
-    setDonateInstruction3(true);
   };
 
   return (
@@ -77,14 +70,11 @@ const Instruction2 = (props) => {
                   handleInstructionBack1();
                 }}
               ></img>
-              <button
-                className="instructions-button-next"
-                onClick={() => {
-                  handleInstructionChange2();
-                }}
-              >
-                Start Donating
-              </button>
+              <Link to="/donate">
+                <button className="instructions-button-next">
+                  Start Donating
+                </button>
+              </Link>
             </div>
             <div className="instructions-scroller">
               <img

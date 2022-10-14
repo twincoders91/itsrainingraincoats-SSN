@@ -5,15 +5,15 @@ const donateCategoryData = [
   },
   {
     title: "Care Pack",
-    image: "../assets/carepack.svg",
+    image: "carepack",
   },
   {
     title: "Preloved Item",
-    image: "../assets/donateitem.svg",
+    image: "donateitem",
   },
   {
     title: "Financial Support",
-    image: "../assets/fundraising.svg",
+    image: "fundraising",
   },
 ];
 

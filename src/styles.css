@@ -437,8 +437,22 @@ select {
   font-weight: 700;
 }
 .donate-category-box {
+  grid-gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+  justify-content: center;
+}
+
+.donate-choice-individual-boxes {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+}
+.donate-choice-boxes {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 .donate-individual-categories-box {
@@ -462,6 +476,49 @@ select {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.inNeed-container {
+  grid-gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+  justify-content: center;
+}
+.inNeed-mainbox {
+  display: flex;
+  justify-content: center;
+}
+.inNeed-icon-boxes {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+}
+.inNeed-icon-image {
+  position: absolute;
+  top: 10%;
+}
+.statusbox {
+  position: absolute;
+  font-size: var(--subsubtitleText);
+  font-weight: 300;
+  width: 62px;
+  height: 20px;
+  border-radius: 4px;
+  text-align: center;
+  bottom: 4px;
+}
+.statusLow-color {
+  background-color: red;
+}
+.statusModerate-color {
+  background-color: rgb(var(--irrYellow));
+}
+.inNeed-item-title-font {
+  font-size: var(--subtitleText);
+  font-weight: 300;
+  text-align: center;
 }
 
 /* =============================== Language Selection =============================== */

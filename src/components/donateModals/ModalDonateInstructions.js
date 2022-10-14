@@ -3,13 +3,11 @@ import React, { useState } from "react";
 
 import Instruction1 from "./Instruction1";
 import Instruction2 from "./Instruction2";
-import Instruction3 from "./Instruction3";
 
 const ModalDonateInstructions = (props) => {
   const { openModalDonateInstructions, setopenModalDonateInstructions } = props;
   const [donateInstruction2, setDonateInstruction2] = useState(false);
-  const [donateInstruction3, setDonateInstruction3] = useState(false);
-  // const [loading, setLoading] = useState(false);
+  const [setDonateInstruction3] = useState(false);
 
   const donateInstructionPages = () => {
     console.log(openModalDonateInstructions);
@@ -29,8 +27,6 @@ const ModalDonateInstructions = (props) => {
           setDonateInstruction3={setDonateInstruction3}
         />
       );
-    } else if (donateInstruction3 === true) {
-      return <Instruction3 setDonateInstruction3={setDonateInstruction3} />;
     }
   };
 
