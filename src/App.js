@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Donate from "./pages/Donate";
@@ -14,6 +14,7 @@ function App() {
   return (
     <div className="main-app-container">
       <Routes>
+        <Route path="/" element={<Navigate to="/language-select" />} />
         <Route
           path="/home"
           element={
