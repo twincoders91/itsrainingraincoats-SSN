@@ -35,13 +35,13 @@ export default function Login() {
         <div className="col">
           <span className="mb-2 fw-700">Login</span>
           <input
-            className="login-input login-username mb-2"
+            className="login-username mb-2"
             type="text"
             placeholder="username"
             onChange={handleUsernameChange}
           />
           <input
-            className="login-input login-password mb-4"
+            className="login-password mb-4"
             type="password"
             placeholder="password"
             onChange={handlePasswordChange}

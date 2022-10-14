@@ -6,6 +6,7 @@ import Donate from "./pages/Donate";
 import LanguageSelect from "./pages/LanguageSelect";
 import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
+import ItemRequest from "./pages/ItemRequest";
 
 function App() {
   const [openModalDonateInstructions, setopenModalDonateInstructions] =
@@ -36,6 +37,7 @@ function App() {
         <Route path="/language-select" element={<LanguageSelect />} />
         <Route path="/login" element={<Login />} />
         <Route path="/create-account" element={<CreateAccount />} />
+        <Route path="/item-request" element={<ItemRequest />} />
       </Routes>
     </div>
   );

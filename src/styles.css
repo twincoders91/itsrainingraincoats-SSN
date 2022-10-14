@@ -50,15 +50,26 @@ button:disabled {
 
 input {
   background-color: rgb(var(--white));
+  border: 1px solid rgb(var(--black));
+  border-radius: 4px;
+  padding: 16px;
   height: 56px;
+  width: 100%;
   font-size: var(--titleText);
   font-weight: 300;
+  line-height: 24px;
 }
 
 select {
+  background-color: rgb(var(--white));
+  border: 1px solid rgb(var(--black));
+  border-radius: 4px;
+  padding: 16px;
   height: 56px;
+  width: 100%;
   font-size: var(--titleText);
   font-weight: 300;
+  line-height: 24px;
 }
 
 .main-body-container {
@@ -69,6 +80,10 @@ select {
   background-color: rgb(var(--irrYellow)) !important;
   border-color: rgb(var(--irrYellow)) !important;
   color: rgb(var(--black)) !important;
+}
+
+.hidden {
+  display: none;
 }
 
 /* ====================================================================== */
@@ -537,13 +552,6 @@ select {
 
 /* =============================== Login =============================== */
 .login-input {
-  width: 100%;
-  padding: 16px 14px;
-  border: 1px solid rgb(var(--black));
-  border-radius: 4px;
-
-  font-size: var(--titleText);
-  line-height: 24px;
 }
 
 .login-username {
@@ -626,16 +634,6 @@ select {
   background-color: rgb(var(--white));
 }
 
-.createAccount-input {
-  width: 100%;
-  padding: 16px 14px;
-  border: 1px solid rgb(var(--black));
-  border-radius: 4px;
-
-  font-size: var(--titleText);
-  line-height: 24px;
-}
-
 .createAccount-username {
   background-image: url(./assets/email.svg);
   background-position: 14px 16px;
@@ -670,12 +668,6 @@ select {
 }
 
 .createAccount-dropdown {
-  border: 1px solid rgb(var(--black));
-  border-radius: 4px;
-
-  width: 296px;
-  padding: 16px;
-
   -webkit-appearance: none;
 
   background-image: linear-gradient(
@@ -706,6 +698,11 @@ select {
   padding: 8px 16px;
 
   background-color: rgb(var(--irrYellow));
+}
+
+/* =============================== Item Request =============================== */
+.request-body-container {
+  padding: 16px;
 }
 
 /* ============================ Tablet Styles ============================ */

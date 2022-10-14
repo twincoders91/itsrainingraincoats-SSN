@@ -115,11 +115,7 @@ export default function CreateAccountWorker2(props) {
       <span className="createAccount-label createAccount-subtitle mb-1">
         Name (as per NRIC/FIN/Passport)
       </span>
-      <input
-        className="createAccount-input mb-2"
-        type="text"
-        onChange={handleNameChange}
-      />
+      <input className="mb-2" type="text" onChange={handleNameChange} />
 
       <span className="createAccount-label createAccount-subtitle mb-1">
         Nationality
@@ -149,7 +145,7 @@ export default function CreateAccountWorker2(props) {
         NRIC/FIN/Passport No.
       </span>
       <input
-        className="createAccount-input mb-2"
+        className="mb-2"
         type="text"
         placeholder="DISABLED"
         onChange={handleNricChange}
@@ -158,11 +154,7 @@ export default function CreateAccountWorker2(props) {
       <span className="createAccount-label createAccount-subtitle mb-1">
         Address
       </span>
-      <input
-        className="createAccount-input mb-2"
-        type="text"
-        onChange={handleAddressChange}
-      />
+      <input className="mb-2" type="text" onChange={handleAddressChange} />
       <div className="grid gc-2">
         <span className="createAccount-label createAccount-subtitle mb-1">
           Unit No.
@@ -170,30 +162,18 @@ export default function CreateAccountWorker2(props) {
         <span className="createAccount-label createAccount-subtitle mb-1">
           Postcode
         </span>
-        <input
-          className="createAccount-input mb-2"
-          type="text"
-          onChange={handleUnitNumberChange}
-        />
-        <input
-          className="createAccount-input mb-2"
-          type="text"
-          onChange={handlePostcodeChange}
-        />
+        <input className="mb-2" type="text" onChange={handleUnitNumberChange} />
+        <input className="mb-2" type="text" onChange={handlePostcodeChange} />
       </div>
       <span className="createAccount-label createAccount-subtitle mb-1">
         Dormitory Name
       </span>
-      <input
-        className="createAccount-input mb-2"
-        type="text"
-        onChange={handleDormitoryChange}
-      />
+      <input className="mb-2" type="text" onChange={handleDormitoryChange} />
       <span className="createAccount-label createAccount-subtitle mb-1">
         Contact No.
       </span>
       <input
-        className="createAccount-input mb-2"
+        className="mb-2"
         type="text"
         onChange={handleContactNumberChange}
       />
