@@ -38,7 +38,7 @@ export default function CreateAccountWorker1(props) {
       <div className="input-container mb-4">
         <span className="input-overlay">username</span>
         <input
-          className="createAccount-input createAccount-username"
+          className="createAccount-username"
           type="text"
           placeholder="username"
           onChange={handleUsernameChange}
@@ -48,7 +48,7 @@ export default function CreateAccountWorker1(props) {
       <div className="input-container mb-2">
         <span className="input-overlay">password</span>
         <input
-          className="createAccount-input createAccount-password"
+          className="createAccount-password"
           type="password"
           placeholder="password"
           onChange={handlePasswordChange}
@@ -57,7 +57,7 @@ export default function CreateAccountWorker1(props) {
       <div className="input-container">
         <span className="input-overlay">confirm password</span>
         <input
-          className="createAccount-input createAccount-confirmPassword"
+          className="createAccount-confirmPassword"
           type="password"
           placeholder="confirm password"
           onChange={handleConfirmPasswordChange}

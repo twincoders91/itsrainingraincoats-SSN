@@ -50,15 +50,26 @@ button:disabled {
 
 input {
   background-color: rgb(var(--white));
+  border: 1px solid rgb(var(--black));
+  border-radius: 4px;
+  padding: 16px;
   height: 56px;
+  width: 100%;
   font-size: var(--titleText);
   font-weight: 300;
+  line-height: 24px;
 }
 
 select {
+  background-color: rgb(var(--white));
+  border: 1px solid rgb(var(--black));
+  border-radius: 4px;
+  padding: 16px;
   height: 56px;
+  width: 100%;
   font-size: var(--titleText);
   font-weight: 300;
+  line-height: 24px;
 }
 
 .main-body-container {
@@ -69,6 +80,10 @@ select {
   background-color: rgb(var(--irrYellow)) !important;
   border-color: rgb(var(--irrYellow)) !important;
   color: rgb(var(--black)) !important;
+}
+
+.hidden {
+  display: none;
 }
 
 /* ====================================================================== */
@@ -537,25 +552,20 @@ select {
 
 /* =============================== Login =============================== */
 .login-input {
-  width: 100%;
-  padding: 16px 14px;
-  border: 1px solid rgb(var(--black));
-  border-radius: 4px;
-
-  font-size: var(--titleText);
-  line-height: 24px;
 }
 
 .login-username {
   background-image: url(./assets/email.svg);
-  background-position: 16px 20px;
+  background-position: 14px 16px;
+  background-size: 24px;
   background-repeat: no-repeat;
   text-indent: 40px;
 }
 
 .login-password {
   background-image: url(./assets/key.svg);
-  background-position: 16px 20px;
+  background-position: 14px 16px;
+  background-size: 24px;
   background-repeat: no-repeat;
   text-indent: 40px;
 }
@@ -624,19 +634,10 @@ select {
   background-color: rgb(var(--white));
 }
 
-.createAccount-input {
-  width: 100%;
-  padding: 16px 14px;
-  border: 1px solid rgb(var(--black));
-  border-radius: 4px;
-
-  font-size: var(--titleText);
-  line-height: 24px;
-}
-
 .createAccount-username {
   background-image: url(./assets/email.svg);
-  background-position: 16px 20px;
+  background-position: 14px 16px;
+  background-size: 24px;
   background-repeat: no-repeat;
   text-indent: 40px;
   position: relative;
@@ -645,7 +646,8 @@ select {
 .createAccount-password,
 .createAccount-confirmPassword {
   background-image: url(./assets/key.svg);
-  background-position: 16px 20px;
+  background-position: 14px 16px;
+  background-size: 24px;
   background-repeat: no-repeat;
   text-indent: 40px;
   position: relative;
@@ -666,12 +668,6 @@ select {
 }
 
 .createAccount-dropdown {
-  border: 1px solid rgb(var(--black));
-  border-radius: 4px;
-
-  width: 296px;
-  padding: 16px;
-
   -webkit-appearance: none;
 
   background-image: linear-gradient(
@@ -702,6 +698,63 @@ select {
   padding: 8px 16px;
 
   background-color: rgb(var(--irrYellow));
+}
+
+/* =============================== Item Request =============================== */
+.request-body-container {
+  padding: 16px;
+}
+
+.request-titleText {
+  font-size: var(--titleText);
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.request-subtitleText {
+  font-size: var(--subtitleText);
+  font-weight: 300;
+  line-height: 21px;
+}
+
+.request-subsubtitleText {
+  font-size: var(--subsubtitleText);
+  font-weight: 300;
+  line-height: 18px;
+}
+
+.request-header {
+  width: 100%;
+  text-align: left;
+}
+
+.request-icon-button {
+  width: 100%;
+  height: 70px;
+  background-color: rgb(var(--white));
+  filter: drop-shadow(0 2px 2px rgba(var(--black) / 0.2));
+}
+
+.request-icon-text {
+  height: 36px;
+  text-align: center;
+  font-weight: 300 !important;
+}
+
+.request-upload {
+  width: 100%;
+  height: 56px;
+  padding: 16px;
+  border: 1px solid rgb(var(--black));
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.request-add-button {
+  padding: 8px 16px;
+
+  background-color: rgb(var(--darkGrey));
+  color: rgb(var(--white));
 }
 
 /* ============================ Tablet Styles ============================ */

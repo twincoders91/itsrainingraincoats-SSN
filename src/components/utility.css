@@ -10,13 +10,27 @@
   justify-content: center;
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .grid {
   display: grid;
-  column-gap: 16px;
+  gap: 16px;
 }
 
 .gc-2 {
   grid-template-columns: repeat(2, 1fr);
+}
+
+.gc-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.gc-4 {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .mt-1 {
