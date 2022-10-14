@@ -548,14 +548,16 @@ select {
 
 .login-username {
   background-image: url(./assets/email.svg);
-  background-position: 16px 20px;
+  background-position: 14px 16px;
+  background-size: 24px;
   background-repeat: no-repeat;
   text-indent: 40px;
 }
 
 .login-password {
   background-image: url(./assets/key.svg);
-  background-position: 16px 20px;
+  background-position: 14px 16px;
+  background-size: 24px;
   background-repeat: no-repeat;
   text-indent: 40px;
 }
@@ -636,7 +638,8 @@ select {
 
 .createAccount-username {
   background-image: url(./assets/email.svg);
-  background-position: 16px 20px;
+  background-position: 14px 16px;
+  background-size: 24px;
   background-repeat: no-repeat;
   text-indent: 40px;
   position: relative;
@@ -645,7 +648,8 @@ select {
 .createAccount-password,
 .createAccount-confirmPassword {
   background-image: url(./assets/key.svg);
-  background-position: 16px 20px;
+  background-position: 14px 16px;
+  background-size: 24px;
   background-repeat: no-repeat;
   text-indent: 40px;
   position: relative;
