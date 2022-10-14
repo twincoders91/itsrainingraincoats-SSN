@@ -46,7 +46,7 @@ export default function Login() {
             placeholder="password"
             onChange={handlePasswordChange}
           />
-          <NavLink to="/">
+          <NavLink to="/home">
             <button className="login-button" ref={buttonRef}>
               Login
             </button>

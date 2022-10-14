@@ -9,7 +9,7 @@ export default function CreateAccountWorker4() {
         You can start requesting for items now!
       </span>
       <div className="spacer" style={{ height: "315px" }}></div>
-      <NavLink to="/">
+      <NavLink to="/home">
         <button className="createAccount-enter-button fw-600">Enter</button>
       </NavLink>
     </div>
