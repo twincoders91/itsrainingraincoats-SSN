@@ -1,14 +1,19 @@
 import React from "react";
 import Header from "../Header";
 import NavBar from "../navbar/NavBar";
-import { Link } from "react-router-dom";
 
-import donate from "../assets/donate.png";
+import donate from "../assets/donate.svg";
 import education from "../assets/education.png";
 import love from "../assets/love.png";
 import corporatepartnership from "../assets/corporatepartnership.png";
+import ModalDonateInstructions from "../components/donateModals/ModalDonateInstructions";
 
-const Home = () => {
+const Home = (props) => {
+  const { openModalDonateInstructions, setopenModalDonateInstructions } = props;
+  const handleModalOpen = () => {
+    setopenModalDonateInstructions(true);
+  };
+
   return (
     <>
       <div className="main-home-container">
@@ -20,15 +25,17 @@ const Home = () => {
             <h1 className="home-h1-22">Hi, Sophie</h1>
             <p className="home-h2-14">How can you help?</p>
             <div className="item-application-container">
-              <Link to="/donate" className="item-application-box">
-                <div>
-                  <img
-                    src={donate}
-                    alt="donateimage"
-                    className="donate-application-icon"
-                  />
-                </div>
-              </Link>
+              <div className="item-application-box ml-2 mr-2">
+                <img
+                  src={donate}
+                  alt="donateimage"
+                  className="donate-application-icon"
+                  onClick={() => {
+                    handleModalOpen();
+                  }}
+                />
+              </div>
+
               <p className="noto-12">Donate</p>
             </div>
           </div>
@@ -77,6 +84,10 @@ const Home = () => {
           className="main-modal-applyforitems-container"
         />
       </div> */}
+      <ModalDonateInstructions
+        openModalDonateInstructions={openModalDonateInstructions}
+        setopenModalDonateInstructions={setopenModalDonateInstructions}
+      />
     </>
   );
 };

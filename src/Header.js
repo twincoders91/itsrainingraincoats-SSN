@@ -1,6 +1,6 @@
 import React from "react";
-import union from "./assets/union.png";
-import irrlogo from "./assets/irrlogo.png";
+import union from "./assets/union.svg";
+import irrlogo from "./assets/irrlogo.svg";
 
 const Header = () => {
   return (
