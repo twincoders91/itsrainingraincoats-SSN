@@ -9,7 +9,7 @@ const NavBar = () => {
     <div className="navbar-container">
       <div className="navbar-individual-boxes">
         <div className="navbar-icon-box">
-          <Link to="/donate">
+          <Link to="/home">
             <img src={home} className="navbar-icon" alt="navbaricons" />
           </Link>
         </div>

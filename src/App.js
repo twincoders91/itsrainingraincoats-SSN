@@ -10,10 +10,19 @@ import CreateAccount from "./pages/CreateAccount";
 function App() {
   const [openModalDonateInstructions, setopenModalDonateInstructions] =
     useState(false);
+
   return (
     <div className="main-app-container">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/home"
+          element={
+            <Home
+              openModalDonateInstructions={openModalDonateInstructions}
+              setopenModalDonateInstructions={setopenModalDonateInstructions}
+            />
+          }
+        />
         <Route
           path="/donate"
           element={

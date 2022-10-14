@@ -1,16 +1,16 @@
 import React from "react";
-import closebutton from "../assets/closebutton.png";
-import step1 from "../assets/step1.png";
-import step2 from "../assets/step2.png";
-import step3 from "../assets/step3.png";
-import step4 from "../assets/step4.png";
-import step5 from "../assets/step5.png";
-import step6 from "../assets/step6.png";
+import closebutton from "../../assets/closebutton.png";
+import step1 from "../../assets/step1.png";
+import step2 from "../../assets/step2.png";
+import step3 from "../../assets/step3.png";
+import step4 from "../../assets/step4.png";
+import step5 from "../../assets/step5.png";
+import step6 from "../../assets/step6.png";
 
 const ModalHowToApplyForItems = (props) => {
-  const { setOpenModalApplyItems, openModalApplyItems } = props;
+  const { donateSteps, setDonateSteps } = props;
 
-  if (!openModalApplyItems) return null;
+  if (!donateSteps) return null;
   return (
     <div className="overlay">
       <div className="modal-howtoapplyforitems-container">
@@ -20,7 +20,7 @@ const ModalHowToApplyForItems = (props) => {
             className="close-button"
             alt="closebutton"
             onClick={() => {
-              setOpenModalApplyItems(false);
+              setDonateSteps(false);
             }}
           />
         </div>
