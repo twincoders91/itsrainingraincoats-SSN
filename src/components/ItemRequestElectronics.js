@@ -1,14 +1,23 @@
-import React from "react";
+//////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                      //
+//                                                                                      //
+//                  To refactor to use a model to display the items                     //
+//                                                                                      //
+//                                                                                      //
+//////////////////////////////////////////////////////////////////////////////////////////
+
+import React, { useEffect, useRef, useState } from "react";
 
 import plug from "../assets/plug.svg";
-import personalcare from "../assets/personalcare.svg";
-import clothes from "../assets/clothes.svg";
+import datacard from "../assets/datacard.svg";
+import powerbank from "../assets/powerbank.svg";
 import mobilephone from "../assets/mobilephone.svg";
-import microwave from "../assets/microwave.svg";
-import bicycle from "../assets/bicycle.svg";
-import uploadpicture from "../assets/uploadpicture.svg";
+import earbuds from "../assets/earbuds.svg";
+import laptop from "../assets/laptop.svg";
+import add from "../assets/add.svg";
 
-export default function ItemRequest1() {
+export default function ItemRequest1(props) {
+  const buttonRef = useRef();
   return (
     <div className="col">
       <span className="request-subsubtitleText request-header mb-2">
@@ -17,73 +26,65 @@ export default function ItemRequest1() {
       <span className="request-titleText request-header mb-4">
         What item(s) would you like to request?
       </span>
-      <div className="grid gc-3 mb-4">
+      <div className="grid gc-4 mb-8">
         <div className="col">
-          <button className="request-icon-button mb-1">
+          <button className="flex request-icon-button mb-1">
             <img src={plug} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
-            Food & Drinks
+            Extension Cord
           </span>
         </div>
         <div className="col">
-          <button className="request-icon-button mb-1">
-            <img src={personalcare} alt="" />
+          <button className="flex request-icon-button mb-1">
+            <img src={datacard} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
-            Personal Care
+            Data Card
           </span>
         </div>
         <div className="col">
-          <button className="request-icon-button mb-1">
-            <img src={clothes} alt="" />
+          <button className="flex request-icon-button mb-1">
+            <img src={powerbank} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
-            Clothing
+            Portable Power Bank
           </span>
         </div>
         <div className="col">
-          <button className="request-icon-button mb-1">
+          <button className="flex request-icon-button mb-1">
             <img src={mobilephone} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
-            Electronics
+            Smartphone
           </span>
         </div>
         <div className="col">
-          <button className="request-icon-button mb-1">
-            <img src={microwave} alt="" />
+          <button className="flex request-icon-button mb-1">
+            <img src={earbuds} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
-            Appliances
+            Earphones
           </span>
         </div>
         <div className="col">
-          <button className="request-icon-button mb-1">
-            <img src={bicycle} alt="" />
+          <button className="flex request-icon-button mb-1">
+            <img src={laptop} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
-            Sports & Games
+            Laptop
           </span>
         </div>
       </div>
-      <span className="request-titleText request-header mb-2">
-        Item not found?
-      </span>
-      <input
-        className="mb-2"
-        type="text"
-        placeholder="Enter name of the item"
-      />
-      <span className="request-subtitleText mb-2">or</span>
-      <input className="hidden" id="request-picture-upload" type="file"></input>
-      <label
-        className="request-upload row mb-4"
-        htmlFor="request-picture-upload"
+
+      <button
+        className="row request-add-button mt-2 mb-4"
+        onClick={""}
+        ref={buttonRef}
       >
-        <img src={uploadpicture} alt="" />
-        <span className="request-titleText fw-600 ml-1">Add Photo</span>
-      </label>
+        <img src={add} alt="" />
+        <span className="ml-1">Add to Request</span>
+      </button>
       <div className="row">
         <svg width="10px" height="10px" className="mr-2">
           <circle cx="5" cy="5" r="5" fill="rgb(var(--blue))" />

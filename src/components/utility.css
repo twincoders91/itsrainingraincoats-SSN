@@ -10,6 +10,12 @@
   justify-content: center;
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .grid {
   display: grid;
   gap: 16px;

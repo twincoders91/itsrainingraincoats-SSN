@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                      //
+//                                                                                      //
+//                  To refactor to use a model to display the items                     //
+//                                                                                      //
+//                                                                                      //
+//////////////////////////////////////////////////////////////////////////////////////////
+
 import React from "react";
 
 import meals from "../assets/meals.svg";
@@ -19,7 +27,7 @@ export default function ItemRequest1() {
       </span>
       <div className="grid gc-3 mb-4">
         <div className="col">
-          <button className="request-icon-button mb-1">
+          <button className="flex request-icon-button mb-1">
             <img src={meals} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
@@ -27,7 +35,7 @@ export default function ItemRequest1() {
           </span>
         </div>
         <div className="col">
-          <button className="request-icon-button mb-1">
+          <button className="flex request-icon-button mb-1">
             <img src={personalcare} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
@@ -35,7 +43,7 @@ export default function ItemRequest1() {
           </span>
         </div>
         <div className="col">
-          <button className="request-icon-button mb-1">
+          <button className="flex request-icon-button mb-1">
             <img src={clothes} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
@@ -43,7 +51,7 @@ export default function ItemRequest1() {
           </span>
         </div>
         <div className="col">
-          <button className="request-icon-button mb-1">
+          <button className="flex request-icon-button mb-1">
             <img src={mobilephone} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
@@ -51,7 +59,7 @@ export default function ItemRequest1() {
           </span>
         </div>
         <div className="col">
-          <button className="request-icon-button mb-1">
+          <button className="flex request-icon-button mb-1">
             <img src={microwave} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
@@ -59,7 +67,7 @@ export default function ItemRequest1() {
           </span>
         </div>
         <div className="col">
-          <button className="request-icon-button mb-1">
+          <button className="flex request-icon-button mb-1">
             <img src={bicycle} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">

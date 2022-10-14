@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import ItemRequestAdd from "../components/ItemRequestAdd";
 
 import Header from "../Header";
+import ItemRequestAdd from "../components/ItemRequestAdd";
+import ItemRequestElectronics from "../components/ItemRequestElectronics";
 
 export default function ItemRequest() {
   const [currentPage, setCurrentPage] = useState("addItem");
@@ -12,7 +13,8 @@ export default function ItemRequest() {
         <Header />
       </div>
       <div className="request-body-container">
-        <ItemRequestAdd />
+        {/* <ItemRequestAdd /> */}
+        <ItemRequestElectronics />
       </div>
     </>
   );

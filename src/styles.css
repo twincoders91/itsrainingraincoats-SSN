@@ -737,6 +737,8 @@ select {
 
 .request-icon-text {
   height: 36px;
+  text-align: center;
+  font-weight: 300 !important;
 }
 
 .request-upload {
@@ -747,6 +749,14 @@ select {
   border-radius: 4px;
   cursor: pointer;
 }
+
+.request-add-button {
+  padding: 8px 16px;
+
+  background-color: rgb(var(--darkGrey));
+  color: rgb(var(--white));
+}
+
 /* ============================ Tablet Styles ============================ */
 /* @media screen and (min-width: 700px) {
   body {

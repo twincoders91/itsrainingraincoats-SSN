@@ -1,0 +1,55 @@
+const prelovedItems = {
+  luggage: [
+    {
+      name: "backpack",
+      icon: "xxx",
+      stock: 5,
+      waitingtime: "available",
+    },
+    { name: "duffel bag", icon: "xxx", stock: 0, waitingtime: "available" },
+    { name: "luggage", icon: "xxx", stock: 0, waitingtime: "available" },
+  ],
+  appliances: [
+    "blender",
+    "microwave",
+    "iron",
+    "ironing board",
+    "fridge",
+    "water heater",
+    "toaster",
+    "kettle",
+    "fan",
+    "washing machine",
+    "rice cooker",
+  ],
+  meals: ["rice/noodles", "hot meals"],
+  personalcare: [
+    "soap",
+    "toothbrush",
+    "spectacles",
+    "shaver",
+    "towel",
+    "water bottle",
+    "blanket",
+  ],
+  clothing: [
+    "shirt",
+    "suit",
+    "pants",
+    "cap",
+    "safety boots",
+    "shoes",
+    "sunglasses",
+    "raincoat",
+  ],
+  electronics: [
+    "earphones",
+    "smartphone",
+    "powertable power bank",
+    "laptop",
+    "data card",
+    "extension cord",
+  ],
+};
+
+module.exports = prelovedItems;
