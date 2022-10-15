@@ -11,7 +11,15 @@ import datacard from "../assets/datacard.svg";
 import fill from "../assets/fill.svg";
 import { ReactComponent as Add } from "../assets/add.svg";
 
-export default function ItemRequestCart() {
+export default function ItemRequestCart(props) {
+  const handleAddAnotherButtonClick = () => {
+    props.setCurrentPage("addItem");
+  };
+
+  const handleProceedToDeliveryButtonClick = () => {
+    props.setCurrentPage("delivery");
+  };
+
   return (
     <div className="col">
       <span className="request-subsubtitleText request-header mb-2">
@@ -28,7 +36,7 @@ export default function ItemRequestCart() {
           <div className="row request-item-card-details justify-sb mb-1">
             <img src={datacard} alt="" height="32px" />
             <span
-              className="request-subtitleText fw-600 ml-2"
+              className="request-subtitleText request-header fw-600 ml-2"
               style={{ flex: 1 }}
             >
               Data Card
@@ -47,14 +55,17 @@ export default function ItemRequestCart() {
           </div>
         </div>
       </div>
-      <button className="row request-addAnother-button" onClick={() => {}}>
+      <button
+        className="row request-addAnother-button"
+        onClick={handleAddAnotherButtonClick}
+      >
         <Add />
         <span className="ml-1">Add Another</span>
       </button>
       <div className="spacer" style={{ height: "192px" }}></div>
       <button
         className="row request-button button-active px-2 py-1"
-        onClick={() => {}}
+        onClick={handleProceedToDeliveryButtonClick}
       >
         Proceed to Delivery
       </button>

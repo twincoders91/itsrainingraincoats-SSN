@@ -9,7 +9,10 @@
 import React from "react";
 import datacard from "../assets/datacard.svg";
 
-export default function ItemRequestDelivery() {
+export default function ItemRequestDelivery(props) {
+  const handleNextButtonClick = () => {
+    props.setCurrentPage("confirm");
+  };
   return (
     <div className="col">
       <span className="request-subsubtitleText request-header mb-2">
@@ -47,7 +50,10 @@ export default function ItemRequestDelivery() {
         </button>
       </div>
       <div className="spacer" style={{ height: "116px" }}></div>
-      <button className="row request-button px-2 py-1" onClick={() => {}}>
+      <button
+        className="row request-button px-2 py-1"
+        onClick={handleNextButtonClick}
+      >
         Next
       </button>
       <div className="row mt-4">

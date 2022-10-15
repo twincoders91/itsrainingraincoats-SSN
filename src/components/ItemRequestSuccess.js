@@ -1,7 +1,11 @@
 import React from "react";
 import { ReactComponent as ThumbsUp } from "../assets/thumbsup.svg";
 
-export default function ItemRequestSuccess() {
+export default function ItemRequestSuccess(props) {
+  const handleApplyAgainClick = () => {
+    props.setCurrentPage("addItem");
+  };
+
   return (
     <div className="col">
       <ThumbsUp className="mt-6 mb-4" />
@@ -17,8 +21,9 @@ export default function ItemRequestSuccess() {
       </button>
       <div className="spacer" style={{ height: "192px" }}></div>
       <p
-        className="request-subtitleText fw-600"
+        className="request-subtitleText request-applyAgain fw-600"
         style={{ color: "rgb(var(--blue))" }}
+        onClick={handleApplyAgainClick}
       >
         Apply for another item
       </p>
