@@ -1,13 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import donateCategoryData from "../datasets/donateCat4";
-import meals from "../assets/meals.svg";
-import carepack from "../assets/carepack.svg";
-import donateitem from "../assets/donateitem.svg";
-import fundraising from "../assets/fundraising.svg";
 
-const DonateCat4 = () => {
+const DonateCat4 = (props) => {
+  const { handleDonateCategoryPopulate } = props;
+
   console.log(donateCategoryData);
-  console.log(donateCategoryData[0].title);
   return (
     <>
       <div className="donate-category-box ml-2 mr-2">
@@ -20,6 +17,9 @@ const DonateCat4 = () => {
                     src={require("../assets/" + item.image + ".svg")}
                     alt="iconimage"
                     className="donate-choice-icon-image"
+                    onClick={() => {
+                      handleDonateCategoryPopulate(item);
+                    }}
                   />
                 </div>
                 <div className="inNeed-item-title-font mt-1">
@@ -30,8 +30,8 @@ const DonateCat4 = () => {
           );
         })}
       </div>
-      <div>
-        {/* <div className="donate-category-box">
+
+      {/* <div className="donate-category-box">
           <div className="donate-individual-categories-box mr-2">
             <div className="donate-categoryicons-box bs mb-1 mt-2">
               <img src={meals} alt="categoryicons" />
@@ -57,7 +57,6 @@ const DonateCat4 = () => {
             <span className="donate-category-font">Financial Support</span>
           </div>
         </div> */}
-      </div>
     </>
   );
 };

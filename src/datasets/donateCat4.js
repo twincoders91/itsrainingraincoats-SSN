@@ -1,6 +1,6 @@
 const donateCategoryData = [
   {
-    title: "Meals",
+    title: "Meal",
     image: "meals",
   },
   {

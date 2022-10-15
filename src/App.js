@@ -7,10 +7,17 @@ import LanguageSelect from "./pages/LanguageSelect";
 import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
 import ItemRequest from "./pages/ItemRequest";
+import DonateLocation from "./pages/DonateLocation";
 
 function App() {
   const [openModalDonateInstructions, setopenModalDonateInstructions] =
     useState(false);
+  const [donateCategoryPopulate, setDonateCategoryPopulate] = useState([]);
+  console.log(donateCategoryPopulate);
+  // const handleDonateCategoryPopulate = (item) => {
+  //   setDonateCategoryPopulate(item);
+  //   setOpenModalHowToDonate(true);
+  // };
 
   return (
     <div className="main-app-container">
@@ -31,7 +38,15 @@ function App() {
             <Donate
               openModalDonateInstructions={openModalDonateInstructions}
               setopenModalDonateInstructions={setopenModalDonateInstructions}
+              donateCategoryPopulate={donateCategoryPopulate}
+              setDonateCategoryPopulate={setDonateCategoryPopulate}
             />
+          }
+        />
+        <Route
+          path="/donate-location"
+          element={
+            <DonateLocation donateCategoryPopulate={donateCategoryPopulate} />
           }
         />
         <Route path="/language-select" element={<LanguageSelect />} />
