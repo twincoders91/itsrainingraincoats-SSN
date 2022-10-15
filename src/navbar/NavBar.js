@@ -1,6 +1,6 @@
 import React from "react";
-import home from "../assets/homeunfilled.png";
-import applicationunfilled from "../assets/applicationunfilled.png";
+import home from "../assets/homeunfilled2.svg";
+import applicationunfilled from "../assets/applicationunfilled.svg";
 import moredots from "../assets/moredots.png";
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ const NavBar = () => {
       <div className="navbar-individual-boxes">
         <div className="navbar-icon-box">
           <Link to="/home">
-            <img src={home} className="navbar-icon" alt="navbaricons" />
+            <img src={home} className="navbar-icon-home" alt="navbaricons" />
           </Link>
         </div>
         <p className="navbar-fonts">Home</p>
