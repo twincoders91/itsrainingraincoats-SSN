@@ -61,7 +61,7 @@ const Instruction2 = (props) => {
                 </span>
               </div>
             </div>
-            <div className="instructionsButton-container">
+            <div className="instructionsButton-container-original">
               <img
                 src={backarrow}
                 alt="backarrow"
