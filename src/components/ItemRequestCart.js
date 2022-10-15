@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                      //
 //                                                                                      //
-//                  To refactor to use an array to display the items                     //
+//                  To refactor to use an array to display the items                    //
 //                                                                                      //
 //                                                                                      //
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -33,12 +33,14 @@ export default function ItemRequestCart() {
             >
               Data Card
             </span>
-            <button className="row request-item-edit-button">
+            <button className="row request-item-card-edit-button">
               <img src={fill} alt="" />
             </button>
           </div>
           <div className="row justify-sb">
-            <span className="request-subsubtitleText fw-600 ml-2">Delete</span>
+            <span className="request-subsubtitleText request-item-card-delete fw-600 ml-2">
+              Delete
+            </span>
             <span className="request-subsubtitleText mr-2">
               Delivery in 7 days
             </span>

@@ -18,8 +18,8 @@ export default function ItemRequest() {
       <div className="request-body-container">
         {/* <ItemRequestAdd items={items} /> */}
         {/* <ItemRequestItem /> */}
-        {/* <ItemRequestCart /> */}
-        <ItemRequestDelivery />
+        <ItemRequestCart />
+        {/* <ItemRequestDelivery /> */}
       </div>
     </>
   );

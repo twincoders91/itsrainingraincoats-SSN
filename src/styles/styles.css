@@ -824,10 +824,14 @@ select {
   border-radius: 4px;
 }
 
-.request-item-edit-button {
+.request-item-card-edit-button {
   background-color: transparent;
   width: fit-content;
   height: fit-content;
+}
+
+.request-item-card-delete {
+  color: rgb(var(--blue));
 }
 
 .request-addAnother-button {
