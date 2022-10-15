@@ -11,6 +11,7 @@ import ItemRequestSuccess from "../components/ItemRequestSuccess";
 
 export default function ItemRequest() {
   const [currentPage, setCurrentPage] = useState("addItem");
+  const [categoryItems, setCategoryItems] = useState([]);
 
   return (
     <>
@@ -18,12 +19,31 @@ export default function ItemRequest() {
         <Header />
       </div>
       <div className="request-body-container">
-        {/* <ItemRequestAdd items={items} /> */}
-        {/* <ItemRequestItem /> */}
-        {/* <ItemRequestCart /> */}
-        {/* <ItemRequestDelivery /> */}
-        {/* <ItemRequestConfirmation /> */}
-        <ItemRequestSuccess />
+        {currentPage === "addItem" && (
+          <ItemRequestAdd
+            items={items}
+            setCurrentPage={setCurrentPage}
+            setCategoryItems={setCategoryItems}
+          />
+        )}
+        {currentPage === "electronics" && (
+          <ItemRequestItem
+            items={categoryItems}
+            setCurrentPage={setCurrentPage}
+          />
+        )}
+        {currentPage === "cart" && (
+          <ItemRequestCart setCurrentPage={setCurrentPage} />
+        )}
+        {currentPage === "delivery" && (
+          <ItemRequestDelivery setCurrentPage={setCurrentPage} />
+        )}
+        {currentPage === "confirm" && (
+          <ItemRequestConfirmation setCurrentPage={setCurrentPage} />
+        )}
+        {currentPage === "success" && (
+          <ItemRequestSuccess setCurrentPage={setCurrentPage} />
+        )}
       </div>
     </>
   );

@@ -2,7 +2,10 @@ import React from "react";
 import datacard from "../assets/datacard.svg";
 import { ReactComponent as Pencil } from "../assets/pencil.svg";
 
-export default function ItemRequestConfirmation() {
+export default function ItemRequestConfirmation(props) {
+  const handleSubmitButtonClick = () => {
+    props.setCurrentPage("success");
+  };
   return (
     <div className="col">
       <span className="request-subsubtitleText request-header mb-2">
@@ -30,14 +33,14 @@ export default function ItemRequestConfirmation() {
       </span>
 
       <div className="request-delivery-details px-2 py-2">
-        <p>
+        <p className="request-header">
           <span className="request-subsubtitleText fw-600">{`\<Salutation\>`}</span>
           <span className="request-subsubtitleText fw-600">{`\<Name\> | `}</span>
           <span className="request-subsubtitleText fw-600">{`\<Contact Number\>`}</span>
         </p>
-        <p className="request-subsubtitleText">{`\<Address\>`}</p>
-        <p className="request-subsubtitleText">{`\<Postcode\>`}</p>
-        <p className="request-subsubtitleText">{`\<Dormitory name\>`}</p>
+        <p className="request-subsubtitleText request-header">{`\<Address\>`}</p>
+        <p className="request-subsubtitleText request-header">{`\<Postcode\>`}</p>
+        <p className="request-subsubtitleText request-header">{`\<Dormitory name\>`}</p>
         <div className="request-delivery-icon mr-1 mb-1">
           <Pencil />
         </div>
@@ -46,7 +49,7 @@ export default function ItemRequestConfirmation() {
       <div className="spacer" style={{ height: "116px" }}></div>
       <button
         className="row request-button button-active px-2 py-1"
-        onClick={() => {}}
+        onClick={handleSubmitButtonClick}
       >
         Submit
       </button>

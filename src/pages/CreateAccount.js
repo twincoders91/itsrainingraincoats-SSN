@@ -16,21 +16,21 @@ export default function CreateAccount() {
         <Header />
       </div>
       <div className="main-body-container">
-        {currentPage === "selection" ? (
+        {currentPage === "selection" && (
           <CreateAccountSelection setCurrentPage={setCurrentPage} />
-        ) : null}
-        {currentPage === "worker1" ? (
+        )}
+        {currentPage === "worker1" && (
           <CreateAccountWorker1 setCurrentPage={setCurrentPage} />
-        ) : null}
-        {currentPage === "worker2" ? (
+        )}
+        {currentPage === "worker2" && (
           <CreateAccountWorker2 setCurrentPage={setCurrentPage} />
-        ) : null}
-        {currentPage === "worker3" ? (
+        )}
+        {currentPage === "worker3" && (
           <CreateAccountWorker3 setCurrentPage={setCurrentPage} />
-        ) : null}
-        {currentPage === "worker4" ? (
+        )}
+        {currentPage === "worker4" && (
           <CreateAccountWorker4 setCurrentPage={setCurrentPage} />
-        ) : null}
+        )}
       </div>
     </>
   );

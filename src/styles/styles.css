@@ -869,6 +869,10 @@ select {
   color: rgb(var(--blue));
 }
 
+.request-applyAgain {
+  cursor: pointer;
+}
+
 /* ============================ Tablet Styles ============================ */
 /* @media screen and (min-width: 700px) {
   body {

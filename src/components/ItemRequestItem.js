@@ -15,9 +15,25 @@ import mobilephone from "../assets/mobilephone.svg";
 import earbuds from "../assets/earbuds.svg";
 import laptop from "../assets/laptop.svg";
 import { ReactComponent as Add } from "../assets/add.svg";
+import ItemRequestItemButton from "./ItemRequestItemButton";
 
 export default function ItemRequestItem(props) {
   const buttonRef = useRef();
+
+  const items = props.items.sort((a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
+
+  const handleButtonClick = () => {
+    props.setCurrentPage("cart");
+  };
+
   return (
     <div className="col">
       <span className="request-subsubtitleText request-header mb-2">
@@ -27,59 +43,14 @@ export default function ItemRequestItem(props) {
         What item(s) would you like to request?
       </span>
       <div className="grid gc-4 mb-8">
-        <div className="col">
-          <button className="row request-icon-button mb-1">
-            <img src={plug} alt="" />
-          </button>
-          <span className="request-subsubtitleText request-icon-text fw-600">
-            Extension Cord
-          </span>
-        </div>
-        <div className="col">
-          <button className="row request-icon-button mb-1">
-            <img src={datacard} alt="" />
-          </button>
-          <span className="request-subsubtitleText request-icon-text fw-600">
-            Data Card
-          </span>
-        </div>
-        <div className="col">
-          <button className="row request-icon-button mb-1">
-            <img src={powerbank} alt="" />
-          </button>
-          <span className="request-subsubtitleText request-icon-text fw-600">
-            Portable Power Bank
-          </span>
-        </div>
-        <div className="col">
-          <button className="row request-icon-button mb-1">
-            <img src={mobilephone} alt="" />
-          </button>
-          <span className="request-subsubtitleText request-icon-text fw-600">
-            Smartphone
-          </span>
-        </div>
-        <div className="col">
-          <button className="row request-icon-button mb-1">
-            <img src={earbuds} alt="" />
-          </button>
-          <span className="request-subsubtitleText request-icon-text fw-600">
-            Earphones
-          </span>
-        </div>
-        <div className="col">
-          <button className="row request-icon-button mb-1">
-            <img src={laptop} alt="" />
-          </button>
-          <span className="request-subsubtitleText request-icon-text fw-600">
-            Laptop
-          </span>
-        </div>
+        {items.map((element) => {
+          return <ItemRequestItemButton key={Math.random()} {...element} />;
+        })}
       </div>
 
       <button
         className="row request-button mt-2 mb-4 px-2 py-1"
-        onClick={() => {}}
+        onClick={handleButtonClick}
         ref={buttonRef}
       >
         <Add />

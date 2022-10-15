@@ -1,7 +1,7 @@
 import React from "react";
 
 import uploadpicture from "../assets/uploadpicture.svg";
-import ItemRequestCategory from "./ItemRequestCategory";
+import ItemRequestCategoryButton from "./ItemRequestCategoryButton";
 
 export default function ItemRequestAdd(props) {
   const categories = Object.keys(props.items).sort((a, b) => {
@@ -25,10 +25,12 @@ export default function ItemRequestAdd(props) {
       <div className="grid gc-3 mb-4">
         {categories.map((element) => {
           return (
-            <ItemRequestCategory
+            <ItemRequestCategoryButton
               key={Math.random()}
               {...props.items[element]}
               category={element}
+              setCurrentPage={props.setCurrentPage}
+              setCategoryItems={props.setCategoryItems}
             />
           );
         })}
