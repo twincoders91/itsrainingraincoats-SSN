@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import NavBarDonateItems from "../navbar/NavBarDonateItems";
-import downarrow from "../assets/downarrow.svg";
+import MapWest from "../components/MapWest";
+import DropMenuArea from "../components/DropMenuArea";
 
 const DonateLocation = (props) => {
   const { donateCategoryPopulate } = props;
@@ -31,46 +32,19 @@ const DonateLocation = (props) => {
             Please select an area
           </span>
         </div>
-        <div
-          className="donate-location-menu mt-2"
-          onClick={handleDropMenuClick}
-        >
-          <span className="donate-location-font3 ml-2"> {areaSelection} </span>
-          <img src={downarrow} alt="downarrow" className="dropdownarrow" />
+        <DropMenuArea
+          areaSelection={areaSelection}
+          handleAreaSelection={handleAreaSelection}
+          handleDropMenuClick={handleDropMenuClick}
+          dropMenuClick={dropMenuClick}
+        />
+
+        <div className="map-body-container">
+          {areaSelection === "WEST areas" ? <MapWest /> : null}
+          {/* {areaSelection === "NORTH areas" ? null : null}
+          {areaSelection === "CENTRAL areas" ? null : null}
+          {areaSelection === "EAST areas" ? null : null} */}
         </div>
-        {dropMenuClick ? (
-          <div className="donate-location-dropmenu bs">
-            <span
-              className="donate-location-font4 ml-2 mt-2"
-              onClick={() => handleAreaSelection("WEST areas")}
-            >
-              {" "}
-              WEST areas{" "}
-            </span>
-            <span
-              className="donate-location-font4 ml-2 mt-2"
-              onClick={() => handleAreaSelection("NORTH areas")}
-            >
-              {" "}
-              NORTH areas{" "}
-            </span>
-            <span
-              className="donate-location-font4 ml-2 mt-2 "
-              onClick={() => handleAreaSelection("CENTRAL areas")}
-            >
-              CENTRAL areas
-            </span>
-            <span
-              className="donate-location-font4 ml-2 mt-2 mb-2"
-              onClick={() => handleAreaSelection("EAST areas")}
-            >
-              {" "}
-              EAST areas{" "}
-            </span>
-          </div>
-        ) : (
-          <></>
-        )}
       </div>
     </div>
   );
