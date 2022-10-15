@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
@@ -12,7 +13,8 @@ export default function Button(props) {
       buttonRef.current.classList.remove("button-active");
     }
   }, [props.activeButton]);
-  const handleButtonClick = (event) => {
+
+  const handleButtonClick = () => {
     props.setActiveButton(props.id);
   };
 

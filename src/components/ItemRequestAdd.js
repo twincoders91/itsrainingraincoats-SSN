@@ -30,7 +30,7 @@ export default function ItemRequestAdd(props) {
               {...props.items[element]}
               category={element}
               setCurrentPage={props.setCurrentPage}
-              setCategoryItems={props.setCategoryItems}
+              setCategory={props.setCategory}
             />
           );
         })}

@@ -1,23 +1,10 @@
-//////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                      //
-//                                                                                      //
-//                  To refactor to use a model to display the items                     //
-//                                                                                      //
-//                                                                                      //
-//////////////////////////////////////////////////////////////////////////////////////////
-
 import React, { useEffect, useRef, useState } from "react";
 
-import plug from "../assets/plug.svg";
-import datacard from "../assets/datacard.svg";
-import powerbank from "../assets/powerbank.svg";
-import mobilephone from "../assets/mobilephone.svg";
-import earbuds from "../assets/earbuds.svg";
-import laptop from "../assets/laptop.svg";
 import { ReactComponent as Add } from "../assets/add.svg";
 import ItemRequestItemButton from "./ItemRequestItemButton";
 
-export default function ItemRequestItem(props) {
+export default function ItemRequestCategory(props) {
+  const [selectedItem, setSelectedItem] = useState("");
   const buttonRef = useRef();
 
   const items = props.items.sort((a, b) => {
@@ -31,8 +18,21 @@ export default function ItemRequestItem(props) {
   });
 
   const handleButtonClick = () => {
+    if (buttonRef.current.getAttribute("disabled") !== null) {
+      return;
+    }
     props.setCurrentPage("cart");
   };
+
+  useEffect(() => {
+    if (selectedItem) {
+      buttonRef.current.removeAttribute("disabled", "");
+      buttonRef.current.classList.add("button-active");
+    } else {
+      buttonRef.current.setAttribute("disabled", "");
+      buttonRef.current.classList.remove("button-active");
+    }
+  }, [selectedItem]);
 
   return (
     <div className="col">
@@ -44,7 +44,14 @@ export default function ItemRequestItem(props) {
       </span>
       <div className="grid gc-4 mb-8">
         {items.map((element) => {
-          return <ItemRequestItemButton key={Math.random()} {...element} />;
+          return (
+            <ItemRequestItemButton
+              key={Math.random()}
+              {...element}
+              selectedItem={selectedItem}
+              setSelectedItem={setSelectedItem}
+            />
+          );
         })}
       </div>
 
