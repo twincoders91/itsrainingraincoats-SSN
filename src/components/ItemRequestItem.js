@@ -14,9 +14,9 @@ import powerbank from "../assets/powerbank.svg";
 import mobilephone from "../assets/mobilephone.svg";
 import earbuds from "../assets/earbuds.svg";
 import laptop from "../assets/laptop.svg";
-import add from "../assets/add.svg";
+import { ReactComponent as Add } from "../assets/add.svg";
 
-export default function ItemRequest1(props) {
+export default function ItemRequestItem(props) {
   const buttonRef = useRef();
   return (
     <div className="col">
@@ -28,7 +28,7 @@ export default function ItemRequest1(props) {
       </span>
       <div className="grid gc-4 mb-8">
         <div className="col">
-          <button className="flex request-icon-button mb-1">
+          <button className="row request-icon-button mb-1">
             <img src={plug} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
@@ -36,7 +36,7 @@ export default function ItemRequest1(props) {
           </span>
         </div>
         <div className="col">
-          <button className="flex request-icon-button mb-1">
+          <button className="row request-icon-button mb-1">
             <img src={datacard} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
@@ -44,7 +44,7 @@ export default function ItemRequest1(props) {
           </span>
         </div>
         <div className="col">
-          <button className="flex request-icon-button mb-1">
+          <button className="row request-icon-button mb-1">
             <img src={powerbank} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
@@ -52,7 +52,7 @@ export default function ItemRequest1(props) {
           </span>
         </div>
         <div className="col">
-          <button className="flex request-icon-button mb-1">
+          <button className="row request-icon-button mb-1">
             <img src={mobilephone} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
@@ -60,7 +60,7 @@ export default function ItemRequest1(props) {
           </span>
         </div>
         <div className="col">
-          <button className="flex request-icon-button mb-1">
+          <button className="row request-icon-button mb-1">
             <img src={earbuds} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
@@ -68,7 +68,7 @@ export default function ItemRequest1(props) {
           </span>
         </div>
         <div className="col">
-          <button className="flex request-icon-button mb-1">
+          <button className="row request-icon-button mb-1">
             <img src={laptop} alt="" />
           </button>
           <span className="request-subsubtitleText request-icon-text fw-600">
@@ -78,11 +78,11 @@ export default function ItemRequest1(props) {
       </div>
 
       <button
-        className="row request-add-button mt-2 mb-4"
-        onClick={""}
+        className="row request-button mt-2 mb-4 px-2 py-1"
+        onClick={() => {}}
         ref={buttonRef}
       >
-        <img src={add} alt="" />
+        <Add />
         <span className="ml-1">Add to Request</span>
       </button>
       <div className="row">

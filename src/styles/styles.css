@@ -31,6 +31,11 @@
   background-color: rgb(var(--white));
 }
 
+body {
+  fill: currentColor;
+  color: rgb(var(--black));
+}
+
 a {
   text-decoration: none;
 }
@@ -607,11 +612,8 @@ select {
 }
 
 /* =============================== Login =============================== */
-.login-input {
-}
-
 .login-username {
-  background-image: url(./assets/email.svg);
+  background-image: url(../assets/email.svg);
   background-position: 14px 16px;
   background-size: 24px;
   background-repeat: no-repeat;
@@ -619,7 +621,7 @@ select {
 }
 
 .login-password {
-  background-image: url(./assets/key.svg);
+  background-image: url(../assets/key.svg);
   background-position: 14px 16px;
   background-size: 24px;
   background-repeat: no-repeat;
@@ -691,7 +693,7 @@ select {
 }
 
 .createAccount-username {
-  background-image: url(./assets/email.svg);
+  background-image: url(../assets/email.svg);
   background-position: 14px 16px;
   background-size: 24px;
   background-repeat: no-repeat;
@@ -701,7 +703,7 @@ select {
 
 .createAccount-password,
 .createAccount-confirmPassword {
-  background-image: url(./assets/key.svg);
+  background-image: url(../assets/key.svg);
   background-position: 14px 16px;
   background-size: 24px;
   background-repeat: no-repeat;
@@ -806,11 +808,65 @@ select {
   cursor: pointer;
 }
 
-.request-add-button {
-  padding: 8px 16px;
-
+.request-button {
   background-color: rgb(var(--darkGrey));
   color: rgb(var(--white));
+}
+
+.request-item-card-container {
+  width: 100%;
+}
+
+.request-item-card-details {
+  padding: 8px 16px;
+  width: 100%;
+  background-color: rgb(var(--irrYellow));
+  border-radius: 4px;
+}
+
+.request-item-card-edit-button {
+  background-color: transparent;
+  width: fit-content;
+  height: fit-content;
+}
+
+.request-item-card-delete {
+  color: rgb(var(--blue));
+}
+
+.request-addAnother-button {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid rgb(var(--black));
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: rgb(var(--white));
+  color: rgb(var(--black));
+}
+
+.request-delivery-button {
+  padding: 8px 0;
+  border: 1px solid rgb(var(--black));
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: rgb(var(--white));
+  color: rgb(var(--black));
+}
+
+.request-delivery-details {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(var(--black) / 0.2);
+  position: relative;
+}
+
+.request-delivery-icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 32px;
+  height: 32px;
+  color: rgb(var(--blue));
 }
 
 /* ============================ Tablet Styles ============================ */
