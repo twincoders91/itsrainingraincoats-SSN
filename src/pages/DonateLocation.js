@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import NavBarDonateItems from "../navbar/NavBarDonateItems";
-import downarrow from "../assets/downarrow.svg";
 import MapWest from "../components/MapWest";
 import DropMenuArea from "../components/DropMenuArea";
 
@@ -42,9 +41,9 @@ const DonateLocation = (props) => {
 
         <div className="map-body-container">
           {areaSelection === "WEST areas" ? <MapWest /> : null}
-          {areaSelection === "NORTH areas" ? null : null}
+          {/* {areaSelection === "NORTH areas" ? null : null}
           {areaSelection === "CENTRAL areas" ? null : null}
-          {areaSelection === "EAST areas" ? null : null}
+          {areaSelection === "EAST areas" ? null : null} */}
         </div>
       </div>
     </div>
