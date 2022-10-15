@@ -1,8 +1,8 @@
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
-import "./styles.css";
-import "./components/utility.css";
+import "./styles/styles.css";
+import "./styles/utility.css";
 import App from "./App";
 
 ReactDOM.render(

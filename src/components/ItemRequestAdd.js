@@ -1,22 +1,19 @@
-//////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                      //
-//                                                                                      //
-//                  To refactor to use a model to display the items                     //
-//                                                                                      //
-//                                                                                      //
-//////////////////////////////////////////////////////////////////////////////////////////
-
 import React from "react";
 
-import meals from "../assets/meals.svg";
-import personalcare from "../assets/personalcare.svg";
-import clothes from "../assets/clothes.svg";
-import mobilephone from "../assets/mobilephone.svg";
-import microwave from "../assets/microwave.svg";
-import bicycle from "../assets/bicycle.svg";
 import uploadpicture from "../assets/uploadpicture.svg";
+import ItemRequestCategory from "./ItemRequestCategory";
 
-export default function ItemRequest1() {
+export default function ItemRequestAdd(props) {
+  const categories = Object.keys(props.items).sort((a, b) => {
+    if (a < b) {
+      return -1;
+    }
+    if (a > b) {
+      return 1;
+    }
+    return 0;
+  });
+
   return (
     <div className="col">
       <span className="request-subsubtitleText request-header mb-2">
@@ -26,54 +23,15 @@ export default function ItemRequest1() {
         What item(s) would you like to request?
       </span>
       <div className="grid gc-3 mb-4">
-        <div className="col">
-          <button className="flex request-icon-button mb-1">
-            <img src={meals} alt="" />
-          </button>
-          <span className="request-subsubtitleText request-icon-text fw-600">
-            Food & Drinks
-          </span>
-        </div>
-        <div className="col">
-          <button className="flex request-icon-button mb-1">
-            <img src={personalcare} alt="" />
-          </button>
-          <span className="request-subsubtitleText request-icon-text fw-600">
-            Personal Care
-          </span>
-        </div>
-        <div className="col">
-          <button className="flex request-icon-button mb-1">
-            <img src={clothes} alt="" />
-          </button>
-          <span className="request-subsubtitleText request-icon-text fw-600">
-            Clothing
-          </span>
-        </div>
-        <div className="col">
-          <button className="flex request-icon-button mb-1">
-            <img src={mobilephone} alt="" />
-          </button>
-          <span className="request-subsubtitleText request-icon-text fw-600">
-            Electronics
-          </span>
-        </div>
-        <div className="col">
-          <button className="flex request-icon-button mb-1">
-            <img src={microwave} alt="" />
-          </button>
-          <span className="request-subsubtitleText request-icon-text fw-600">
-            Appliances
-          </span>
-        </div>
-        <div className="col">
-          <button className="flex request-icon-button mb-1">
-            <img src={bicycle} alt="" />
-          </button>
-          <span className="request-subsubtitleText request-icon-text fw-600">
-            Sports & Games
-          </span>
-        </div>
+        {categories.map((element) => {
+          return (
+            <ItemRequestCategory
+              key={Math.random()}
+              {...props.items[element]}
+              category={element}
+            />
+          );
+        })}
       </div>
       <span className="request-titleText request-header mb-2">
         Item not found?
