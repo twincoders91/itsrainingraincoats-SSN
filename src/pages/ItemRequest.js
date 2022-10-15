@@ -6,6 +6,8 @@ import ItemRequestAdd from "../components/ItemRequestAdd";
 import ItemRequestItem from "../components/ItemRequestItem";
 import ItemRequestCart from "../components/ItemRequestCart";
 import ItemRequestDelivery from "../components/ItemRequestDelivery";
+import ItemRequestConfirmation from "../components/ItemRequestConfirmation";
+import ItemRequestSuccess from "../components/ItemRequestSuccess";
 
 export default function ItemRequest() {
   const [currentPage, setCurrentPage] = useState("addItem");
@@ -18,8 +20,10 @@ export default function ItemRequest() {
       <div className="request-body-container">
         {/* <ItemRequestAdd items={items} /> */}
         {/* <ItemRequestItem /> */}
-        <ItemRequestCart />
+        {/* <ItemRequestCart /> */}
         {/* <ItemRequestDelivery /> */}
+        {/* <ItemRequestConfirmation /> */}
+        <ItemRequestSuccess />
       </div>
     </>
   );

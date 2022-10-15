@@ -31,6 +31,11 @@
   background-color: rgb(var(--white));
 }
 
+body {
+  fill: currentColor;
+  color: rgb(var(--black));
+}
+
 a {
   text-decoration: none;
 }
@@ -607,9 +612,6 @@ select {
 }
 
 /* =============================== Login =============================== */
-.login-input {
-}
-
 .login-username {
   background-image: url(../assets/email.svg);
   background-position: 14px 16px;
@@ -806,9 +808,7 @@ select {
   cursor: pointer;
 }
 
-.request-addItem-button {
-  padding: 8px 16px;
-
+.request-button {
   background-color: rgb(var(--darkGrey));
   color: rgb(var(--white));
 }
@@ -844,8 +844,29 @@ select {
   color: rgb(var(--black));
 }
 
-.request-proceedDelivery-button {
-  padding: 8px 16px;
+.request-delivery-button {
+  padding: 8px 0;
+  border: 1px solid rgb(var(--black));
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: rgb(var(--white));
+  color: rgb(var(--black));
+}
+
+.request-delivery-details {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(var(--black) / 0.2);
+  position: relative;
+}
+
+.request-delivery-icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 32px;
+  height: 32px;
+  color: rgb(var(--blue));
 }
 
 /* ============================ Tablet Styles ============================ */

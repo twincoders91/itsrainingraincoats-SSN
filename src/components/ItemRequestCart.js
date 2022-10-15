@@ -9,7 +9,7 @@
 import React from "react";
 import datacard from "../assets/datacard.svg";
 import fill from "../assets/fill.svg";
-import add from "../assets/add.svg";
+import { ReactComponent as Add } from "../assets/add.svg";
 
 export default function ItemRequestCart() {
   return (
@@ -48,12 +48,12 @@ export default function ItemRequestCart() {
         </div>
       </div>
       <button className="row request-addAnother-button" onClick={() => {}}>
-        <img src={add} alt="" />
+        <Add />
         <span className="ml-1">Add Another</span>
       </button>
       <div className="spacer" style={{ height: "192px" }}></div>
       <button
-        className="row request-proceedDelivery-button button-active"
+        className="row request-button button-active px-2 py-1"
         onClick={() => {}}
       >
         Proceed to Delivery
