@@ -10,7 +10,8 @@ import DonateCat4 from "../components/DonateCat4";
 import ModalHowToDonateItems from "../components/donateModals/ModalHowToDonateItems";
 
 const Donate = (props) => {
-  const { setDonateCategoryPopulate, donateCategoryPopulate } = props;
+  const { setDonateCategoryPopulate, donateCategoryPopulate, setPrevPage } =
+    props;
 
   const [openModalHowToDonate, setOpenModalHowToDonate] = useState(false);
   const [donateInstruction3, setDonateInstruction3] = useState(false);
@@ -22,6 +23,7 @@ const Donate = (props) => {
   const handleDonateCategoryPopulate = (item) => {
     setDonateCategoryPopulate(item);
     setOpenModalHowToDonate(true);
+    setPrevPage("/donate");
   };
 
   return (
@@ -31,7 +33,6 @@ const Donate = (props) => {
         <div className="main-donate-container ml-2 mr-2 mt-2">
           <span className="donate-font1 ">I would like to donate...</span>
           <DonateCat4
-            // handleModalOpen={handleModalOpen}
             handleDonateCategoryPopulate={handleDonateCategoryPopulate}
           />
           <div className="donate-inneedof-box mt-4">

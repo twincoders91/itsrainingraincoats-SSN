@@ -1,7 +1,15 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+//////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                      //
+//                                                                                      //
+//                  To refactor to use an array to display the items                    //
+//                                                                                      //
+//                                                                                      //
+//////////////////////////////////////////////////////////////////////////////////////////
+
+import React from "react";
+import datacard from "../assets/datacard.svg";
+import fill from "../assets/fill.svg";
 import { ReactComponent as Add } from "../assets/add.svg";
-import ItemRequestCartItem from "./ItemRequestCartItem";
 
 export default function ItemRequestCart(props) {
   const handleAddAnotherButtonClick = () => {
@@ -11,12 +19,6 @@ export default function ItemRequestCart(props) {
   const handleProceedToDeliveryButtonClick = () => {
     props.setCurrentPage("delivery");
   };
-
-  useEffect(() => {
-    if (props.selectedItems.length === 0) {
-      props.setCurrentPage("addItem");
-    }
-  }, [props.selectedItems.length]);
 
   return (
     <div className="col">
@@ -30,28 +32,36 @@ export default function ItemRequestCart(props) {
         (Choose max 3 items)
       </span>
       <div className="request-item-card-container mb-2">
-        {props.selectedItems.map((element, index) => {
-          return (
-            <ItemRequestCartItem
-              key={Math.random()}
-              {...element}
-              index={index}
-              selectedItems={props.selectedItems}
-              setSelectedItems={props.setSelectedItems}
-            />
-          );
-        })}
+        <div className="request-item-card mb-2">
+          <div className="row request-item-card-details justify-sb mb-1">
+            <img src={datacard} alt="" height="32px" />
+            <span
+              className="request-subtitleText request-header fw-600 ml-2"
+              style={{ flex: 1 }}
+            >
+              Data Card
+            </span>
+            <button className="row request-item-card-edit-button">
+              <img src={fill} alt="" />
+            </button>
+          </div>
+          <div className="row justify-sb">
+            <span className="request-subsubtitleText request-item-card-delete fw-600 ml-2">
+              Delete
+            </span>
+            <span className="request-subsubtitleText mr-2">
+              Delivery in 7 days
+            </span>
+          </div>
+        </div>
       </div>
-      {props.selectedItems.length < 3 && (
-        <button
-          className="row request-addAnother-button"
-          onClick={handleAddAnotherButtonClick}
-        >
-          <Add />
-          <span className="ml-1">Add Another</span>
-        </button>
-      )}
-
+      <button
+        className="row request-addAnother-button"
+        onClick={handleAddAnotherButtonClick}
+      >
+        <Add />
+        <span className="ml-1">Add Another</span>
+      </button>
       <div className="spacer" style={{ height: "192px" }}></div>
       <button
         className="row request-button button-active px-2 py-1"
