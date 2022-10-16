@@ -22,12 +22,6 @@ export default function ItemRequestCategory(props) {
       return;
     }
     props.setCurrentPage("cart");
-    props.setSelectedItems((prevState) => {
-      return [
-        ...prevState,
-        ...items.filter((element) => element.name === selectedItem),
-      ];
-    });
   };
 
   useEffect(() => {
