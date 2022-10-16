@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React from "react";
 import { ReactComponent as Add } from "../assets/add.svg";
 import ItemRequestCartItem from "./ItemRequestCartItem";
 
@@ -11,12 +11,6 @@ export default function ItemRequestCart(props) {
   const handleProceedToDeliveryButtonClick = () => {
     props.setCurrentPage("delivery");
   };
-
-  useEffect(() => {
-    if (props.selectedItems.length === 0) {
-      props.setCurrentPage("addItem");
-    }
-  }, [props.selectedItems.length]);
 
   return (
     <div className="col">
@@ -38,6 +32,7 @@ export default function ItemRequestCart(props) {
               index={index}
               selectedItems={props.selectedItems}
               setSelectedItems={props.setSelectedItems}
+              setCurrentPage={props.setCurrentPage}
             />
           );
         })}

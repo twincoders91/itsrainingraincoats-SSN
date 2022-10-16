@@ -8,6 +8,9 @@ export default function ItemRequestCartItem(props) {
     const array = [...props.selectedItems];
     array.splice(props.index, 1);
     props.setSelectedItems(array);
+    if (array.length === 0) {
+      props.setCurrentPage("addItem");
+    }
   };
 
   return (

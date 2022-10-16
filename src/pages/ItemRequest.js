@@ -13,6 +13,7 @@ export default function ItemRequest() {
   const [currentPage, setCurrentPage] = useState("addItem");
   const [category, setCategory] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
+  const [deliveryMethod, setDeliveryMethod] = useState("");
 
   return (
     <>
@@ -47,6 +48,7 @@ export default function ItemRequest() {
             setCurrentPage={setCurrentPage}
             selectedItems={selectedItems}
             setSelectedItems={setSelectedItems}
+            setDeliveryMethod={setDeliveryMethod}
           />
         )}
         {currentPage === "confirm" && (
