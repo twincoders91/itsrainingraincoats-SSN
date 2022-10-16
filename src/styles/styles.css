@@ -845,6 +845,7 @@ select {
 
 .request-item-card-delete {
   color: rgb(var(--blue));
+  cursor: pointer;
 }
 
 .request-addAnother-button {
