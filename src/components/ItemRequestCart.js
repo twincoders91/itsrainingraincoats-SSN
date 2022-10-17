@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { ReactComponent as Add } from "../assets/add.svg";
-import ItemRequestCartItem from "./ItemRequestCartItem";
 
 export default function ItemRequestCart(props) {
   const handleAddAnotherButtonClick = () => {
@@ -37,16 +36,13 @@ export default function ItemRequestCart(props) {
           );
         })}
       </div>
-      {props.selectedItems.length < 3 && (
-        <button
-          className="row request-addAnother-button"
-          onClick={handleAddAnotherButtonClick}
-        >
-          <Add />
-          <span className="ml-1">Add Another</span>
-        </button>
-      )}
-
+      <button
+        className="row request-addAnother-button"
+        onClick={handleAddAnotherButtonClick}
+      >
+        <Add />
+        <span className="ml-1">Add Another</span>
+      </button>
       <div className="spacer" style={{ height: "192px" }}></div>
       <button
         className="row request-button button-active px-2 py-1"
