@@ -1,11 +1,44 @@
-import React from "react";
-import datacard from "../assets/datacard.svg";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import { ReactComponent as Pencil } from "../assets/pencil.svg";
+import ItemRequestConfirmationItem from "./ItemRequestConfirmationItem";
 
 export default function ItemRequestConfirmation(props) {
-  const handleSubmitButtonClick = () => {
+  const handleSubmitButtonClick = async () => {
+    // const url = '<insert backend PUT endpoint here'
+    // const res = putItemRequest(url)
+
+    // if (res.status === "ok") {
     props.setCurrentPage("success");
+    // }
   };
+
+  const putItemRequest = async (url) => {
+    try {
+      const res = await fetch(url, {
+        method: "PUT",
+        body: {
+          items: () => {
+            props.selectedItems.map((element) => {
+              return element.name;
+            });
+          }, // if this doesn't work, shift the map up and assign it to an array then let items = array
+          deliveryMethod: props.deliveryMethod,
+        }, // other details like requestId, workerId, status should be populated in the backend.
+      });
+
+      return res.json();
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    if (props.currentPage === "confirm") {
+      props.setHeaderTitle("Confirm Details");
+    }
+  }, [props.currentPage]);
+
   return (
     <div className="col">
       <span className="request-subsubtitleText request-header mb-2">
@@ -15,21 +48,15 @@ export default function ItemRequestConfirmation(props) {
         Selected item(s)
       </span>
       <div className="request-item-card-container mb-2">
-        <div className="row request-item-card-details justify-sb mb-1">
-          <img src={datacard} alt="" height="32px" />
-          <div className="col" style={{ flex: 1 }}>
-            <span className="request-subtitleText request-header fw-600 ml-2">
-              Data Card
-            </span>
-            <span className="request-subsubtitleText request-header ml-2">
-              Delivery in 7 days
-            </span>
-          </div>
-        </div>
+        {props.selectedItems.map((element) => {
+          return (
+            <ItemRequestConfirmationItem key={Math.random()} {...element} />
+          );
+        })}
       </div>
       <div className="spacer mb-2"></div>
       <span className="request-titleText request-header mb-2">
-        Delivery to / Self-Pickup
+        {props.deliveryMethod === "delivery" ? "Delivery to" : "Self-Pickup"}
       </span>
 
       <div className="request-delivery-details px-2 py-2">
@@ -42,7 +69,7 @@ export default function ItemRequestConfirmation(props) {
         <p className="request-subsubtitleText request-header">{`\<Postcode\>`}</p>
         <p className="request-subsubtitleText request-header">{`\<Dormitory name\>`}</p>
         <div className="request-delivery-icon mr-1 mb-1">
-          <Pencil />
+          <Pencil style={{ display: "" }} />
         </div>
       </div>
 

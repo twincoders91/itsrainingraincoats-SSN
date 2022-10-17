@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef, useState } from "react";
 
 import { ReactComponent as Add } from "../assets/add.svg";
@@ -22,6 +23,7 @@ export default function ItemRequestCategory(props) {
       return;
     }
     props.setCurrentPage("cart");
+    props.setPageHistory((prevState) => ["category", ...prevState]);
     props.setSelectedItems((prevState) => {
       return [
         ...prevState,
@@ -29,7 +31,6 @@ export default function ItemRequestCategory(props) {
       ];
     });
   };
-
   useEffect(() => {
     if (selectedItem) {
       buttonRef.current.removeAttribute("disabled", "");
@@ -39,6 +40,12 @@ export default function ItemRequestCategory(props) {
       buttonRef.current.classList.remove("button-active");
     }
   }, [selectedItem]);
+
+  useEffect(() => {
+    if (props.currentPage === "category") {
+      props.setHeaderTitle(props.name);
+    }
+  }, [props.currentPage]);
 
   return (
     <div className="col">

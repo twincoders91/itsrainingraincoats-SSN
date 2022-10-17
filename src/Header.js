@@ -3,6 +3,8 @@ import union from "./assets/union.svg";
 import irrlogo from "./assets/irrlogo.svg";
 
 const Header = () => {
+  // should header have 2 views, generic and top navigation?
+
   return (
     <div className="Navbar">
       <div className="nav-middle-item">
