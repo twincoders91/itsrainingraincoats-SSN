@@ -11,7 +11,6 @@ import DonateLocation from "./pages/DonateLocation";
 import DonateItems from "./pages/DonateItems";
 
 function App() {
-  //a re-pull comment
   const [openModalDonateInstructions, setopenModalDonateInstructions] =
     useState(false);
   const [donateCategoryPopulate, setDonateCategoryPopulate] = useState([]);

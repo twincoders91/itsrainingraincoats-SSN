@@ -22,6 +22,7 @@ export default function Button(props) {
     <button
       className={props.className}
       onClick={handleButtonClick}
+      value={props.value}
       ref={buttonRef}
     >
       {props.children}
