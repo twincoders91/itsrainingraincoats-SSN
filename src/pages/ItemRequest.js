@@ -25,6 +25,7 @@ export default function ItemRequest() {
         setCurrentPage={setCurrentPage}
         pageHistory={pageHistory}
         setPageHistory={setPageHistory}
+        home={true}
       />
       <div className="request-body-container">
         {currentPage === "addItem" && (

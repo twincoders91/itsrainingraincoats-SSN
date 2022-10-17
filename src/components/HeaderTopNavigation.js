@@ -22,9 +22,11 @@ export default function HeaderTopNavigation(props) {
         <Left className="cursor" onClick={handleBackClick} />
       )}
       <p className="header-titleText">{capitaliseFirstLetter(props.text)}</p>
-      <NavLink to="/home" className="row">
-        <Home className="cursor" style={{ alignSelf: "center" }} />
-      </NavLink>
+      {props.home && (
+        <NavLink to="/home" className="row">
+          <Home className="cursor" style={{ alignSelf: "center" }} />
+        </NavLink>
+      )}
     </div>
   );
 }
