@@ -7,12 +7,14 @@ import { ReactComponent as Home } from "../assets/home.svg";
 
 export default function HeaderTopNavigation(props) {
   const handleBackClick = () => {
-    props.setCurrentPage(props.previousPage);
+    props.setCurrentPage(props.pageHistory[0]);
+    const pageHistory = props.pageHistory;
+    pageHistory.splice(0, 1);
+    props.setPageHistory(pageHistory);
   };
-
   return (
     <div className="row header-container">
-      {props.previousPage === "home" ? (
+      {props.pageHistory[0] === "home" ? (
         <NavLink to="/home" className="row">
           <Left className="cursor" />
         </NavLink>

@@ -1,5 +1,5 @@
-import React from "react";
-import datacard from "../assets/datacard.svg";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import { ReactComponent as Pencil } from "../assets/pencil.svg";
 import ItemRequestConfirmationItem from "./ItemRequestConfirmationItem";
 
@@ -32,6 +32,12 @@ export default function ItemRequestConfirmation(props) {
       console.error(error.message);
     }
   };
+
+  useEffect(() => {
+    if (props.currentPage === "confirm") {
+      props.setHeaderTitle("Confirm Details");
+    }
+  }, [props.currentPage]);
 
   return (
     <div className="col">

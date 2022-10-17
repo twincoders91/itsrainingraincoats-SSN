@@ -1,10 +1,17 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import { ReactComponent as ThumbsUp } from "../assets/thumbsup.svg";
 
 export default function ItemRequestSuccess(props) {
   const handleApplyAgainClick = () => {
     props.setCurrentPage("addItem");
   };
+
+  useEffect(() => {
+    if (props.currentPage === "success") {
+      props.setHeaderTitle("Application Successful");
+    }
+  }, [props.currentPage]);
 
   return (
     <div className="col">

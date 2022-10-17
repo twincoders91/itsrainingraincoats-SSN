@@ -30,6 +30,12 @@ export default function ItemRequestDelivery(props) {
     }
   }, [deliveryMethod]);
 
+  useEffect(() => {
+    if (props.currentPage === "delivery") {
+      props.setHeaderTitle("Delivery Method");
+    }
+  }, [props.currentPage]);
+
   return (
     <div className="col">
       <span className="request-subsubtitleText request-header mb-2">

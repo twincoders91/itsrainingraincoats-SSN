@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import Header from "../Header";
 import HeaderGeneric from "../components/HeaderGeneric";
@@ -17,7 +17,7 @@ export default function ItemRequest() {
   const [selectedItems, setSelectedItems] = useState([]);
   const [deliveryMethod, setDeliveryMethod] = useState("");
   const [headerTitle, setHeaderTitle] = useState("item application");
-  const [previousPage, setPreviousPage] = useState("home");
+  const [pageHistory, setPageHistory] = useState(["home"]);
 
   return (
     <>
@@ -25,48 +25,66 @@ export default function ItemRequest() {
       <HeaderTopNavigation
         text={headerTitle}
         setCurrentPage={setCurrentPage}
-        previousPage={previousPage}
+        pageHistory={pageHistory}
+        setPageHistory={setPageHistory}
       />
       <div className="request-body-container">
         {currentPage === "addItem" && (
           <ItemRequestAdd
             items={items}
+            currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             setCategory={setCategory}
+            setHeaderTitle={setHeaderTitle}
+            setPageHistory={setPageHistory}
           />
         )}
         {currentPage === "category" && (
           <ItemRequestCategory
-            items={items[category].items}
+            {...items[category]}
+            currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             setSelectedItems={setSelectedItems}
+            setHeaderTitle={setHeaderTitle}
+            setPageHistory={setPageHistory}
           />
         )}
         {currentPage === "cart" && (
           <ItemRequestCart
             items={items}
+            currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             selectedItems={selectedItems}
             setSelectedItems={setSelectedItems}
+            setHeaderTitle={setHeaderTitle}
+            setPageHistory={setPageHistory}
           />
         )}
         {currentPage === "delivery" && (
           <ItemRequestDelivery
+            currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             selectedItems={selectedItems}
             setSelectedItems={setSelectedItems}
             setDeliveryMethod={setDeliveryMethod}
+            setHeaderTitle={setHeaderTitle}
           />
         )}
         {currentPage === "confirm" && (
           <ItemRequestConfirmation
+            currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             selectedItems={selectedItems}
             deliveryMethod={deliveryMethod}
+            setHeaderTitle={setHeaderTitle}
           />
         )}
         {currentPage === "success" && (
-          <ItemRequestSuccess setCurrentPage={setCurrentPage} />
+          <ItemRequestSuccess
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            setHeaderTitle={setHeaderTitle}
+          />
         )}
       </div>
     </>
