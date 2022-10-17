@@ -8,22 +8,16 @@ import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
 import ItemRequest from "./pages/ItemRequest";
 import DonateLocation from "./pages/DonateLocation";
-import DonateItems from "./pages/DonateItems";
 
 function App() {
   const [openModalDonateInstructions, setopenModalDonateInstructions] =
     useState(false);
   const [donateCategoryPopulate, setDonateCategoryPopulate] = useState([]);
-  const [prevPage, setPrevPage] = useState("");
-  const [areaSelection, setAreaSelection] = useState(" - select area -");
-  const [dropMenuClick, setDropMenuClick] = useState(false);
-  const handleAreaSelection = (event) => {
-    setAreaSelection(event);
-    setDropMenuClick(false);
-  };
-  console.log(areaSelection);
-
-  console.log(prevPage);
+  console.log(donateCategoryPopulate);
+  // const handleDonateCategoryPopulate = (item) => {
+  //   setDonateCategoryPopulate(item);
+  //   setOpenModalHowToDonate(true);
+  // };
 
   return (
     <div className="main-app-container">
@@ -46,31 +40,13 @@ function App() {
               setopenModalDonateInstructions={setopenModalDonateInstructions}
               donateCategoryPopulate={donateCategoryPopulate}
               setDonateCategoryPopulate={setDonateCategoryPopulate}
-              setPrevPage={setPrevPage}
             />
           }
         />
         <Route
           path="/donate-location"
           element={
-            <DonateLocation
-              donateCategoryPopulate={donateCategoryPopulate}
-              prevPage={prevPage}
-              setPrevPage={setPrevPage}
-              handleAreaSelection={handleAreaSelection}
-              dropMenuClick={dropMenuClick}
-              setDropMenuClick={setDropMenuClick}
-              areaSelection={areaSelection}
-            />
-          }
-        />
-        <Route
-          path="/donate-items"
-          element={
-            <DonateItems
-              donateCategoryPopulate={donateCategoryPopulate}
-              prevPage={prevPage}
-            />
+            <DonateLocation donateCategoryPopulate={donateCategoryPopulate} />
           }
         />
         <Route path="/language-select" element={<LanguageSelect />} />

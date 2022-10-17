@@ -24,8 +24,9 @@
 }
 
 .main-app-container {
+  /* width: 100%; */
   width: 360px;
-  /* height: 100vh; */
+  height: 100vh;
   margin: auto;
   background-color: rgb(var(--white));
 }
@@ -566,11 +567,9 @@ select {
   text-align: center;
 }
 /* ================================= Donate (location) ================================= */
-
 .donate-location-fonts-box {
   display: flex;
   flex-direction: column;
-  width: 328px;
 }
 .donate-location-font1 {
   font-size: var(--subsubtitleText);
@@ -599,12 +598,8 @@ select {
   right: 25.28px;
 }
 .donate-location-dropmenu {
-  position: absolute;
-  width: 328px;
   display: flex;
   flex-direction: column;
-  background-color: #fcfcfc;
-  border-radius: 4px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
     0px 2px 6px 2px rgba(0, 0, 0, 0.15);
 }
@@ -612,96 +607,6 @@ select {
   font-size: var(--subtitleText);
   font-weight: 300;
   color: black;
-}
-.volunteer-profile-box {
-  display: flex;
-  padding: 16px;
-  border-radius: 8px;
-}
-.profile-image {
-  height: 48px;
-}
-.volunteer-profile-personaldetails {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-.volunteer-name-mobile-box {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 48px;
-}
-.volunteer-14px-600-font {
-  font-size: var(--subtitleText);
-  font-weight: 600;
-}
-.volunteer-14px-300-font {
-  font-size: var(--subtitleText);
-  font-weight: 300;
-}
-.volunteer-mobile-font {
-  position: absolute;
-  bottom: 0px;
-  font-size: var(--subsubtitleText);
-  font-weight: 300px;
-}
-.volunteer-location-font {
-  font-size: var(--subsubtitleText);
-  font-weight: 300px;
-}
-.volunteer-location-box {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  right: 0px;
-  bottom: 0px;
-  text-align: right;
-}
-.dropoff-button-box {
-  display: flex;
-  justify-content: center;
-}
-.dropoff-scroller-box {
-  display: flex;
-  justify-content: center;
-}
-/* ================================= Donate (Item Cateogry) ================================= */
-.donate-items-category-container {
-}
-.donate-item-category-box {
-  justify-content: space-between;
-  display: grid;
-  grid-template-columns: repeat(3, 98px);
-}
-.donate-item-category-individual-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.donate-item-category-icon-box {
-  height: 70px;
-  width: 98px;
-  display: flex;
-  justify-content: center;
-}
-.donate-item-category-font {
-  font-size: var(--subsubtitleText);
-  font-weight: 600;
-}
-.donate-items-button-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.donate-items-Button-box {
-  position: absolute;
-  bottom: 74px;
-}
-.donate-items-scroller-box {
-  position: absolute;
-  bottom: 32px;
 }
 
 /* =============================== Language Selection =============================== */
@@ -940,6 +845,7 @@ select {
 
 .request-item-card-delete {
   color: rgb(var(--blue));
+  cursor: pointer;
 }
 
 .request-addAnother-button {

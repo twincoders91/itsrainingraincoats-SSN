@@ -12,7 +12,7 @@ import ItemRequestSuccess from "../components/ItemRequestSuccess";
 export default function ItemRequest() {
   const [currentPage, setCurrentPage] = useState("addItem");
   const [category, setCategory] = useState("");
-  const [selectedItems, setSelectedItems] = useState("");
+  const [selectedItems, setSelectedItems] = useState([]);
   const [deliveryMethod, setDeliveryMethod] = useState("");
 
   return (
@@ -32,10 +32,16 @@ export default function ItemRequest() {
           <ItemRequestCategory
             items={items[category].items}
             setCurrentPage={setCurrentPage}
+            setSelectedItems={setSelectedItems}
           />
         )}
         {currentPage === "cart" && (
-          <ItemRequestCart setCurrentPage={setCurrentPage} />
+          <ItemRequestCart
+            items={items}
+            setCurrentPage={setCurrentPage}
+            selectedItems={selectedItems}
+            setSelectedItems={setSelectedItems}
+          />
         )}
         {currentPage === "delivery" && (
           <ItemRequestDelivery

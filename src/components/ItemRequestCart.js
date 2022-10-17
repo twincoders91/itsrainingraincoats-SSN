@@ -37,13 +37,16 @@ export default function ItemRequestCart(props) {
           );
         })}
       </div>
-      <button
-        className="row request-addAnother-button"
-        onClick={handleAddAnotherButtonClick}
-      >
-        <Add />
-        <span className="ml-1">Add Another</span>
-      </button>
+      {props.selectedItems.length < 3 && (
+        <button
+          className="row request-addAnother-button"
+          onClick={handleAddAnotherButtonClick}
+        >
+          <Add />
+          <span className="ml-1">Add Another</span>
+        </button>
+      )}
+
       <div className="spacer" style={{ height: "192px" }}></div>
       <button
         className="row request-button button-active px-2 py-1"

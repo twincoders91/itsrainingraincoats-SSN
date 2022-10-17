@@ -5,15 +5,14 @@ import homeunfilled from "../assets/homeunfilled.svg";
 import returnicon from "../assets/returnicon.png";
 
 const NavBarDonateItems = (props) => {
-  const { donateCategoryPopulate, prevPage } = props;
-  console.log(donateCategoryPopulate.title);
-  console.log(prevPage);
+  const { donateCategoryPopulate } = props;
+
   return (
     <div>
       <div className="main-header-container">
         <div className="Navbar-donate">
           <div className="donate-header-box">
-            <Link to={prevPage}>
+            <Link to="/donate">
               <img
                 src={returnicon}
                 alt="returnicon"
@@ -24,13 +23,11 @@ const NavBarDonateItems = (props) => {
           </div>
         </div>
         <div>
-          <Link to="/home">
-            <img
-              src={homeunfilled}
-              className="nav-user-icon"
-              alt="user-profile"
-            />
-          </Link>
+          <img
+            src={homeunfilled}
+            className="nav-user-icon"
+            alt="user-profile"
+          />
         </div>
       </div>
     </div>

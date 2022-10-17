@@ -1,18 +1,7 @@
 import React from "react";
 import mapWest from "../assets/mapWest.svg";
-import pointerJurongwest from "../assets/pointerJurongwest.svg";
-import DropoffInformation from "./DropoffInformation";
 
-const MapWest = ({
-  filterDataToAreas,
-  handleDropoffClick,
-  locationPick,
-  dropoffClick,
-  prevPage,
-  setPrevPage,
-}) => {
-  console.log(prevPage);
-
+const MapWest = () => {
   return (
     <div>
       <div className="donate-location-fonts-box ">
@@ -24,28 +13,7 @@ const MapWest = ({
           different at every drop-off points
         </span>
       </div>
-      <div className="map-container">
-        <img src={mapWest} alt="mapimage" />
-        <div className="location-pointers">
-          <img
-            src={pointerJurongwest}
-            onClick={() => handleDropoffClick("Jurong West")}
-            alt="locationpin"
-          />
-          <img
-            src={pointerJurongwest}
-            alt="locationpin"
-            onClick={() => handleDropoffClick("Watten Estate")}
-          />
-        </div>
-      </div>
-      {dropoffClick ? (
-        <DropoffInformation
-          locationPick={locationPick}
-          filterDataToAreas={filterDataToAreas}
-          setPrevPage={setPrevPage}
-        />
-      ) : null}
+      <img src={mapWest} alt="mapimage" />
     </div>
   );
 };

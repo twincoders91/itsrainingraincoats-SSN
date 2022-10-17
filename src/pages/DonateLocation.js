@@ -2,22 +2,11 @@ import React, { useState } from "react";
 import NavBarDonateItems from "../navbar/NavBarDonateItems";
 import MapWest from "../components/MapWest";
 import DropMenuArea from "../components/DropMenuArea";
-import volunteerData from "../datasets/volunteerInfo";
-import MapNorth from "../components/MapNorth";
 
 const DonateLocation = (props) => {
-  const {
-    donateCategoryPopulate,
-    prevPage,
-    setPrevPage,
-    handleAreaSelection,
-    dropMenuClick,
-    setDropMenuClick,
-    areaSelection,
-  } = props;
-
-  const [locationPick, setLocationPick] = useState("");
-  const [dropoffClick, setDropoffClick] = useState(false);
+  const { donateCategoryPopulate } = props;
+  const [dropMenuClick, setDropMenuClick] = useState(false);
+  const [areaSelection, setAreaSelection] = useState(" - select area -");
 
   const handleDropMenuClick = () => {
     if (dropMenuClick === false) {
@@ -26,28 +15,15 @@ const DonateLocation = (props) => {
       setDropMenuClick(false);
     }
   };
-
-  //========== Hard coding the location pin picking =============
-  const handleDropoffClick = (event) => {
-    setDropoffClick(true);
-    setLocationPick(event);
+  const handleAreaSelection = (event) => {
+    setAreaSelection(event);
+    setDropMenuClick(false);
   };
-  console.log(dropoffClick);
-
-  //========= FILTER Volunteer data by AREA ===========
-  const filterDataToAreas = volunteerData.filter(
-    (d, i) => d.area === areaSelection
-  );
-  console.log(filterDataToAreas);
-  console.log(prevPage);
 
   return (
     <div>
-      <NavBarDonateItems
-        donateCategoryPopulate={donateCategoryPopulate}
-        prevPage={prevPage}
-      />
-      <div className="main-donate-location-container ml-2 mr-2 mt-2">
+      <NavBarDonateItems donateCategoryPopulate={donateCategoryPopulate} />
+      <div className="main-donate-container ml-2 mr-2 mt-2">
         <div className="donate-location-fonts-box">
           <span className="donate-location-font1">
             Step 1 of 3 - Choose drop-off point
@@ -64,23 +40,11 @@ const DonateLocation = (props) => {
         />
 
         <div className="map-body-container">
-          {areaSelection === "WEST areas" ? (
-            <MapWest
-              filterDataToAreas={filterDataToAreas}
-              handleDropoffClick={handleDropoffClick}
-              locationPick={locationPick}
-              dropoffClick={dropoffClick}
-              prevPage={prevPage}
-              setPrevPage={setPrevPage}
-            />
-          ) : null}
-          {areaSelection === "NORTH areas" ? (
-            <MapNorth filterDataToAreas={filterDataToAreas} />
-          ) : null}
-          {/* {areaSelection === "CENTRAL areas" ? null : null}
+          {areaSelection === "WEST areas" ? <MapWest /> : null}
+          {/* {areaSelection === "NORTH areas" ? null : null}
+          {areaSelection === "CENTRAL areas" ? null : null}
           {areaSelection === "EAST areas" ? null : null} */}
         </div>
-        {/* {dropoffClick ? <DropoffInformation /> : null} */}
       </div>
     </div>
   );
