@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import Header from "../Header";
-import HeaderGeneric from "../components/HeaderGeneric";
 import items from "../temp/itemSeed";
 import ItemRequestAdd from "../components/ItemRequestAdd";
 import ItemRequestCategory from "../components/ItemRequestCategory";
