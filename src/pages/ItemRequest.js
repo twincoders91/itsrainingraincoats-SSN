@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Header from "../Header";
+import HeaderGeneric from "../components/HeaderGeneric";
 import items from "../temp/itemSeed";
 import ItemRequestAdd from "../components/ItemRequestAdd";
 import ItemRequestCategory from "../components/ItemRequestCategory";
@@ -8,18 +9,24 @@ import ItemRequestCart from "../components/ItemRequestCart";
 import ItemRequestDelivery from "../components/ItemRequestDelivery";
 import ItemRequestConfirmation from "../components/ItemRequestConfirmation";
 import ItemRequestSuccess from "../components/ItemRequestSuccess";
+import HeaderTopNavigation from "../components/HeaderTopNavigation";
 
 export default function ItemRequest() {
   const [currentPage, setCurrentPage] = useState("addItem");
   const [category, setCategory] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
   const [deliveryMethod, setDeliveryMethod] = useState("");
+  const [headerTitle, setHeaderTitle] = useState("item application");
+  const [previousPage, setPreviousPage] = useState("home");
 
   return (
     <>
-      <div className="main-header-container">
-        <Header />
-      </div>
+      {/* <HeaderGeneric profile={false} /> */}
+      <HeaderTopNavigation
+        text={headerTitle}
+        setCurrentPage={setCurrentPage}
+        previousPage={previousPage}
+      />
       <div className="request-body-container">
         {currentPage === "addItem" && (
           <ItemRequestAdd
@@ -52,7 +59,11 @@ export default function ItemRequest() {
           />
         )}
         {currentPage === "confirm" && (
-          <ItemRequestConfirmation setCurrentPage={setCurrentPage} />
+          <ItemRequestConfirmation
+            setCurrentPage={setCurrentPage}
+            selectedItems={selectedItems}
+            deliveryMethod={deliveryMethod}
+          />
         )}
         {currentPage === "success" && (
           <ItemRequestSuccess setCurrentPage={setCurrentPage} />
