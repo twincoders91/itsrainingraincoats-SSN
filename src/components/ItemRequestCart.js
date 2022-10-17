@@ -2,6 +2,8 @@
 import React from "react";
 import { ReactComponent as Add } from "../assets/add.svg";
 
+import ItemRequestCartItem from "./ItemRequestCartItem";
+
 export default function ItemRequestCart(props) {
   const handleAddAnotherButtonClick = () => {
     props.setCurrentPage("addItem");

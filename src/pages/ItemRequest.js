@@ -12,6 +12,7 @@ import ItemRequestSuccess from "../components/ItemRequestSuccess";
 export default function ItemRequest() {
   const [currentPage, setCurrentPage] = useState("addItem");
   const [category, setCategory] = useState("");
+  const [selectedItems, setSelectedItems] = useState("");
   const [deliveryMethod, setDeliveryMethod] = useState("");
 
   return (
