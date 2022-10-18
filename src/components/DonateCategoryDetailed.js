@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import donateCategory from "../datasets/donateCategory";
 
 const DonateCategoryDetailed = (props) => {

@@ -35,14 +35,14 @@ const ModalHowToDonateItems = (props) => {
         </div>
         <div className="modal-howtoapplyforitems-body-box">
           <h1 className="howtodonate-h1-16 ml-2 mr-2">
-            {`How to donate ${donateCategoryPopulate.title} items?`}
+            {`How to donate your ${donateCategoryPopulate.title}?`}
           </h1>
           <div className="steps-boxes mt-2">
             <div className="steps-individual-box">
               <img src={step1} className="steps-icon" alt="stepicons" />
               <h2 className="steps-font">Step 1</h2>
             </div>
-            <p className="howtodonate-p1-14">{`Prepare ${donateCategoryPopulate.title} items`}</p>
+            <p className="howtodonate-p1-14">{`Prepare your ${donateCategoryPopulate.title}`}</p>
           </div>
           <div className="steps-boxes mt-2">
             <div className="steps-individual-box">

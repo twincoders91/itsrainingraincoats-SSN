@@ -21,12 +21,14 @@ function App() {
   const [donateCategoryChoice, setDonateCategoryChoice] = useState("");
   const [donateDetailedItemChoice, setDonateDetailedItemChoice] = useState("");
   const [donateDetailedItemArray, setDonateDetailedItemArray] = useState("");
+  const [donateCart, setDonateCart] = useState([]);
 
   const handleAreaSelection = (event) => {
     setAreaSelection(event);
     setDropMenuClick(false);
   };
   console.log(donateDetailedItemArray);
+  console.log(donateCart);
 
   return (
     <div className="main-app-container">
@@ -91,6 +93,8 @@ function App() {
               donateDetailedItemChoice={donateDetailedItemChoice}
               setDonateDetailedItemArray={setDonateDetailedItemArray}
               donateDetailedItemArray={donateDetailedItemArray}
+              setDonateCart={setDonateCart}
+              donateCart={donateCart}
             />
           }
         />

@@ -457,7 +457,8 @@ select {
   align-items: center;
 }
 .close-button {
-  margin-left: 5%;
+  margin-left: 16px;
+  margin-top: 16px;
 }
 .modal-howtoapplyforitems-body-box {
   display: flex;
@@ -762,6 +763,8 @@ select {
   position: absolute;
   bottom: 32px;
 }
+.donate-items-scroller-box-nonabsolute {
+}
 
 .donate-item-category-box-detailed {
   justify-content: space-between;
@@ -812,7 +815,53 @@ select {
   font-size: 14px;
   font-weight: 600;
 }
+.donate-itemdescription-box {
+  display: flex;
+  align-items: center;
+  grid-template-columns: repeat(2);
+}
+.donate-itemdescription-buttons {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px black solid;
+  font-size: 16px;
+  font-weight: 500;
+}
+.donate-itemdescription-buttons-active {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px rgb(var(--irrYellow)) solid;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: rgb(var(--irrYellow));
+}
+.donate-itemphoto-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px black solid;
+}
+.donate-itemphoto-buttons:hover {
+  cursor: pointer;
+  border: 1px rgb(var(--irrYellow)) solid;
+  background-color: rgb(var(--irrYellow));
+}
 
+.upload-icon {
+  height: 20px;
+  margin-right: 12px;
+}
+.uploaded-donate-photos-box {
+  grid-template-columns: repeat(2, 70px);
+}
+.uploaded-image {
+  height: 70px;
+}
 /* =============================== Language Selection =============================== */
 .language-option-button {
   width: 94px;
@@ -825,6 +874,14 @@ select {
   border: 1px solid rgb(var(--darkGrey));
   background-color: rgb(var(--darkGrey));
   color: rgb(var(--white));
+}
+.comment-input-box {
+  height: 100px;
+  border-radius: 4px;
+  border: 1px black solid;
+  font-size: 14px;
+  font-weight: 300;
+  padding-bottom: 50px;
 }
 
 /* =============================== Login =============================== */
