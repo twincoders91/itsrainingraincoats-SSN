@@ -3,17 +3,14 @@ import mapWest from "../assets/mapWest.svg";
 import pointerJurongwest from "../assets/pointerJurongwest.svg";
 import DropoffInformation from "./DropoffInformation";
 
-const MapNorth = ({ filterDataToAreas }) => {
-  const [locationPick, setLocationPick] = useState("");
-  const [dropoffClick, setDropoffClick] = useState(false);
-
-  //========== Hard coding the location pin picking =============
-  const handleDropoffClick = (event) => {
-    setDropoffClick(true);
-    setLocationPick(event);
-  };
-  console.log(dropoffClick);
-
+const MapNorth = ({
+  filterDataToAreas,
+  handleDropoffClick,
+  locationPick,
+  dropoffClick,
+  setPrevPage,
+}) => {
+  console.log(filterDataToAreas);
   return (
     <div>
       <div className="donate-location-fonts-box ">
@@ -36,7 +33,7 @@ const MapNorth = ({ filterDataToAreas }) => {
           <img
             src={pointerJurongwest}
             alt="locationpin"
-            onClick={() => handleDropoffClick("Punggol")}
+            onClick={() => handleDropoffClick("Watten Estate")}
           />
         </div>
       </div>
@@ -44,6 +41,7 @@ const MapNorth = ({ filterDataToAreas }) => {
         <DropoffInformation
           locationPick={locationPick}
           filterDataToAreas={filterDataToAreas}
+          setPrevPage={setPrevPage}
         />
       ) : null}
     </div>

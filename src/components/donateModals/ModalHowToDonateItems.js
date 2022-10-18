@@ -16,6 +16,9 @@ const ModalHowToDonateItems = (props) => {
     donateCategoryPopulate,
   } = props;
 
+  const handleCurrentPage = () => {
+    setOpenModalHowToDonate(false);
+  };
   if (!openModalHowToDonate) return null;
   return (
     <div className="overlay">
@@ -83,7 +86,7 @@ const ModalHowToDonateItems = (props) => {
               <button
                 className="instructions-button-next"
                 onClick={() => {
-                  setOpenModalHowToDonate(false);
+                  handleCurrentPage();
                 }}
               >
                 Start

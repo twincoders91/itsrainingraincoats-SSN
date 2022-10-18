@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../navbar/NavBar";
 // import donateCategoryData from "../datasets/donateCat4";
 import infoicon from "../assets/infoicon.svg";
@@ -25,6 +25,11 @@ const Donate = (props) => {
     setOpenModalHowToDonate(true);
     setPrevPage("/donate");
   };
+  console.log(donateCategoryPopulate);
+
+  useEffect(() => {
+    setPrevPage("/home");
+  });
 
   return (
     <>

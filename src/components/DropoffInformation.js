@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import pagecontrols1 from "../assets/pagecontrols1.svg";
 import { Link } from "react-router-dom";
 

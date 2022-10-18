@@ -8,11 +8,8 @@ const MapWest = ({
   handleDropoffClick,
   locationPick,
   dropoffClick,
-  prevPage,
   setPrevPage,
 }) => {
-  console.log(prevPage);
-
   return (
     <div>
       <div className="donate-location-fonts-box ">

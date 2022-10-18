@@ -337,7 +337,33 @@ select {
 }
 
 .instructions-button-next {
+  background-color: #6d6d6d;
+  color: white;
+  padding: 8px 16px;
+  font-size: var(--titleText);
+  font-weight: 500;
+  transition: background-color 0.5s, border-color 0.5s, color 0.5s,
+    background-image 0.5s;
+}
+.instructions-button-next:hover {
   background-color: rgb(var(--irrYellow));
+  color: black;
+  padding: 8px 16px;
+  font-size: var(--titleText);
+  font-weight: 500;
+}
+.instructions-button-next-strict {
+  background-color: #6d6d6d;
+  color: white;
+  padding: 8px 16px;
+  font-size: var(--titleText);
+  font-weight: 500;
+  transition: background-color 0.5s, border-color 0.5s, color 0.5s,
+    background-image 0.5s;
+}
+.instructions-button-next-strict2 {
+  background-color: rgb(var(--irrYellow));
+  color: black;
   padding: 8px 16px;
   font-size: var(--titleText);
   font-weight: 500;
@@ -685,6 +711,21 @@ select {
   width: 98px;
   display: flex;
   justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.5s, border-color 0.5s, color 0.5s,
+    background-image 0.5s;
+}
+.donate-item-category-icon-box2 {
+  height: 70px;
+  width: 98px;
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+  background-color: rgb(var(--irrYellow));
+}
+.donate-item-category-icon-box:hover {
+  background-color: rgb(var(--irrYellow));
 }
 .donate-item-category-font {
   font-size: var(--subsubtitleText);
@@ -702,6 +743,56 @@ select {
 .donate-items-scroller-box {
   position: absolute;
   bottom: 32px;
+}
+
+.donate-item-category-box-detailed {
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+}
+.donate-item-category-icon-box-detailed {
+  height: 70px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.5s, border-color 0.5s, color 0.5s,
+    background-image 0.5s;
+}
+.donate-item-category-icon-box-detailed:hover {
+  background-color: rgb(var(--irrYellow));
+}
+.donate-item-category-icon-box-detailed2 {
+  height: 70px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+  background-color: rgb(var(--irrYellow));
+}
+.donate-item-category-font {
+  font-size: var(--subsubtitleText);
+  text-align: center;
+  font-weight: 300;
+}
+.donate-item-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 48px;
+  background-color: rgb(var(--irrYellow));
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 4px;
+}
+.donate-item-finalchoice {
+  margin-left: 16px;
+  margin-right: 16px;
+  height: 26px;
+}
+.donate-item-finalchoice-font {
+  font-size: 14px;
+  font-weight: 600;
 }
 
 /* =============================== Language Selection =============================== */
