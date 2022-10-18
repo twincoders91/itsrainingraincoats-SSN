@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 
 import uploadpicture from "../assets/uploadpicture.svg";
 import ItemRequestCategoryButton from "./ItemRequestCategoryButton";
@@ -13,6 +14,12 @@ export default function ItemRequestAdd(props) {
     }
     return 0;
   });
+
+  useEffect(() => {
+    if (props.currentPage === "addItem") {
+      props.setHeaderTitle("Item Application");
+    }
+  }, [props.currentPage]);
 
   return (
     <div className="col">
@@ -31,6 +38,7 @@ export default function ItemRequestAdd(props) {
               category={element}
               setCurrentPage={props.setCurrentPage}
               setCategory={props.setCategory}
+              setPageHistory={props.setPageHistory}
             />
           );
         })}

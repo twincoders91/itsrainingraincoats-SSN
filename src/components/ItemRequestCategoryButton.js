@@ -6,6 +6,7 @@ export default function ItemRequestCategoryButton(props) {
   const handleButtonClick = () => {
     props.setCurrentPage("category");
     props.setCategory(props.category);
+    props.setPageHistory((prevState) => ["addItem", ...prevState]);
   };
 
   return (

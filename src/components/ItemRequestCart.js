@@ -1,16 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from "react";
+import React, { useEffect } from "react";
 import { ReactComponent as Add } from "../assets/add.svg";
 import ItemRequestCartItem from "./ItemRequestCartItem";
 
 export default function ItemRequestCart(props) {
   const handleAddAnotherButtonClick = () => {
     props.setCurrentPage("addItem");
+    props.setPageHistory((prevState) => ["cart", ...prevState]);
   };
 
   const handleProceedToDeliveryButtonClick = () => {
     props.setCurrentPage("delivery");
   };
+
+  useEffect(() => {
+    if (props.currentPage === "cart") {
+      props.setHeaderTitle("Item Cart");
+    }
+  }, [props.currentPage]);
 
   return (
     <div className="col">

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 //////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                      //
 //                                                                                      //
@@ -29,6 +30,12 @@ export default function ItemRequestDelivery(props) {
       buttonRef.current.classList.remove("button-active");
     }
   }, [deliveryMethod]);
+
+  useEffect(() => {
+    if (props.currentPage === "delivery") {
+      props.setHeaderTitle("Delivery Method");
+    }
+  }, [props.currentPage]);
 
   return (
     <div className="col">

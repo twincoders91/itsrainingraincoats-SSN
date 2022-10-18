@@ -96,6 +96,10 @@ select {
   display: none;
 }
 
+.cursor {
+  cursor: pointer;
+}
+
 /* ====================================================================== */
 /* ============================ Phone Styles ============================ */
 /* ====================================================================== */
@@ -105,6 +109,8 @@ select {
   }
 
   /* =============================== Header =============================== */
+
+  /* I think we should have a padding of 32px 16px 8px 16px for the main-header-container  */
   .main-header-container {
     position: relative;
     height: 64px;
@@ -158,6 +164,18 @@ select {
 
   .navBar--links:hover::before {
     width: 100%;
+  }
+
+  .header-container {
+    padding: 32px 16px 8px 16px;
+    background-color: rgb(var(--irrBlue));
+  }
+
+  .header-titleText {
+    font-size: var(--titleText);
+    font-weight: 700;
+
+    flex: 1;
   }
 
   /* =============================== Home =============================== */
