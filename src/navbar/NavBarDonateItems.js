@@ -6,8 +6,7 @@ import returnicon from "../assets/returnicon.png";
 
 const NavBarDonateItems = (props) => {
   const { donateCategoryPopulate, prevPage } = props;
-  console.log(donateCategoryPopulate.title);
-  console.log(prevPage);
+
   return (
     <div>
       <div className="main-header-container">

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBarDonateItems from "../navbar/NavBarDonateItems";
 import MapWest from "../components/MapWest";
 import DropMenuArea from "../components/DropMenuArea";
 import volunteerData from "../datasets/volunteerInfo";
 import MapNorth from "../components/MapNorth";
+import MapCentral from "../components/MapCentral";
+import MapEast from "../components/MapEast";
 
 const DonateLocation = (props) => {
   const {
@@ -32,14 +34,16 @@ const DonateLocation = (props) => {
     setDropoffClick(true);
     setLocationPick(event);
   };
-  console.log(dropoffClick);
 
   //========= FILTER Volunteer data by AREA ===========
   const filterDataToAreas = volunteerData.filter(
     (d, i) => d.area === areaSelection
   );
   console.log(filterDataToAreas);
-  console.log(prevPage);
+
+  useEffect(() => {
+    setPrevPage("/donate");
+  });
 
   return (
     <div>
@@ -75,10 +79,35 @@ const DonateLocation = (props) => {
             />
           ) : null}
           {areaSelection === "NORTH areas" ? (
-            <MapNorth filterDataToAreas={filterDataToAreas} />
+            <MapNorth
+              filterDataToAreas={filterDataToAreas}
+              handleDropoffClick={handleDropoffClick}
+              locationPick={locationPick}
+              dropoffClick={dropoffClick}
+              prevPage={prevPage}
+              setPrevPage={setPrevPage}
+            />
           ) : null}
-          {/* {areaSelection === "CENTRAL areas" ? null : null}
-          {areaSelection === "EAST areas" ? null : null} */}
+          {areaSelection === "CENTRAL areas" ? (
+            <MapCentral
+              filterDataToAreas={filterDataToAreas}
+              handleDropoffClick={handleDropoffClick}
+              locationPick={locationPick}
+              dropoffClick={dropoffClick}
+              prevPage={prevPage}
+              setPrevPage={setPrevPage}
+            />
+          ) : null}
+          {areaSelection === "EAST areas" ? (
+            <MapEast
+              filterDataToAreas={filterDataToAreas}
+              handleDropoffClick={handleDropoffClick}
+              locationPick={locationPick}
+              dropoffClick={dropoffClick}
+              prevPage={prevPage}
+              setPrevPage={setPrevPage}
+            />
+          ) : null}
         </div>
         {/* {dropoffClick ? <DropoffInformation /> : null} */}
       </div>

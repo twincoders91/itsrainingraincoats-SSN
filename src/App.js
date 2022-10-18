@@ -9,6 +9,7 @@ import CreateAccount from "./pages/CreateAccount";
 import ItemRequest from "./pages/ItemRequest";
 import DonateLocation from "./pages/DonateLocation";
 import DonateItems from "./pages/DonateItems";
+import DonateItems2 from "./pages/DonateItems2";
 
 function App() {
   const [openModalDonateInstructions, setopenModalDonateInstructions] =
@@ -17,13 +18,17 @@ function App() {
   const [prevPage, setPrevPage] = useState("");
   const [areaSelection, setAreaSelection] = useState(" - select area -");
   const [dropMenuClick, setDropMenuClick] = useState(false);
+  const [donateCategoryChoice, setDonateCategoryChoice] = useState("");
+  const [donateDetailedItemChoice, setDonateDetailedItemChoice] = useState("");
+  const [donateDetailedItemArray, setDonateDetailedItemArray] = useState("");
+  const [donateCart, setDonateCart] = useState([]);
+
   const handleAreaSelection = (event) => {
     setAreaSelection(event);
     setDropMenuClick(false);
   };
-  console.log(areaSelection);
-
-  console.log(prevPage);
+  console.log(donateDetailedItemArray);
+  console.log(donateCart);
 
   return (
     <div className="main-app-container">
@@ -70,6 +75,26 @@ function App() {
             <DonateItems
               donateCategoryPopulate={donateCategoryPopulate}
               prevPage={prevPage}
+              setPrevPage={setPrevPage}
+              setDonateCategoryChoice={setDonateCategoryChoice}
+              donateCategoryChoice={donateCategoryChoice}
+            />
+          }
+        />
+        <Route
+          path="/donate-items-2"
+          element={
+            <DonateItems2
+              donateCategoryPopulate={donateCategoryPopulate}
+              prevPage={prevPage}
+              setPrevPage={setPrevPage}
+              donateCategoryChoice={donateCategoryChoice}
+              setDonateDetailedItemChoice={setDonateDetailedItemChoice}
+              donateDetailedItemChoice={donateDetailedItemChoice}
+              setDonateDetailedItemArray={setDonateDetailedItemArray}
+              donateDetailedItemArray={donateDetailedItemArray}
+              setDonateCart={setDonateCart}
+              donateCart={donateCart}
             />
           }
         />

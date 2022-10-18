@@ -10,8 +10,8 @@ const ModalDonateInstructions = (props) => {
   const [setDonateInstruction3] = useState(false);
 
   const donateInstructionPages = () => {
-    console.log(openModalDonateInstructions);
-    console.log(donateInstruction2);
+    // console.log(openModalDonateInstructions);
+    // console.log(donateInstruction2);
     if (openModalDonateInstructions === true) {
       return (
         <Instruction1
