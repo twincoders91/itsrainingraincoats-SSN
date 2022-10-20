@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../navbar/NavBar";
 // import donateCategoryData from "../datasets/donateCat4";
 import infoicon from "../assets/infoicon.svg";
-
+import donateInNeed from "../datasets/donateInNeed";
 import NavBarDonate from "../navbar/NavBarDonate";
 import DonateInNeed from "../components/DonateInNeed";
 import Instruction3 from "../components/donateModals/Instruction3";
@@ -10,9 +10,12 @@ import DonateCat4 from "../components/DonateCat4";
 import ModalHowToDonateItems from "../components/donateModals/ModalHowToDonateItems";
 
 const Donate = (props) => {
-  const { setDonateCategoryPopulate, donateCategoryPopulate, setPrevPage } =
-    props;
-
+  const {
+    setDonateCategoryPopulate,
+    donateCategoryPopulate,
+    setPrevPage,
+    sortedByStatus,
+  } = props;
   const [openModalHowToDonate, setOpenModalHowToDonate] = useState(false);
   const [donateInstruction3, setDonateInstruction3] = useState(false);
 
@@ -54,7 +57,7 @@ const Donate = (props) => {
             />
           </div>
         </div>
-        <DonateInNeed />
+        <DonateInNeed sortedByStatus={sortedByStatus} />
         <Instruction3
           setDonateInstruction3={setDonateInstruction3}
           donateInstruction3={donateInstruction3}

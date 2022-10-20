@@ -3,6 +3,8 @@ import rashmi from "../assets/rashmi.svg";
 import randomman1 from "../assets/randomman1.jpeg";
 import randomwoman1 from "../assets/randomwoman1.jpeg";
 import randomwoman2 from "../assets/randomwoman2.jpeg";
+import randomwoman3 from "../assets/randomwoman3.jpeg";
+import randomwoman4 from "../assets/randomwoman4.jpeg";
 
 const volunteerData = [
   // WEST
@@ -53,7 +55,7 @@ const volunteerData = [
     image: randomwoman1,
     mobile: 91010101,
     area: "NORTH areas",
-    locationTown: "Seletar",
+    locationTown: "Sembawang",
     locationRoad: "North Road",
     availableTime: {
       weekdayFrom: "10:10",
@@ -94,6 +96,46 @@ const volunteerData = [
     mobile: 92020202,
     area: "NORTH areas",
     locationTown: "Punggol",
+    locationRoad: "North Shore Road",
+    availableTime: {
+      weekdayFrom: "11:11",
+      weekdayTo: "23:58",
+      weekendFrom: "08:00",
+      weekendTo: "17:00",
+    },
+    availableDay: {
+      weekdayFrom: "Monday",
+      weekdayTo: "Thursday",
+      weekendFrom: "Sunday",
+      weekendTo: "Sunday",
+    },
+  },
+  {
+    name: "Khloe Chanel",
+    image: randomwoman3,
+    mobile: 92020202,
+    area: "CENTRAL areas",
+    locationTown: "Bukit Timah",
+    locationRoad: "North Shore Road",
+    availableTime: {
+      weekdayFrom: "11:11",
+      weekdayTo: "23:58",
+      weekendFrom: "08:00",
+      weekendTo: "17:00",
+    },
+    availableDay: {
+      weekdayFrom: "Monday",
+      weekdayTo: "Thursday",
+      weekendFrom: "Sunday",
+      weekendTo: "Sunday",
+    },
+  },
+  {
+    name: "Jacey Coco",
+    image: randomwoman4,
+    mobile: 92020202,
+    area: "CENTRAL areas",
+    locationTown: "Kampong Glam",
     locationRoad: "North Shore Road",
     availableTime: {
       weekdayFrom: "11:11",

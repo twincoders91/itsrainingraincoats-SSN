@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <div className="navbar-container">
+    <div className="navbar-container mt-4">
       <div className="navbar-individual-boxes">
         <div className="navbar-icon-box">
           <Link to="/home">
@@ -17,11 +17,13 @@ const NavBar = () => {
       </div>
       <div className="navbar-individual-boxes">
         <div className="navbar-icon-box">
-          <img
-            src={applicationunfilled}
-            className="navbar-icon"
-            alt="navbaricons"
-          />
+          <Link to="/donate-application">
+            <img
+              src={applicationunfilled}
+              className="navbar-icon"
+              alt="navbaricons"
+            />
+          </Link>
         </div>
         <p className="navbar-fonts">Application</p>
       </div>

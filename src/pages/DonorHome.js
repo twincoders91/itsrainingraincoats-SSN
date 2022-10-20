@@ -1,12 +1,25 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import donateInNeed from "../datasets/donateInNeed";
 import donate from "../assets/donate.svg";
 import education from "../assets/education.svg";
 import love from "../assets/love.svg";
 import corporatepartnership from "../assets/corporatepartnership.svg";
 
 const DonorHome = (props) => {
-  const { handleModalOpen } = props;
+  const { handleModalOpen, setSortedByStatus } = props;
+
+  const runSorting = () => {
+    const sortByStatus = (items) =>
+      [...items].sort((itemA, itemB) =>
+        itemA.status.localeCompare(itemB.status)
+      );
+    const sortedOutput = sortByStatus(donateInNeed);
+    setSortedByStatus(sortedOutput);
+  };
+
+  useEffect(() => {
+    runSorting();
+  }, []);
 
   return (
     <div>

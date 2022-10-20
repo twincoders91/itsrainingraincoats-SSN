@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const DonateCategory = (props) => {
   const {
@@ -20,7 +21,8 @@ const DonateCategory = (props) => {
             className="donate-item-category-individual-box mt-2 "
             key={item.name + Math.random() * 1000}
           >
-            <div
+            <Link
+              to="/donate-items-2"
               className={
                 donateCategoryChoice === item.name
                   ? `donate-item-category-icon-box2  bs`
@@ -28,8 +30,10 @@ const DonateCategory = (props) => {
               }
               onClick={() => handleSetRequireSelection(item.name)}
             >
-              <img src={item.image} alt="" />
-            </div>
+              <div>
+                <img src={item.image} alt="" />
+              </div>
+            </Link>
             <span className="donate-item-category-font mt-1">{item.name}</span>
           </div>
         );

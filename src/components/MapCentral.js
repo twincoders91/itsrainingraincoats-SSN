@@ -1,7 +1,8 @@
 import React from "react";
-import mapWest from "../assets/mapWest.svg";
+
 import pointerJurongwest from "../assets/pointerJurongwest.svg";
 import DropoffInformation from "./DropoffInformation";
+import mapcentral from "../assets/mapcentral.png";
 
 const MapCentral = ({
   filterDataToAreas,
@@ -23,17 +24,19 @@ const MapCentral = ({
         </span>
       </div>
       <div className="map-container">
-        <img src={mapWest} alt="mapimage" />
+        <img src={mapcentral} alt="mapimage" className="map" />
         <div className="location-pointers">
           <img
             src={pointerJurongwest}
-            onClick={() => handleDropoffClick("Seletar")}
+            onClick={() => handleDropoffClick("Bukit Timah")}
             alt="locationpin"
+            className="location-pointers3"
           />
           <img
             src={pointerJurongwest}
             alt="locationpin"
-            onClick={() => handleDropoffClick("Watten Estate")}
+            onClick={() => handleDropoffClick("Kampong Glam")}
+            className="location-pointers4"
           />
         </div>
       </div>

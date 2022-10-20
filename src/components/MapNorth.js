@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import mapWest from "../assets/mapWest.svg";
+import React from "react";
+
 import pointerJurongwest from "../assets/pointerJurongwest.svg";
 import DropoffInformation from "./DropoffInformation";
+import mapnorth from "../assets/mapnorth.png";
 
 const MapNorth = ({
   filterDataToAreas,
@@ -23,17 +24,19 @@ const MapNorth = ({
         </span>
       </div>
       <div className="map-container">
-        <img src={mapWest} alt="mapimage" />
+        <img src={mapnorth} alt="mapimage" className="map" />
         <div className="location-pointers">
           <img
             src={pointerJurongwest}
-            onClick={() => handleDropoffClick("Seletar")}
+            onClick={() => handleDropoffClick("Sembawang")}
             alt="locationpin"
+            className="location-pointers5"
           />
           <img
             src={pointerJurongwest}
             alt="locationpin"
-            onClick={() => handleDropoffClick("Watten Estate")}
+            onClick={() => handleDropoffClick("Seletar")}
+            className="location-pointers6"
           />
         </div>
       </div>

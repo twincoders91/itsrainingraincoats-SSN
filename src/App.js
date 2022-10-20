@@ -10,6 +10,8 @@ import ItemRequest from "./pages/ItemRequest";
 import DonateLocation from "./pages/DonateLocation";
 import DonateItems from "./pages/DonateItems";
 import DonateItems2 from "./pages/DonateItems2";
+import DonateConfirmation from "./pages/DonateConfirmation";
+import DonateApplication from "./pages/DonateApplication";
 
 function App() {
   const [openModalDonateInstructions, setopenModalDonateInstructions] =
@@ -22,6 +24,7 @@ function App() {
   const [donateDetailedItemChoice, setDonateDetailedItemChoice] = useState("");
   const [donateDetailedItemArray, setDonateDetailedItemArray] = useState("");
   const [donateCart, setDonateCart] = useState([]);
+  const [sortedByStatus, setSortedByStatus] = useState();
 
   const handleAreaSelection = (event) => {
     setAreaSelection(event);
@@ -40,6 +43,7 @@ function App() {
             <Home
               openModalDonateInstructions={openModalDonateInstructions}
               setopenModalDonateInstructions={setopenModalDonateInstructions}
+              setSortedByStatus={setSortedByStatus}
             />
           }
         />
@@ -52,6 +56,7 @@ function App() {
               donateCategoryPopulate={donateCategoryPopulate}
               setDonateCategoryPopulate={setDonateCategoryPopulate}
               setPrevPage={setPrevPage}
+              sortedByStatus={sortedByStatus}
             />
           }
         />
@@ -95,6 +100,17 @@ function App() {
               donateDetailedItemArray={donateDetailedItemArray}
               setDonateCart={setDonateCart}
               donateCart={donateCart}
+            />
+          }
+        />
+
+        <Route path="/donate-confirmation" element={<DonateConfirmation />} />
+        <Route
+          path="/donate-application"
+          element={
+            <DonateApplication
+              donateCart={donateCart}
+              setDonateCart={setDonateCart}
             />
           }
         />

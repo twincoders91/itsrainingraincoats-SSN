@@ -18,6 +18,7 @@ const DonateItems2 = ({
 }) => {
   const [closeCategoryDetailed, setCloseCategoryDetailed] = useState(false);
   const [clickToDescription, setClickToDescription] = useState(false);
+
   const handleClickToDescription = () => {
     setCloseCategoryDetailed(true);
     setClickToDescription(true);
@@ -64,6 +65,7 @@ const DonateItems2 = ({
             donateDetailedItemArray={donateDetailedItemArray}
             setDonateCart={setDonateCart}
             donateCart={donateCart}
+            donateCategoryChoice={donateCategoryChoice}
           />
         </div>
       ) : null}

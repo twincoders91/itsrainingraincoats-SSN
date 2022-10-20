@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../Header";
 import NavBar from "../navbar/NavBar";
 
 import ModalDonateInstructions from "../components/donateModals/ModalDonateInstructions";
 import DonorHome from "./DonorHome";
-import WorkerHome from "./WorkerHome";
 
 const Home = (props) => {
-  const { openModalDonateInstructions, setopenModalDonateInstructions } = props;
+  const {
+    openModalDonateInstructions,
+    setopenModalDonateInstructions,
+    setSortedByStatus,
+  } = props;
 
   const handleModalOpen = () => {
     setopenModalDonateInstructions(true);
@@ -19,7 +22,10 @@ const Home = (props) => {
         <div className="main-header-container">
           <Header />
         </div>
-        <DonorHome handleModalOpen={handleModalOpen} />
+        <DonorHome
+          handleModalOpen={handleModalOpen}
+          setSortedByStatus={setSortedByStatus}
+        />
         {/* <WorkerHome /> */}
         <div className="main-navbar">
           <NavBar />

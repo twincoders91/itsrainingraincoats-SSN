@@ -29,11 +29,13 @@ const MapEast = ({
             src={pointerJurongwest}
             onClick={() => handleDropoffClick("Seletar")}
             alt="locationpin"
+            className="location-pointers1"
           />
           <img
             src={pointerJurongwest}
             alt="locationpin"
             onClick={() => handleDropoffClick("Watten Estate")}
+            className="location-pointers2"
           />
         </div>
       </div>
