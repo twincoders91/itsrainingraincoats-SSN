@@ -43,7 +43,8 @@ const DonateLocation = (props) => {
 
   useEffect(() => {
     setPrevPage("/donate");
-  });
+    setDropoffClick(false);
+  }, [areaSelection]);
 
   return (
     <div>

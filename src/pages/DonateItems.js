@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import DonateCategory from "../components/DonateCategory";
 import donateCategory from "../datasets/donateCategory";
 import NavBarDonateItems from "../navbar/NavBarDonateItems";
-import { Link } from "react-router-dom";
 
 import pagecontrols2 from "../assets/pagecontrols2.svg";
 
@@ -47,21 +46,6 @@ const DonateItems = ({
           donateCategoryChoice={donateCategoryChoice}
         />
         <div className="donate-items-button-container">
-          <div className="donate-items-Button-box">
-            <Link to="/donate-items-2">
-              <button
-                className={
-                  requireSelection
-                    ? `instructions-button-next-strict2`
-                    : `instructions-button-next-strict`
-                }
-                onClick={() => setDonateSteps(2)}
-                disabled={!requireSelection ? true : false}
-              >
-                Next
-              </button>
-            </Link>
-          </div>
           <div className="donate-items-scroller-box">
             <img src={pagecontrols2} alt="pagescroller" />
           </div>

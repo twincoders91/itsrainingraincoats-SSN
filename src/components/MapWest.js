@@ -11,7 +11,7 @@ const MapWest = ({
   setPrevPage,
 }) => {
   return (
-    <div>
+    <div className="donate-location-container">
       <div className="donate-location-fonts-box ">
         <span className="donate-location-font2 mt-4">
           Choose a drop-off point
@@ -28,11 +28,13 @@ const MapWest = ({
             src={pointerJurongwest}
             onClick={() => handleDropoffClick("Jurong West")}
             alt="locationpin"
+            className="location-pointers1"
           />
           <img
             src={pointerJurongwest}
             alt="locationpin"
             onClick={() => handleDropoffClick("Watten Estate")}
+            className="location-pointers2"
           />
         </div>
       </div>

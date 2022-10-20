@@ -53,26 +53,27 @@ const DonateItems2Description = (props) => {
     setUploadPhoto(true);
     console.log("click");
   };
-  let commentsInput = null;
+
   const handleComments = (event) => {
-    commentsInput = event.target.value;
-    console.log(commentsInput);
+    setComments(event.target.value);
   };
-  const handleSubmitApplication = () => {
-    setComments(commentsInput);
+  // const handleSubmitApplication = () => {
+  //   setComments(commentsInput);
+  // };
+
+  //===== creating donate Application array by populating user's input =====
+  const donationApplicationArray = {
+    item: donateDetailedItemArray.name,
+    image: donateImage,
+    quantity: donateQuantity,
+    condition: donateCondition,
+    comments: comments,
   };
 
-  const donationApplicationArray = [
-    {
-      item: donateDetailedItemArray.name,
-      image: donateImage,
-      quantity: donateQuantity,
-      condition: donateCondition,
-    },
-  ];
   const addToCart = () => {
     setDonateCart([...donateCart, donationApplicationArray]);
   };
+  console.log(donateCart);
 
   return (
     <div>
@@ -170,7 +171,10 @@ const DonateItems2Description = (props) => {
               <img src={infoicon} alt="" className="info-icon"></img>
             </div>
             {uploadPhoto ? (
-              <UploadDonatePhoto setDonateImage={setDonateImage} />
+              <UploadDonatePhoto
+                donateDetailedItemArray={donateDetailedItemArray}
+                setDonateImage={setDonateImage}
+              />
             ) : (
               <></>
             )}
@@ -192,35 +196,30 @@ const DonateItems2Description = (props) => {
                 onChange={handleComments}
               ></input>
             </div>
-            <div className="submission-box">
-              <Link to="/donate-items">
+            <div className="submission-box mt-4">
+              <Link to="/donate-confirmation">
                 <button
-                  className="donate-itemdescription-buttons mr-2 mt-4"
+                  className={
+                    (donateQuantityButton1 || donateQuantityButton2) &&
+                    (donateConditionButton2 ||
+                      donateConditionButton1 ||
+                      donateConditionButton3)
+                      ? `donate-itemdescription-buttons-active`
+                      : `donate-itemdescription-buttons`
+                  }
+                  disabled={
+                    !(donateQuantityButton1 || donateQuantityButton2) &&
+                    (donateConditionButton2 ||
+                      donateConditionButton1 ||
+                      donateConditionButton3)
+                      ? true
+                      : false
+                  }
                   onClick={() => addToCart()}
                 >
-                  Add Another
+                  Submit Application
                 </button>
               </Link>
-              <button
-                className={
-                  (donateQuantityButton1 || donateQuantityButton2) &&
-                  (donateConditionButton2 ||
-                    donateConditionButton1 ||
-                    donateConditionButton3)
-                    ? `donate-itemdescription-buttons-active`
-                    : `donate-itemdescription-buttons`
-                }
-                disabled={
-                  !(donateQuantityButton1 || donateQuantityButton2) &&
-                  (donateConditionButton2 ||
-                    donateConditionButton1 ||
-                    donateConditionButton3)
-                    ? true
-                    : false
-                }
-              >
-                Submit Application
-              </button>
             </div>
           </div>
 

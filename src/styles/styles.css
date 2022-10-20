@@ -192,6 +192,7 @@ select {
   }
   .home-container {
     padding: 5%;
+    margin-bottom: 120px;
   }
   .item-application-container {
     display: flex;
@@ -207,15 +208,16 @@ select {
     align-items: center;
     height: 75px;
     width: 100%;
-    background-color: rgb(255, 215, 0);
+    background-color: rgb(var(--irrYellow));
     border-radius: 5px;
     box-shadow: 0px 2px 5px rgba(104, 104, 104, 0.3);
     padding-bottom: 8%;
     padding-top: 8%;
     margin-bottom: 3%;
+    cursor: pointer;
   }
   .item-application-box:hover {
-    background-color: rgb(255, 230, 88);
+    background-color: gold;
   }
   .donate-application-icon {
     height: 42px;
@@ -249,6 +251,12 @@ select {
     margin-bottom: 8%;
     height: 70px;
     width: 98px;
+    cursor: pointer;
+    transition: background-color 0.5s, border-color 0.5s, color 0.5s,
+      background-image 0.5s;
+  }
+  .activity-icon-box:hover {
+    background-color: rgb(var(--irrYellow));
   }
   .activity-icon {
     transform: scale(1.8);
@@ -260,14 +268,11 @@ select {
 /* =============================== Navbar =============================== */
 .navbar-container {
   display: flex;
-  position: absolute;
-  padding-top: 8px;
-  padding-bottom: 5px;
-  bottom: 0px;
   width: 360px;
   justify-content: center;
   align-items: center;
-  /* background-color: rgb(255, 215, 0); */
+  margin-bottom: 14px;
+  /* background-color: rgb(111, 111, 111); */
 }
 .navbar-individual-boxes {
   display: flex;
@@ -281,14 +286,25 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .navbar-icon {
   height: 30px;
   margin-bottom: 5px;
+  transition: background-color 0.5s, border-color 0.5s, color 0.5s,
+    background-image 0.5s;
+}
+.navbar-icon:hover {
+  transform: scale(1.1);
 }
 .navbar-icon-home {
   height: 30px;
   margin-bottom: 0px;
+  transition: background-color 0.5s, border-color 0.5s, color 0.5s,
+    background-image 0.5s;
+}
+.navbar-icon-home:hover {
+  transform: scale(1.1);
 }
 .navbar-fonts {
   font-size: 0.8rem;
@@ -502,7 +518,14 @@ select {
   position: relative;
   height: 100%;
   display: flex;
-  justify-content: left;
+  align-items: center;
+  background: #c3ecff;
+}
+.Navbar-donate-application {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
   background: #c3ecff;
 }
@@ -512,6 +535,11 @@ select {
   align-items: center;
   margin-left: 27.33px;
 }
+.donate-submission-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .return-icon {
   width: 8px;
   height: 13.34px;
@@ -519,6 +547,12 @@ select {
 }
 .donate-header-font {
   font-size: var(--titleText);
+}
+.infoicon {
+  cursor: pointer;
+}
+.infoicon:hover {
+  transform: scale(1.1);
 }
 /* ================================= Donate (body) ================================= */
 .donate-font1 {
@@ -543,6 +577,13 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.5s, border-color 0.5s, color 0.5s,
+    background-image 0.5s;
+  border-radius: 4px;
+}
+.donate-choice-boxes:hover {
+  background-color: rgb(var(--irrYellow));
 }
 .donate-individual-categories-box {
   display: flex;
@@ -567,40 +608,55 @@ select {
   align-items: center;
 }
 .inNeed-container {
-  grid-gap: 16px;
-  display: grid;
-  grid-template-columns: repeat(4, 70px);
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 14px;
+  border-radius: 8px;
+  /* grid-gap: 16px; */
+  /* display: grid; */
+  /* grid-template-columns: repeat(4, 70px); */
   justify-content: center;
+}
+.inNeed--header {
+  display: flex;
+  justify-content: space-between;
 }
 .inNeed-mainbox {
+  position: relative;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
 }
 .inNeed-icon-boxes {
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 70px;
   height: 70px;
 }
 .inNeed-icon-image {
-  position: absolute;
-  top: 10%;
-  height: 35px;
+  height: 30px;
+}
+.inNeed-individual-boxes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
 }
 .statusbox {
   position: absolute;
   font-size: var(--subsubtitleText);
   font-weight: 300;
-  width: 62px;
-  height: 20px;
-  border-radius: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
   text-align: center;
-  bottom: 4px;
+  right: 32px;
 }
 .statusLow-color {
-  background-color: red;
+  background-color: #ff6656;
 }
 .statusModerate-color {
   background-color: rgb(var(--irrYellow));
@@ -625,6 +681,67 @@ select {
   font-size: var(--subtitleText);
   font-weight: 700;
 }
+.donate-location-container {
+  /* position: relative; */
+}
+.map-container {
+  position: relative;
+  z-index: 0;
+}
+.location-pointers1 {
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  cursor: pointer;
+}
+.location-pointers1:hover {
+  transform: scale(1.2);
+}
+.location-pointers2 {
+  position: absolute;
+  top: 40px;
+  left: 120px;
+  cursor: pointer;
+}
+.location-pointers2:hover {
+  transform: scale(1.2);
+}
+.location-pointers3 {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  cursor: pointer;
+}
+.location-pointers3:hover {
+  transform: scale(1.2);
+}
+.location-pointers4 {
+  position: absolute;
+  top: 90px;
+  left: 220px;
+  cursor: pointer;
+}
+.location-pointers4:hover {
+  transform: scale(1.2);
+}
+.location-pointers5 {
+  position: absolute;
+  top: 0px;
+  left: 80px;
+  cursor: pointer;
+}
+.location-pointers5:hover {
+  transform: scale(1.2);
+}
+.location-pointers6 {
+  position: absolute;
+  top: 120px;
+  left: 250px;
+  cursor: pointer;
+}
+.location-pointers6:hover {
+  transform: scale(1.2);
+}
 .donate-location-menu {
   position: relative;
   border: 1px solid black;
@@ -633,7 +750,9 @@ select {
   align-items: center;
   width: 328px;
   height: 56px;
+  cursor: pointer;
 }
+
 .donate-location-font3 {
   font-size: var(--subtitleText);
   font-weight: 300;
@@ -652,11 +771,25 @@ select {
   border-radius: 4px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
     0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+  z-index: +1;
+  cursor: pointer;
+}
+.donate-location-dropmenu:hover {
+  background-color: #ffffff;
 }
 .donate-location-font4 {
   font-size: var(--subtitleText);
   font-weight: 300;
   color: black;
+}
+.map {
+  width: 328px;
+  height: 160px;
+  border-radius: 8px;
+}
+.donate-location-font4:hover {
+  font-weight: 400;
+  color: rgb(201, 201, 201);
 }
 .volunteer-profile-box {
   display: flex;
@@ -725,23 +858,30 @@ select {
   flex-direction: column;
   align-items: center;
 }
+
 .donate-item-category-icon-box {
   height: 70px;
   width: 98px;
   display: flex;
   justify-content: center;
+  align-items: center;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.5s, border-color 0.5s, color 0.5s,
     background-image 0.5s;
+  cursor: pointer;
 }
 .donate-item-category-icon-box2 {
   height: 70px;
   width: 98px;
   display: flex;
   justify-content: center;
+  align-items: center;
   border-radius: 4px;
   background-color: rgb(var(--irrYellow));
+  cursor: pointer;
+  transition: background-color 0.5s, border-color 0.5s, color 0.5s,
+    background-image 0.5s;
 }
 .donate-item-category-icon-box:hover {
   background-color: rgb(var(--irrYellow));
@@ -755,6 +895,10 @@ select {
   align-items: center;
   justify-content: center;
 }
+.donate-items-Button-container {
+  display: flex;
+  justify-content: center;
+}
 .donate-items-Button-box {
   position: absolute;
   bottom: 74px;
@@ -762,8 +906,6 @@ select {
 .donate-items-scroller-box {
   position: absolute;
   bottom: 32px;
-}
-.donate-items-scroller-box-nonabsolute {
 }
 
 .donate-item-category-box-detailed {
@@ -779,9 +921,11 @@ select {
   border-radius: 4px;
   transition: background-color 0.5s, border-color 0.5s, color 0.5s,
     background-image 0.5s;
+  cursor: pointer;
 }
 .donate-item-category-icon-box-detailed:hover {
   background-color: rgb(var(--irrYellow));
+  cursor: pointer;
 }
 .donate-item-category-icon-box-detailed2 {
   height: 70px;
@@ -819,6 +963,10 @@ select {
   display: flex;
   align-items: center;
   grid-template-columns: repeat(2);
+}
+.submission-box {
+  display: flex;
+  justify-content: center;
 }
 .donate-itemdescription-buttons {
   padding: 8px 16px;
@@ -861,6 +1009,89 @@ select {
 }
 .uploaded-image {
   height: 70px;
+}
+/* =============================== Donate Submission =============================== */
+.submission-bottom-body {
+  display: flex;
+  flex-direction: column;
+  margin-top: 64px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.view-application-button {
+  padding: 8px 16px;
+  background-color: rgb(var(--irrYellow));
+}
+.view-application-button:hover {
+  background-color: gold;
+}
+.donate-another-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 284px;
+}
+.application-delete {
+  cursor: pointer;
+}
+.application-delete:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+/* =============================== Donate Application =============================== */
+
+.donate-application-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+}
+.donate-application-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+}
+.donate-application-card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.donate-application-card-middle-row {
+  display: flex;
+  flex-direction: row;
+}
+.donate-application-status-box {
+  display: flex;
+  flex-direction: row;
+}
+.application-image-box {
+  width: 48px;
+  height: 48px;
+}
+.application-image-icon {
+  border-radius: 4px;
+  width: 100%;
+}
+.application-item-description-box {
+  display: flex;
+  flex-direction: column;
+}
+.donate-application-card-bottom-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.application-delete {
+  color: #428bc1;
+}
+.schedule-drop-off {
+  padding: 6px 16px;
+  border-radius: 4px;
+}
+.navbar--absolute {
+  position: fixed;
+  bottom: 0px;
 }
 /* =============================== Language Selection =============================== */
 .language-option-button {
