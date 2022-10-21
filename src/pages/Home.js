@@ -4,12 +4,14 @@ import NavBar from "../navbar/NavBar";
 
 import ModalDonateInstructions from "../components/donateModals/ModalDonateInstructions";
 import DonorHome from "./DonorHome";
+import WorkerHome from "./WorkerHome";
 
 const Home = (props) => {
   const {
     openModalDonateInstructions,
     setopenModalDonateInstructions,
     setSortedByStatus,
+    persona,
   } = props;
 
   const handleModalOpen = () => {
@@ -22,11 +24,13 @@ const Home = (props) => {
         <div className="main-header-container">
           <Header />
         </div>
-        <DonorHome
-          handleModalOpen={handleModalOpen}
-          setSortedByStatus={setSortedByStatus}
-        />
-        {/* <WorkerHome /> */}
+        {persona === "donor" && (
+          <DonorHome
+            handleModalOpen={handleModalOpen}
+            setSortedByStatus={setSortedByStatus}
+          />
+        )}
+        {persona === "worker" && <WorkerHome />}
         <div className="main-navbar">
           <NavBar />
         </div>

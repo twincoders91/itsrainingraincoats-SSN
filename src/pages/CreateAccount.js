@@ -6,8 +6,10 @@ import CreateAccountWorker1 from "../components/CreateAccountWorker1";
 import CreateAccountWorker2 from "../components/CreateAccountWorker2";
 import CreateAccountWorker3 from "../components/CreateAccountWorker3";
 import CreateAccountWorker4 from "../components/CreateAccountWorker4";
+import CreateAccountDonor1 from "../components/CreateAccountDonor1";
 
-export default function CreateAccount() {
+export default function CreateAccount(props) {
+  const { setPersona } = props;
   const [currentPage, setCurrentPage] = useState("selection");
 
   return (
@@ -17,7 +19,10 @@ export default function CreateAccount() {
       </div>
       <div className="main-body-container">
         {currentPage === "selection" && (
-          <CreateAccountSelection setCurrentPage={setCurrentPage} />
+          <CreateAccountSelection
+            setCurrentPage={setCurrentPage}
+            setPersona={setPersona}
+          />
         )}
         {currentPage === "worker1" && (
           <CreateAccountWorker1 setCurrentPage={setCurrentPage} />
@@ -31,6 +36,7 @@ export default function CreateAccount() {
         {currentPage === "worker4" && (
           <CreateAccountWorker4 setCurrentPage={setCurrentPage} />
         )}
+        {currentPage === "donor1" && <CreateAccountDonor1 setCurrentPage />}
       </div>
     </>
   );
