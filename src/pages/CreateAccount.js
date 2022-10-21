@@ -7,15 +7,19 @@ import CreateAccountWorker2 from "../components/CreateAccountWorker2";
 import CreateAccountWorker3 from "../components/CreateAccountWorker3";
 import CreateAccountWorker4 from "../components/CreateAccountWorker4";
 import CreateAccountDonor1 from "../components/CreateAccountDonor1";
+import NavBarCreateAccount from "../navbar/NavBarCreateAccount";
 
 export default function CreateAccount(props) {
-  const { setPersona } = props;
+  const { setPersona, setName } = props;
   const [currentPage, setCurrentPage] = useState("selection");
 
   return (
     <>
       <div className="main-header-container">
-        <Header />
+        <NavBarCreateAccount
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
       <div className="main-body-container">
         {currentPage === "selection" && (
@@ -28,7 +32,10 @@ export default function CreateAccount(props) {
           <CreateAccountWorker1 setCurrentPage={setCurrentPage} />
         )}
         {currentPage === "worker2" && (
-          <CreateAccountWorker2 setCurrentPage={setCurrentPage} />
+          <CreateAccountWorker2
+            setCurrentPage={setCurrentPage}
+            setName={setName}
+          />
         )}
         {currentPage === "worker3" && (
           <CreateAccountWorker3 setCurrentPage={setCurrentPage} />
@@ -36,7 +43,9 @@ export default function CreateAccount(props) {
         {currentPage === "worker4" && (
           <CreateAccountWorker4 setCurrentPage={setCurrentPage} />
         )}
-        {currentPage === "donor1" && <CreateAccountDonor1 setCurrentPage />}
+        {currentPage === "donor1" && (
+          <CreateAccountDonor1 setCurrentPage setName={setName} />
+        )}
       </div>
     </>
   );

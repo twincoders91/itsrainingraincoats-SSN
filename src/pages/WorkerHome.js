@@ -5,12 +5,13 @@ import calendarWorker from "../assets/calendarWorker.svg";
 import lesson from "../assets/lesson.svg";
 import medical from "../assets/medical.svg";
 
-const WorkerHome = () => {
+const WorkerHome = (props) => {
+  const { name } = props;
   return (
     <div>
       <div className="home-container">
         <div className="home-top-section">
-          <h1 className="home-h1-22">Hi, Abdur</h1>
+          <h1 className="home-h1-22">{`Hi, ${name}`}</h1>
           <div className="item-application-container">
             <div
               className="item-application-box ml-2 mr-2"

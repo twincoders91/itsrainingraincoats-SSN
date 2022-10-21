@@ -12,6 +12,7 @@ const Home = (props) => {
     setopenModalDonateInstructions,
     setSortedByStatus,
     persona,
+    name,
   } = props;
 
   const handleModalOpen = () => {
@@ -28,9 +29,10 @@ const Home = (props) => {
           <DonorHome
             handleModalOpen={handleModalOpen}
             setSortedByStatus={setSortedByStatus}
+            name={name}
           />
         )}
-        {persona === "worker" && <WorkerHome />}
+        {persona === "worker" && <WorkerHome name={name} />}
         <div className="main-navbar">
           <NavBar />
         </div>

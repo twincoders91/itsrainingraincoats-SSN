@@ -26,6 +26,7 @@ function App() {
   const [donateCart, setDonateCart] = useState([]);
   const [sortedByStatus, setSortedByStatus] = useState();
   const [persona, setPersona] = useState("donor");
+  const [name, setName] = useState("");
 
   const handleAreaSelection = (event) => {
     setAreaSelection(event);
@@ -33,6 +34,8 @@ function App() {
   };
   console.log(donateDetailedItemArray);
   console.log(donateCart);
+
+  console.log(name);
 
   return (
     <div className="main-app-container">
@@ -46,6 +49,7 @@ function App() {
               setopenModalDonateInstructions={setopenModalDonateInstructions}
               setSortedByStatus={setSortedByStatus}
               persona={persona}
+              name={name}
             />
           }
         />
@@ -120,7 +124,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route
           path="/create-account"
-          element={<CreateAccount setPersona={setPersona} />}
+          element={<CreateAccount setPersona={setPersona} setName={setName} />}
         />
         <Route path="/item-request" element={<ItemRequest />} />
       </Routes>

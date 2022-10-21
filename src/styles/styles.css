@@ -586,6 +586,11 @@ select {
   width: 8px;
   height: 13.34px;
   margin-right: 20.67px;
+  cursor: pointer;
+}
+.return-icon:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
 }
 .donate-header-font {
   font-size: var(--titleText);
@@ -1303,7 +1308,36 @@ select {
 
   background-color: rgb(var(--irrYellow));
 }
-
+/* =============================== Create Account (navbar) =============================== */
+.Navbar-createaccount-center {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #c3ecff;
+}
+.createaccount-header-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+.createaccount-header-box-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  margin-left: 27.33px;
+}
+.cross-button {
+  position: absolute;
+  height: 16px;
+  right: 16px;
+}
 /* =============================== Item Request =============================== */
 .request-body-container {
   padding: 16px;
