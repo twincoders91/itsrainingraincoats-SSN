@@ -13,6 +13,17 @@ export default function ItemRequestCartItem(props) {
     }
   };
 
+  const handleEdit = () => {
+    const array = [...props.selectedItems];
+    array.splice(props.index, 1);
+    props.setSelectedItems(array);
+    props.setPageHistory((prevState) => {
+      return ["addItem", ...prevState];
+    });
+    props.setCurrentPage("category");
+    props.setCategory(props.category);
+  };
+
   return (
     <div className="request-item-card mb-2">
       <div className="row request-item-card-details justify-sb mb-1">
@@ -23,7 +34,10 @@ export default function ItemRequestCartItem(props) {
         >
           {capitaliseFirstLetter(props.name)}
         </span>
-        <button className="row request-item-card-edit-button">
+        <button
+          className="row request-item-card-edit-button"
+          onClick={handleEdit}
+        >
           <img src={fill} alt="" />
         </button>
       </div>

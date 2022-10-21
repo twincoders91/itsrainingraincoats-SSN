@@ -23,13 +23,18 @@ export default function ItemRequestCategory(props) {
       return;
     }
     props.setCurrentPage("cart");
-    props.setPageHistory((prevState) => ["category", ...prevState]);
+    props.setPageHistory(["home"]);
     props.setSelectedItems((prevState) => {
       return [
         ...prevState,
-        ...items.filter((element) => element.name === selectedItem),
+
+        {
+          ...items.filter((element) => element.name === selectedItem)[0],
+          category: props.category,
+        },
       ];
     });
+    props.setCategory("");
   };
   useEffect(() => {
     if (selectedItem) {

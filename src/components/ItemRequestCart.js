@@ -11,6 +11,7 @@ export default function ItemRequestCart(props) {
 
   const handleProceedToDeliveryButtonClick = () => {
     props.setCurrentPage("delivery");
+    props.setPageHistory((prevState) => ["cart", ...prevState]);
   };
 
   useEffect(() => {
@@ -40,6 +41,8 @@ export default function ItemRequestCart(props) {
               selectedItems={props.selectedItems}
               setSelectedItems={props.setSelectedItems}
               setCurrentPage={props.setCurrentPage}
+              setPageHistory={props.setPageHistory}
+              setCategory={props.setCategory}
             />
           );
         })}

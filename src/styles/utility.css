@@ -1,3 +1,11 @@
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
 .col {
   display: flex;
   flex-direction: column;
@@ -14,6 +22,10 @@
 
 .justify-sb {
   justify-content: space-between !important;
+}
+
+.justify-sa {
+  justify-content: space-around !important;
 }
 
 .grid {

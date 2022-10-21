@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
 import { capitaliseFirstLetter } from "./utility";
 import { ReactComponent as Left } from "../assets/left.svg";
@@ -12,20 +11,22 @@ export default function HeaderTopNavigation(props) {
     pageHistory.splice(0, 1);
     props.setPageHistory(pageHistory);
   };
+  const handleHomeClick = () => {
+    props.setDisplayModal(true);
+  };
+
   return (
     <div className="row header-container">
-      {props.pageHistory[0] === "home" ? (
-        <NavLink to="/home" className="row">
-          <Left className="cursor" />
-        </NavLink>
-      ) : (
+      {props.pageHistory[0] === "home" ? null : (
         <Left className="cursor" onClick={handleBackClick} />
       )}
       <p className="header-titleText">{capitaliseFirstLetter(props.text)}</p>
       {props.home && (
-        <NavLink to="/home" className="row">
-          <Home className="cursor" style={{ alignSelf: "center" }} />
-        </NavLink>
+        <Home
+          className="cursor"
+          style={{ alignSelf: "center" }}
+          onClick={handleHomeClick}
+        />
       )}
     </div>
   );

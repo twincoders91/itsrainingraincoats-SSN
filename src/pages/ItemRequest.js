@@ -8,6 +8,7 @@ import ItemRequestDelivery from "../components/ItemRequestDelivery";
 import ItemRequestConfirmation from "../components/ItemRequestConfirmation";
 import ItemRequestSuccess from "../components/ItemRequestSuccess";
 import HeaderTopNavigation from "../components/HeaderTopNavigation";
+import ItemRequestModals from "../components/ItemRequestModals";
 
 export default function ItemRequest() {
   const [currentPage, setCurrentPage] = useState("addItem");
@@ -16,6 +17,7 @@ export default function ItemRequest() {
   const [deliveryMethod, setDeliveryMethod] = useState("");
   const [headerTitle, setHeaderTitle] = useState("item application");
   const [pageHistory, setPageHistory] = useState(["home"]);
+  const [displayModal, setDisplayModal] = useState(false);
 
   return (
     <>
@@ -25,8 +27,10 @@ export default function ItemRequest() {
         setCurrentPage={setCurrentPage}
         pageHistory={pageHistory}
         setPageHistory={setPageHistory}
+        setDisplayModal={setDisplayModal}
         home={true}
       />
+      {JSON.stringify(pageHistory)}
       <div className="request-body-container">
         {currentPage === "addItem" && (
           <ItemRequestAdd
@@ -43,6 +47,8 @@ export default function ItemRequest() {
             {...items[category]}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
+            category={category}
+            setCategory={setCategory}
             setSelectedItems={setSelectedItems}
             setHeaderTitle={setHeaderTitle}
             setPageHistory={setPageHistory}
@@ -53,6 +59,7 @@ export default function ItemRequest() {
             items={items}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
+            setCategory={setCategory}
             selectedItems={selectedItems}
             setSelectedItems={setSelectedItems}
             setHeaderTitle={setHeaderTitle}
@@ -67,6 +74,7 @@ export default function ItemRequest() {
             setSelectedItems={setSelectedItems}
             setDeliveryMethod={setDeliveryMethod}
             setHeaderTitle={setHeaderTitle}
+            setPageHistory={setPageHistory}
           />
         )}
         {currentPage === "confirm" && (
@@ -76,6 +84,7 @@ export default function ItemRequest() {
             selectedItems={selectedItems}
             deliveryMethod={deliveryMethod}
             setHeaderTitle={setHeaderTitle}
+            setPageHistory={setPageHistory}
           />
         )}
         {currentPage === "success" && (
@@ -83,9 +92,12 @@ export default function ItemRequest() {
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             setHeaderTitle={setHeaderTitle}
+            setPageHistory={setPageHistory}
           />
         )}
       </div>
+      <div id="item-request-modal"></div>
+      {displayModal && <ItemRequestModals setDisplayModal={setDisplayModal} />}
     </>
   );
 }

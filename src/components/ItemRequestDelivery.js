@@ -18,6 +18,7 @@ export default function ItemRequestDelivery(props) {
 
   const handleNextButtonClick = () => {
     props.setCurrentPage("confirm");
+    props.setPageHistory((prevState) => ["delivery", ...prevState]);
     props.setDeliveryMethod(deliveryMethod);
   };
 

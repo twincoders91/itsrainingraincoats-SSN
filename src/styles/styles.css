@@ -1455,6 +1455,30 @@ select {
   cursor: pointer;
 }
 
+.request-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.request-modal-container {
+  background: rgb(var(--white));
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.request-modal-container button {
+  padding: 8px 16px;
+}
+.request-modal-container button:hover {
+  background-color: rgb(var(--irrYellow));
+  border-color: rgb(var(--irrYellow));
+  color: rgb(var(--black));
+}
+
 /* ============================ Tablet Styles ============================ */
 /* @media screen and (min-width: 700px) {
   body {
