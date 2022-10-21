@@ -41,6 +41,8 @@ export default function ItemRequestCart(props) {
               selectedItems={props.selectedItems}
               setSelectedItems={props.setSelectedItems}
               setCurrentPage={props.setCurrentPage}
+              setPageHistory={props.setPageHistory}
+              setCategory={props.setCategory}
             />
           );
         })}
