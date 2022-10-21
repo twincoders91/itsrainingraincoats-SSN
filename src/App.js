@@ -25,6 +25,7 @@ function App() {
   const [donateDetailedItemArray, setDonateDetailedItemArray] = useState("");
   const [donateCart, setDonateCart] = useState([]);
   const [sortedByStatus, setSortedByStatus] = useState();
+  const [persona, setPersona] = useState("donor");
 
   const handleAreaSelection = (event) => {
     setAreaSelection(event);
@@ -44,6 +45,7 @@ function App() {
               openModalDonateInstructions={openModalDonateInstructions}
               setopenModalDonateInstructions={setopenModalDonateInstructions}
               setSortedByStatus={setSortedByStatus}
+              persona={persona}
             />
           }
         />
@@ -116,7 +118,10 @@ function App() {
         />
         <Route path="/language-select" element={<LanguageSelect />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/create-account" element={<CreateAccount />} />
+        <Route
+          path="/create-account"
+          element={<CreateAccount setPersona={setPersona} />}
+        />
         <Route path="/item-request" element={<ItemRequest />} />
       </Routes>
     </div>
