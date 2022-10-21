@@ -19,6 +19,7 @@ export default function CreateAccountWorker2(props) {
 
   const handleNameChange = (event) => {
     setName(event.target.value);
+    props.setName(event.target.value);
   };
 
   const handleNationalityChange = (event) => {

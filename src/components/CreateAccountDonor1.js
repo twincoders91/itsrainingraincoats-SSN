@@ -2,13 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 export default function CreateAccountDonor1(props) {
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const buttonRef = useRef();
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+    props.setName(event.target.value);
+  };
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
   };
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
@@ -19,7 +24,8 @@ export default function CreateAccountDonor1(props) {
 
   useEffect(() => {
     if (
-      username &&
+      name &&
+      email &&
       password &&
       confirmPassword &&
       password === confirmPassword
@@ -30,18 +36,29 @@ export default function CreateAccountDonor1(props) {
       buttonRef.current.setAttribute("disabled", "");
       buttonRef.current.classList.remove("button-active");
     }
-  }, [username, password, confirmPassword]);
+  }, [name, email, password, confirmPassword]);
 
   return (
     <div className="col">
-      <span className="createAccount-label mb-2 fw-700">Create Account</span>
-      <div className="input-container mb-4">
-        <span className="input-overlay">username</span>
+      <span className="createAccount-label mb-2 fw-700">
+        Create a donor account
+      </span>
+      <div className="input-container mb-2">
+        <span className="input-overlay">Name</span>
         <input
           className="createAccount-username"
           type="text"
-          placeholder="username"
-          onChange={handleUsernameChange}
+          placeholder="Name"
+          onChange={handleNameChange}
+        />
+      </div>
+      <div className="input-container mb-4">
+        <span className="input-overlay">email</span>
+        <input
+          className="createAccount-username"
+          type="text"
+          placeholder="email"
+          onChange={handleEmailChange}
         />
       </div>
       <span className="createAccount-label mb-2 fw-700">Create Password</span>
@@ -63,7 +80,7 @@ export default function CreateAccountDonor1(props) {
           onChange={handleConfirmPasswordChange}
         />
       </div>
-      <NavLink to="/donor-home">
+      <NavLink to="/home">
         <button
           className="createAccount-button button-active fw-600"
           ref={buttonRef}

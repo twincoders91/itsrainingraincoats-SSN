@@ -6,7 +6,7 @@ import love from "../assets/love.svg";
 import corporatepartnership from "../assets/corporatepartnership.svg";
 
 const DonorHome = (props) => {
-  const { handleModalOpen, setSortedByStatus } = props;
+  const { handleModalOpen, setSortedByStatus, name } = props;
 
   const runSorting = () => {
     const sortByStatus = (items) =>
@@ -25,7 +25,7 @@ const DonorHome = (props) => {
     <div>
       <div className="home-container">
         <div className="home-top-section">
-          <h1 className="home-h1-22">Hi, Sophie</h1>
+          <h1 className="home-h1-22">{`Hi, ${name}`}</h1>
           <p className="home-h2-14">How can you help?</p>
           <div className="item-application-container">
             <div
