@@ -23,7 +23,8 @@ export default function ItemRequestCategory(props) {
       return;
     }
     props.setCurrentPage("cart");
-    props.setPageHistory((prevState) => ["category", ...prevState]);
+    props.setPageHistory(["home"]);
+    props.setCategory("");
     props.setSelectedItems((prevState) => {
       return [
         ...prevState,

@@ -10,6 +10,7 @@ export default function ItemRequestConfirmation(props) {
 
     // if (res.status === "ok") {
     props.setCurrentPage("success");
+    props.setPageHistory(["home"]);
     // }
   };
 

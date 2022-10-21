@@ -11,6 +11,7 @@ export default function ItemRequestCart(props) {
 
   const handleProceedToDeliveryButtonClick = () => {
     props.setCurrentPage("delivery");
+    props.setPageHistory((prevState) => ["cart", ...prevState]);
   };
 
   useEffect(() => {

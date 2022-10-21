@@ -10,10 +10,15 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .justify-sb {
   justify-content: space-between !important;
+}
+
+.justify-sa {
+  justify-content: space-around !important;
 }
 
 .grid {
