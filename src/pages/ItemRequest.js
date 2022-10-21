@@ -30,8 +30,6 @@ export default function ItemRequest() {
         setDisplayModal={setDisplayModal}
         home={true}
       />
-      {JSON.stringify(pageHistory)}
-      {JSON.stringify(category)}
       <div className="request-body-container">
         {currentPage === "addItem" && (
           <ItemRequestAdd

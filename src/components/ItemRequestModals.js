@@ -14,7 +14,7 @@ const Overlay = (props) => {
         <h1 style={{ color: "red" }}>Warning</h1>
         <p>You are returning to the home page.</p>
         <p>Items not added to cart will be discarded.</p>
-        <div className="row justify-sa mt-2">
+        <div className="row w-100 justify-sa mt-2">
           <NavLink to="/home">
             <button onClick={handleButtonClick}>Go Home</button>
           </NavLink>
