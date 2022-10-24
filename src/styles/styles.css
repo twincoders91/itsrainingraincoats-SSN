@@ -64,6 +64,14 @@ input {
   font-size: var(--titleText);
   font-weight: 300;
   line-height: 24px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 select {

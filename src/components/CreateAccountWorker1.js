@@ -49,46 +49,71 @@ export default function CreateAccountWorker1(props) {
 
   return (
     <form className="col" onSubmit={handleSubmit(onSubmit)}>
-      <span className="createAccount-label mb-2 fw-700">Create Account</span>
+      <p className="createAccount-label mb-2">
+        <span className="createAccount-label fw-700">Create Account</span>
+      </p>
       <div className="input-container mb-4">
-        <span className="input-overlay">username</span>
+        <span className="input-overlay">
+          username{" "}
+          {!watchAll.username && (
+            <span
+              className="createAccount-label fw-300 mb-2"
+              style={{ color: "red", fontSize: "11px" }}
+            >
+              *required
+            </span>
+          )}
+        </span>
         <input
           className="createAccount-username"
           type="text"
           placeholder="username"
+          autoComplete="off"
           {...register("username", {
             required: true,
           })}
         />
-        {!watchAll.username && (
-          <>
-            <p
-              className="createAccount-label fs-12 fw-300 mt-1"
-              style={{ color: "red" }}
-            >
-              *Username is required
-            </p>
-          </>
-        )}
       </div>
       <span className="createAccount-label mb-2 fw-700">Create Password</span>
       <div className="input-container mb-2">
-        <span className="input-overlay">password</span>
+        <span className="input-overlay">
+          password{" "}
+          {!watchAll.password && (
+            <span
+              className="createAccount-label fw-300 mb-2"
+              style={{ color: "red", fontSize: "11px" }}
+            >
+              *required
+            </span>
+          )}
+        </span>
         <input
           className="createAccount-password"
           type="password"
           placeholder="password"
+          autoComplete="off"
           {...register("password", {
             required: true,
           })}
         />
       </div>
       <div className="input-container">
-        <span className="input-overlay">confirm password</span>
+        <span className="input-overlay">
+          confirm password{" "}
+          {!watchAll.confirmPassword && (
+            <span
+              className="createAccount-label fw-300 mb-2"
+              style={{ color: "red", fontSize: "11px" }}
+            >
+              *required
+            </span>
+          )}
+        </span>
         <input
           className="createAccount-confirmPassword"
           type="password"
           placeholder="confirm password"
+          autoComplete="off"
           {...register("confirmPassword", {
             required: true,
             validate: (value) => {
@@ -101,14 +126,6 @@ export default function CreateAccountWorker1(props) {
             },
           })}
         />
-        {!watchAll.password && (
-          <p
-            className="createAccount-label fs-12 fw-300 mt-1"
-            style={{ color: "red" }}
-          >
-            *Password is required
-          </p>
-        )}
         {watchAll.password !== watchAll.confirmPassword && (
           <p
             className="createAccount-label fs-12 fw-300 mt-1"

@@ -1,70 +1,53 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
+
+import { countries } from "../datasets/countries";
 
 export default function CreateAccountWorker2(props) {
-  const [salutation, setSalutation] = useState("");
-  const [name, setName] = useState("");
-  const [nationality, setNationality] = useState("");
-  const [residency, setResidency] = useState("");
-  const [nric, setNric] = useState("");
-  const [address, setAddress] = useState("");
-  const [unitNumber, setUnitNumber] = useState("");
-  const [postcode, setPostcode] = useState("");
-  const [dormitory, setDormitory] = useState("");
-  const [contactNumber, setContactNumber] = useState("");
+  const { register, handleSubmit, watch, getValues } = useForm();
   const buttonRef = useRef();
+  const watchAll = watch();
 
-  const handleSalutationChange = (event) => {
-    setSalutation(event.target.value);
+  const onSubmit = async (data) => {
+    const url = "http://localhost:5001/worker_details/create";
+    const body = {
+      salutation: data.salutation,
+      full_name: data.full_name,
+      nationality: data.nationality,
+      resident_status: data.residency,
+      address: data.address,
+      address_unitnumber: data.unitNumber,
+      address_postcode: data.postcode,
+      address_dormitory: data.dormitory,
+      contact_number: data.contactNumber,
+    };
+    // const res = await putNewWorker(url, "PUT", body);
+    // if (res.status === "ok") {
+    props.setCurrentPage("worker2");
+    // }
   };
 
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-    props.setName(event.target.value);
-  };
+  const putNewWorker = async (url, method = "GET", body = null) => {
+    const res = await fetch(url, {
+      method: method,
+      headers: { "Content-Type": "application/json" },
+      body: body,
+    });
 
-  const handleNationalityChange = (event) => {
-    setNationality(event.target.value);
-  };
+    const message = res.json();
 
-  const handleResidencyChange = (event) => {
-    setResidency(event.target.value);
-  };
-
-  const handleNricChange = (event) => {
-    setNric(event.target.value);
-  };
-
-  const handleAddressChange = (event) => {
-    setAddress(event.target.value);
-  };
-
-  const handleUnitNumberChange = (event) => {
-    setUnitNumber(event.target.value);
-  };
-
-  const handlePostcodeChange = (event) => {
-    setPostcode(event.target.value);
-  };
-
-  const handleDormitoryChange = (event) => {
-    setDormitory(event.target.value);
-  };
-
-  const handleContactNumberChange = (event) => {
-    setContactNumber(event.target.value);
+    return message;
   };
 
   useEffect(() => {
     if (
-      salutation &&
-      name &&
-      nationality &&
-      residency &&
-      address &&
-      unitNumber &&
-      postcode &&
-      dormitory &&
-      contactNumber
+      watchAll.salutation &&
+      watchAll.name &&
+      watchAll.nationality &&
+      watchAll.residency &&
+      watchAll.address &&
+      watchAll.postcode &&
+      watchAll.contactNumber
     ) {
       buttonRef.current.removeAttribute("disabled", "");
       buttonRef.current.classList.add("button-active");
@@ -72,24 +55,14 @@ export default function CreateAccountWorker2(props) {
       buttonRef.current.setAttribute("disabled", "");
       buttonRef.current.classList.remove("button-active");
     }
-  }, [
-    salutation,
-    name,
-    nationality,
-    residency,
-    address,
-    unitNumber,
-    postcode,
-    dormitory,
-    contactNumber,
-  ]);
+  }, [watchAll]);
 
   return (
     <div className="col">
       <span className="createAccount-label createAccount-title mb-1 fw-700">
         Account Created
       </span>
-      <span className="createAccount-subtitle mb-2">
+      <span className="createAccount-label createAccount-subtitle fw-300 mb-2">
         Welcome to ItsRainningRaincoats! Your account has been created.
       </span>
       <span className="createAccount-label createAccount-subsubtitle mb-4">
@@ -99,13 +72,23 @@ export default function CreateAccountWorker2(props) {
         Profile Details
       </span>
       <span className="createAccount-label createAccount-subtitle mb-1">
-        Salutation
+        Salutation{" "}
+        {!watchAll.salutation && (
+          <span
+            className="createAccount-label fw-300 mb-2"
+            style={{ color: "red", fontSize: "11px" }}
+          >
+            *required
+          </span>
+        )}
       </span>
       <select
         className="createAccount-dropdown mb-2"
-        onChange={handleSalutationChange}
+        {...register("salutation", {
+          required: true,
+        })}
       >
-        <option value="0" selected disabled>
+        <option value="" selected disabled>
           - Select Salutation -
         </option>
         <option value="mr">Mr</option>
@@ -114,32 +97,77 @@ export default function CreateAccountWorker2(props) {
         <option value="dr">Dr</option>
       </select>
       <span className="createAccount-label createAccount-subtitle mb-1">
-        Name (as per NRIC/FIN/Passport)
+        Name (as per NRIC/FIN/Passport){" "}
+        {!watchAll.name && (
+          <span
+            className="createAccount-label fw-300 mb-2"
+            style={{ color: "red", fontSize: "11px" }}
+          >
+            *required
+          </span>
+        )}
       </span>
-      <input className="mb-2" type="text" onChange={handleNameChange} />
+      <input
+        className="mb-2"
+        type="text"
+        autoComplete="off"
+        {...register("name", {
+          required: true,
+        })}
+      />
 
       <span className="createAccount-label createAccount-subtitle mb-1">
-        Nationality
+        Nationality{" "}
+        {!watchAll.nationality && (
+          <span
+            className="createAccount-label fw-300 mb-2"
+            style={{ color: "red", fontSize: "11px" }}
+          >
+            *required
+          </span>
+        )}
       </span>
       <select
         className="createAccount-dropdown mb-2"
-        onChange={handleNationalityChange}
+        {...register("nationality", {
+          required: true,
+        })}
       >
         <option value="0" selected disabled>
-          - Select Country -{" "}
+          - Select Country -
         </option>
-        <option value="singapore">Singapore</option>
+        {countries.map((element, index) => {
+          return (
+            <option value={element.toLowerCase()} key={index}>
+              {element}
+            </option>
+          );
+        })}
       </select>
       <span className="createAccount-label createAccount-subtitle mb-1">
-        Resident Status
+        Resident Status{" "}
+        {!watchAll.residency && (
+          <span
+            className="createAccount-label fw-300 mb-2"
+            style={{ color: "red", fontSize: "11px" }}
+          >
+            *required
+          </span>
+        )}
       </span>
       <select
         className="createAccount-dropdown mb-2"
-        onChange={handleResidencyChange}
+        {...register("residency", {
+          required: true,
+        })}
       >
         <option value="0" selected disabled>
           - Select Status -
         </option>
+        <option value="work permit">Work Permit</option>
+        <option value="s pass">S Pass</option>
+        <option value="employment pass">Employment Pass</option>
+        <option value="permanent resident">Permanent Resident</option>
         <option value="citizen">Citizen</option>
       </select>
       <span className="createAccount-label createAccount-subtitle mb-1">
@@ -149,38 +177,94 @@ export default function CreateAccountWorker2(props) {
         className="mb-2"
         type="text"
         placeholder="DISABLED"
-        onChange={handleNricChange}
+        autoComplete="off"
         disabled
+        {...register("nric", {})}
       />
       <span className="createAccount-label createAccount-subtitle mb-1">
-        Address
-      </span>
-      <input className="mb-2" type="text" onChange={handleAddressChange} />
-      <div className="grid gc-2">
-        <span className="createAccount-label createAccount-subtitle mb-1">
-          Unit No.
-        </span>
-        <span className="createAccount-label createAccount-subtitle mb-1">
-          Postcode
-        </span>
-        <input className="mb-2" type="text" onChange={handleUnitNumberChange} />
-        <input className="mb-2" type="text" onChange={handlePostcodeChange} />
-      </div>
-      <span className="createAccount-label createAccount-subtitle mb-1">
-        Dormitory Name
-      </span>
-      <input className="mb-2" type="text" onChange={handleDormitoryChange} />
-      <span className="createAccount-label createAccount-subtitle mb-1">
-        Contact No.
+        Address{" "}
+        {!watchAll.address && (
+          <span
+            className="createAccount-label fw-300 mb-2"
+            style={{ color: "red", fontSize: "11px" }}
+          >
+            *required
+          </span>
+        )}
       </span>
       <input
         className="mb-2"
         type="text"
-        onChange={handleContactNumberChange}
+        autoComplete="off"
+        {...register("address", {
+          required: true,
+        })}
+      />
+      <div className="grid gc-2">
+        <div className="col">
+          <span className="createAccount-label createAccount-subtitle mb-1">
+            Unit No.
+          </span>
+          <input
+            className="mb-2"
+            type="text"
+            autoComplete="off"
+            {...register("unitNumber", {})}
+          />
+        </div>
+        <div className="col">
+          <span className="createAccount-label createAccount-subtitle mb-1">
+            Postcode{" "}
+            {!watchAll.postcode && (
+              <span
+                className="createAccount-label fw-300 mb-2"
+                style={{ color: "red", fontSize: "11px" }}
+              >
+                *required
+              </span>
+            )}
+          </span>
+          <input
+            className="mb-2"
+            type="number"
+            autoComplete="off"
+            {...register("postcode", {
+              required: true,
+            })}
+          />
+        </div>
+      </div>
+      <span className="createAccount-label createAccount-subtitle mb-1">
+        Dormitory Name
+      </span>
+      <input
+        className="mb-2"
+        type="text"
+        autoComplete="off"
+        {...register("dormitory", {})}
+      />
+      <span className="createAccount-label createAccount-subtitle mb-1">
+        Contact No.{" "}
+        {!watchAll.contactNumber && (
+          <span
+            className="createAccount-label fw-300 mb-2"
+            style={{ color: "red", fontSize: "11px" }}
+          >
+            *required
+          </span>
+        )}
+      </span>
+      <input
+        className="mb-2"
+        type="number"
+        autoComplete="off"
+        {...register("contactNumber", {
+          required: true,
+        })}
       />
       <button
         className="createAccount-button mt-2 mb-4"
-        onClick={() => props.setCurrentPage("worker3")}
+        onClick={() => handleSubmit(onSubmit)}
         ref={buttonRef}
       >
         Next
