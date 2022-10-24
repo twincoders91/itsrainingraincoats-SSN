@@ -33,12 +33,14 @@ export default function CreateAccount(props) {
           <CreateAccountWorker1
             persona={persona}
             setCurrentPage={setCurrentPage}
+            setUserId={props.setUserId}
           />
         )}
         {currentPage === "worker2" && (
           <CreateAccountWorker2
             setCurrentPage={setCurrentPage}
             setName={setName}
+            userId={props.userId}
             ref={fetchBody}
           />
         )}

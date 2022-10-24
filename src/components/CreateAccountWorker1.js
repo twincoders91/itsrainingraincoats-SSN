@@ -1,30 +1,39 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 export default function CreateAccountWorker1(props) {
+  const [errorMessage, setErrorMessage] = useState("");
   const { register, handleSubmit, watch, getValues } = useForm();
   const buttonRef = useRef();
   const watchAll = watch();
 
   const onSubmit = async (data) => {
-    // const url = "http://localhost:5001/users/create";
-    // const body = {
-    //   username: data.username,
-    //   password: data.password,
-    //   user_type: props.persona.toLowerCase(),
-    // };
-    // const res = await putNewUser(url, "PUT", body);
-    // if (res.status === "ok") {
-    props.setCurrentPage("worker2");
-    // }
+    const url = "http://127.0.0.1:5001/user/create";
+    const body = {
+      username: data.username,
+      password: data.password,
+      user_type: props.persona.toLowerCase(),
+    };
+    const res = await putNewUser(url, "PUT", body);
+    console.log(res);
+    if (res.status === "error") {
+      setErrorMessage(res.message);
+      return;
+    }
+
+    if (res.status === "ok") {
+      console.log(res.id);
+      props.setUserId(res.id);
+      props.setCurrentPage("worker2");
+    }
   };
 
   const putNewUser = async (url, method = "GET", body = null) => {
     const res = await fetch(url, {
       method: method,
       headers: { "Content-Type": "application/json" },
-      body: body,
+      body: JSON.stringify(body),
     });
 
     const message = res.json();
@@ -132,6 +141,14 @@ export default function CreateAccountWorker1(props) {
             style={{ color: "red" }}
           >
             *Passwords do not match
+          </p>
+        )}
+        {errorMessage && (
+          <p
+            className="createAccount-label fs-12 fw-600 mt-1 "
+            style={{ color: "red" }}
+          >
+            Error: {errorMessage}
           </p>
         )}
       </div>

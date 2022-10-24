@@ -5,19 +5,19 @@ import ItemRequestConfirmationItem from "./ItemRequestConfirmationItem";
 
 export default function ItemRequestConfirmation(props) {
   const handleSubmitButtonClick = async () => {
-    // const url = '<insert backend PUT endpoint here'
-    // const res = putItemRequest(url)
+    const url = "http://127.0.0.1:5001/profile/create";
+    const res = await putItemRequest(url);
 
-    // if (res.status === "ok") {
-    props.setCurrentPage("success");
-    props.setPageHistory(["home"]);
-    // }
+    if (res.status === "ok") {
+      props.setCurrentPage("success");
+      props.setPageHistory(["home"]);
+    }
   };
 
-  const putItemRequest = async (url) => {
+  const putItemRequest = async (url, method = "GET", body = null) => {
     try {
       const res = await fetch(url, {
-        method: "PUT",
+        method: method,
         body: {
           items: () => {
             props.selectedItems.map((element) => {

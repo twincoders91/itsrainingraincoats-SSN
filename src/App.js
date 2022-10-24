@@ -27,6 +27,7 @@ function App() {
   const [sortedByStatus, setSortedByStatus] = useState();
   const [persona, setPersona] = useState("donor");
   const [name, setName] = useState("");
+  const [userId, setUserId] = useState("");
 
   const handleAreaSelection = (event) => {
     setAreaSelection(event);
@@ -121,7 +122,7 @@ function App() {
           }
         />
         <Route path="/language-select" element={<LanguageSelect />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setUserId={setUserId} />} />
         <Route
           path="/create-account"
           element={
@@ -129,6 +130,8 @@ function App() {
               persona={persona}
               setPersona={setPersona}
               setName={setName}
+              userId={userId}
+              setUserId={setUserId}
             />
           }
         />

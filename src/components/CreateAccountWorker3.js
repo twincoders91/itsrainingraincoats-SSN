@@ -7,7 +7,7 @@ const CreateAccountWorker3 = React.forwardRef((props, ref) => {
   const watchAll = watch();
 
   const onSubmit = async (data) => {
-    const url = "http://localhost:5001/worker_details/create";
+    const url = "http://127.0.0.1:5001/profile/create";
     const body = {
       ...ref.current,
       tshirt_size: data.tshirt,
@@ -16,17 +16,18 @@ const CreateAccountWorker3 = React.forwardRef((props, ref) => {
     };
 
     console.log(body);
-    // const res = await putNewWorker(url, "PUT", body);
-    // if (res.status === "ok") {
-    props.setCurrentPage("worker4");
-    // }
+    const res = await putNewWorker(url, "PUT", body);
+    console.log(res);
+    if (res.status === "ok") {
+      props.setCurrentPage("worker4");
+    }
   };
 
   const putNewWorker = async (url, method = "GET", body = null) => {
     const res = await fetch(url, {
       method: method,
       headers: { "Content-Type": "application/json" },
-      body: body,
+      body: JSON.stringify(body),
     });
 
     const message = res.json();
@@ -49,7 +50,7 @@ const CreateAccountWorker3 = React.forwardRef((props, ref) => {
       <span className="createAccount-label createAccount-title mb-1 fw-700">
         Account Created
       </span>
-      <span className="createAccount-subtitle mb-2">
+      <span className="createAccount-label createAccount-subtitle fw-300 mb-2">
         Welcome to ItsRainningRaincoats! Your account has been created.
       </span>
       <span className="createAccount-label createAccount-subsubtitle mb-4">
