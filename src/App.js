@@ -124,7 +124,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route
           path="/create-account"
-          element={<CreateAccount setPersona={setPersona} setName={setName} />}
+          element={
+            <CreateAccount
+              persona={persona}
+              setPersona={setPersona}
+              setName={setName}
+            />
+          }
         />
         <Route path="/item-request" element={<ItemRequest />} />
       </Routes>

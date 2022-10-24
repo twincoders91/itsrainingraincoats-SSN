@@ -10,7 +10,7 @@ import CreateAccountDonor1 from "../components/CreateAccountDonor1";
 import NavBarCreateAccount from "../navbar/NavBarCreateAccount";
 
 export default function CreateAccount(props) {
-  const { setPersona, setName } = props;
+  const { persona, setPersona, setName } = props;
   const [currentPage, setCurrentPage] = useState("selection");
 
   return (
@@ -29,7 +29,10 @@ export default function CreateAccount(props) {
           />
         )}
         {currentPage === "worker1" && (
-          <CreateAccountWorker1 setCurrentPage={setCurrentPage} />
+          <CreateAccountWorker1
+            persona={persona}
+            setCurrentPage={setCurrentPage}
+          />
         )}
         {currentPage === "worker2" && (
           <CreateAccountWorker2
