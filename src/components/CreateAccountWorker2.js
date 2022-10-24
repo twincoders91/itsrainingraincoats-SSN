@@ -10,8 +10,9 @@ const CreateAccountWorker2 = React.forwardRef((props, ref) => {
 
   const onSubmit = async (data) => {
     ref.current = {
+      account_id: props.userId,
       salutation: data.salutation,
-      full_name: data.full_name,
+      full_name: data.name,
       nationality: data.nationality,
       resident_status: data.residency,
       address: data.address,

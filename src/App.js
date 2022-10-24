@@ -25,8 +25,9 @@ function App() {
   const [donateDetailedItemArray, setDonateDetailedItemArray] = useState("");
   const [donateCart, setDonateCart] = useState([]);
   const [sortedByStatus, setSortedByStatus] = useState();
-  const [persona, setPersona] = useState("donor");
+  const [persona, setPersona] = useState("");
   const [name, setName] = useState("");
+  const [userId, setUserId] = useState("");
 
   const handleAreaSelection = (event) => {
     setAreaSelection(event);
@@ -50,6 +51,7 @@ function App() {
               setSortedByStatus={setSortedByStatus}
               persona={persona}
               name={name}
+              userId={userId}
             />
           }
         />
@@ -121,7 +123,10 @@ function App() {
           }
         />
         <Route path="/language-select" element={<LanguageSelect />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={<Login setUserId={setUserId} setPersona={setPersona} />}
+        />
         <Route
           path="/create-account"
           element={
@@ -129,6 +134,8 @@ function App() {
               persona={persona}
               setPersona={setPersona}
               setName={setName}
+              userId={userId}
+              setUserId={setUserId}
             />
           }
         />

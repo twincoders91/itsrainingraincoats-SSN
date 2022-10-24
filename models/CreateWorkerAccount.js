@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const CreateWorkerAccountSchema = new mongoose.Schema({
+const WorkerProfilesSchema = new mongoose.Schema({
   name_salutation: { type: String, enum: ["Mr", "Ms", "Mrs"] },
   full_name: { type: String, required: true, minLength: 5 },
   nationality: { type: String, required: true, enum: [] },
@@ -36,9 +36,6 @@ const CreateWorkerAccountSchema = new mongoose.Schema({
   },
 });
 
-const CreateWorkerAccount = mongoose.model(
-  "CreateWorkerAccount",
-  CreateWorkerAccountSchema
-);
+const WorkerProfiles = mongoose.model("WorkerProfiles", WorkerProfilesSchema);
 
-module.exports = CreateWorkerAccount;
+module.exports = WorkerProfiles;
