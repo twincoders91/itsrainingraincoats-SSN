@@ -16,6 +16,7 @@
   --black: 38 38 38;
   --blue: 66 139 193;
   --grey1: 230 230 230;
+  --grey2: 179, 179, 179;
   --darkGrey: 109 109 109;
 
   --titleText: 16px;
@@ -1464,18 +1465,40 @@ select {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.request-modal-container {
+.request-modal-discard-container {
   background: rgb(var(--white));
   border-radius: 16px;
-  padding: 16px;
+  padding: 32px;
+  width: 328px;
 }
 
-.request-modal-container button {
+.request-modal-overlay button {
   padding: 8px 16px;
 }
-.request-modal-container button:hover {
+.request-modal-overlay button:hover {
   background-color: rgb(var(--irrYellow));
   border-color: rgb(var(--irrYellow));
+  color: rgb(var(--black));
+}
+
+.request-modal-guide-container {
+  position: relative;
+  background: rgb(var(--white));
+  border-radius: 16px;
+  padding: 32px;
+  width: 328px;
+}
+
+.request-modal-close {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  color: rgb(var(--grey2));
+  transition: color 0.5s;
+  cursor: pointer;
+}
+
+.request-modal-close:hover {
   color: rgb(var(--black));
 }
 
