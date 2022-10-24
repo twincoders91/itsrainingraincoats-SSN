@@ -2,11 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import { NavLink } from "react-router-dom";
-import { ReactComponent as Close } from "../assets/cross.svg";
-import { ReactComponent as Select } from "../assets/select.svg";
-import { ReactComponent as Delivery } from "../assets/delivery.svg";
-import { ReactComponent as File } from "../assets/file.svg";
-import { ReactComponent as Schedule } from "../assets/schedule.svg";
 
 const DiscardWarning = (props) => {
   return (
