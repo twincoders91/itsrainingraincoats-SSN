@@ -7,6 +7,7 @@ import DonorHome from "./DonorHome";
 import WorkerHome from "./WorkerHome";
 
 const Home = (props) => {
+  console.log(props);
   const {
     openModalDonateInstructions,
     setopenModalDonateInstructions,
@@ -25,14 +26,14 @@ const Home = (props) => {
         <div className="main-header-container">
           <Header />
         </div>
-        {/* {persona === "donor" && (
+        {persona === "donor" && (
           <DonorHome
             handleModalOpen={handleModalOpen}
             setSortedByStatus={setSortedByStatus}
             name={name}
           />
-        )} */}
-        {persona === "donor" && <WorkerHome name={name} />}
+        )}
+        {persona === "worker" && <WorkerHome name={name} />}
         <div className="main-navbar">
           <NavBar />
         </div>
