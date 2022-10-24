@@ -3,6 +3,29 @@ import ReactDOM from "react-dom";
 
 import { NavLink } from "react-router-dom";
 
+const DiscardWarning = (props) => {
+  return (
+    <div className="request-modal-discard-container col">
+      <h1 className="mb-2" style={{ color: "red" }}>
+        Warning
+      </h1>
+      <p className="request-subtitleText mb-2">
+        You are returning to the home page.
+      </p>
+      <p className="request-subtitleText">
+        Items <span className="fw-600">not</span> added to cart{" "}
+        <span className="fw-600">will</span> be discarded.
+      </p>
+      <div className="row w-100 justify-sa mt-4">
+        <NavLink to="/home">
+          <button onClick={props.handleButtonClick}>Go Home</button>
+        </NavLink>
+        <button onClick={props.handleButtonClick}>Cancel</button>
+      </div>
+    </div>
+  );
+};
+
 const Overlay = (props) => {
   const handleButtonClick = () => {
     props.setDisplayModal(false);
@@ -10,17 +33,10 @@ const Overlay = (props) => {
 
   return (
     <div className="request-modal-overlay row">
-      <div className="request-modal-container col">
-        <h1 style={{ color: "red" }}>Warning</h1>
-        <p>You are returning to the home page.</p>
-        <p>Items not added to cart will be discarded.</p>
-        <div className="row w-100 justify-sa mt-2">
-          <NavLink to="/home">
-            <button onClick={handleButtonClick}>Go Home</button>
-          </NavLink>
-          <button onClick={handleButtonClick}>Cancel</button>
-        </div>
-      </div>
+      <DiscardWarning
+        setDisplayModal={props.setDisplayModal}
+        handleButtonClick={handleButtonClick}
+      />
     </div>
   );
 };

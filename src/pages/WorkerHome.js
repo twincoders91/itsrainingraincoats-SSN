@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 import itemApplication from "../assets/itemApplication.svg";
 import calendarWorker from "../assets/calendarWorker.svg";
 import lesson from "../assets/lesson.svg";
 import medical from "../assets/medical.svg";
+import HomeModals from "../components/HomeModals";
 
 const WorkerHome = (props) => {
+  const [displayModal, setDisplayModal] = useState(false);
   const { name } = props;
+
   return (
     <div>
       <div className="home-container">
@@ -16,7 +19,7 @@ const WorkerHome = (props) => {
             <div
               className="item-application-box ml-2 mr-2"
               onClick={() => {
-                console.log("im clicked");
+                setDisplayModal(true);
               }}
             >
               <img
@@ -62,6 +65,8 @@ const WorkerHome = (props) => {
           </div>
         </div>
       </div>
+      <div id="home-modal"></div>
+      {displayModal && <HomeModals setDisplayModal={setDisplayModal} />}
     </div>
   );
 };

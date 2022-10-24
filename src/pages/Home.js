@@ -25,14 +25,14 @@ const Home = (props) => {
         <div className="main-header-container">
           <Header />
         </div>
-        {persona === "donor" && (
+        {/* {persona === "donor" && (
           <DonorHome
             handleModalOpen={handleModalOpen}
             setSortedByStatus={setSortedByStatus}
             name={name}
           />
-        )}
-        {persona === "worker" && <WorkerHome name={name} />}
+        )} */}
+        {persona === "donor" && <WorkerHome name={name} />}
         <div className="main-navbar">
           <NavBar />
         </div>
