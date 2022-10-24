@@ -1,16 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 
 import { countries } from "../datasets/countries";
 
-export default function CreateAccountWorker2(props) {
+const CreateAccountWorker2 = React.forwardRef((props, ref) => {
   const { register, handleSubmit, watch, getValues } = useForm();
   const buttonRef = useRef();
   const watchAll = watch();
 
   const onSubmit = async (data) => {
-    const url = "http://localhost:5001/worker_details/create";
-    const body = {
+    ref.current = {
       salutation: data.salutation,
       full_name: data.full_name,
       nationality: data.nationality,
@@ -21,22 +20,8 @@ export default function CreateAccountWorker2(props) {
       address_dormitory: data.dormitory,
       contact_number: data.contactNumber,
     };
-    // const res = await putNewWorker(url, "PUT", body);
-    // if (res.status === "ok") {
-    props.setCurrentPage("worker2");
-    // }
-  };
 
-  const putNewWorker = async (url, method = "GET", body = null) => {
-    const res = await fetch(url, {
-      method: method,
-      headers: { "Content-Type": "application/json" },
-      body: body,
-    });
-
-    const message = res.json();
-
-    return message;
+    props.setCurrentPage("worker3");
   };
 
   useEffect(() => {
@@ -58,7 +43,7 @@ export default function CreateAccountWorker2(props) {
   }, [watchAll]);
 
   return (
-    <div className="col">
+    <form className="col" onClick={handleSubmit(onSubmit)}>
       <span className="createAccount-label createAccount-title mb-1 fw-700">
         Account Created
       </span>
@@ -133,7 +118,7 @@ export default function CreateAccountWorker2(props) {
           required: true,
         })}
       >
-        <option value="0" selected disabled>
+        <option value="" selected disabled>
           - Select Country -
         </option>
         {countries.map((element, index) => {
@@ -161,7 +146,7 @@ export default function CreateAccountWorker2(props) {
           required: true,
         })}
       >
-        <option value="0" selected disabled>
+        <option value="" selected disabled>
           - Select Status -
         </option>
         <option value="work permit">Work Permit</option>
@@ -262,11 +247,7 @@ export default function CreateAccountWorker2(props) {
           required: true,
         })}
       />
-      <button
-        className="createAccount-button mt-2 mb-4"
-        onClick={() => handleSubmit(onSubmit)}
-        ref={buttonRef}
-      >
+      <button className="createAccount-button mt-2 mb-4" ref={buttonRef}>
         Next
       </button>
       <div className="row">
@@ -280,6 +261,8 @@ export default function CreateAccountWorker2(props) {
           <circle cx="5" cy="5" r="5" fill="rgb(var(--grey1))" />
         </svg>
       </div>
-    </div>
+    </form>
   );
-}
+});
+
+export default CreateAccountWorker2;

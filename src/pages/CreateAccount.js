@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Header from "../Header";
 import CreateAccountSelection from "../components/CreateAccountSelection";
@@ -12,6 +12,7 @@ import NavBarCreateAccount from "../navbar/NavBarCreateAccount";
 export default function CreateAccount(props) {
   const { persona, setPersona, setName } = props;
   const [currentPage, setCurrentPage] = useState("selection");
+  const fetchBody = useRef({});
 
   return (
     <>
@@ -38,10 +39,14 @@ export default function CreateAccount(props) {
           <CreateAccountWorker2
             setCurrentPage={setCurrentPage}
             setName={setName}
+            ref={fetchBody}
           />
         )}
         {currentPage === "worker3" && (
-          <CreateAccountWorker3 setCurrentPage={setCurrentPage} />
+          <CreateAccountWorker3
+            setCurrentPage={setCurrentPage}
+            ref={fetchBody}
+          />
         )}
         {currentPage === "worker4" && (
           <CreateAccountWorker4 setCurrentPage={setCurrentPage} />

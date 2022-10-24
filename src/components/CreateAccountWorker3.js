@@ -1,35 +1,51 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
 
-export default function CreateAccountWorker2(props) {
-  const [tshirt, setTshirt] = useState("");
-  const [shoe, setShoe] = useState("");
-  const [diet, setDiet] = useState("");
+const CreateAccountWorker3 = React.forwardRef((props, ref) => {
+  const { register, handleSubmit, watch, getValues } = useForm();
   const buttonRef = useRef();
+  const watchAll = watch();
 
-  const handleTshirtChange = (event) => {
-    setTshirt(event.target.value);
+  const onSubmit = async (data) => {
+    const url = "http://localhost:5001/worker_details/create";
+    const body = {
+      ...ref.current,
+      tshirt_size: data.tshirt,
+      shoe_size: data.shoe,
+      diet: data.diet,
+    };
+
+    console.log(body);
+    // const res = await putNewWorker(url, "PUT", body);
+    // if (res.status === "ok") {
+    props.setCurrentPage("worker4");
+    // }
   };
 
-  const handleShoeChange = (event) => {
-    setShoe(event.target.value);
-  };
+  const putNewWorker = async (url, method = "GET", body = null) => {
+    const res = await fetch(url, {
+      method: method,
+      headers: { "Content-Type": "application/json" },
+      body: body,
+    });
 
-  const handleDietChange = (event) => {
-    setDiet(event.target.value);
+    const message = res.json();
+
+    return message;
   };
 
   useEffect(() => {
-    if (tshirt && shoe && diet) {
+    if (watchAll.tshirt && watchAll.shoe && watchAll.diet) {
       buttonRef.current.removeAttribute("disabled", "");
       buttonRef.current.classList.add("button-active");
     } else {
       buttonRef.current.setAttribute("disabled", "");
       buttonRef.current.classList.remove("button-active");
     }
-  }, [tshirt, shoe, diet]);
+  }, [watchAll]);
 
   return (
-    <div className="col">
+    <form className="col" onSubmit={handleSubmit(onSubmit)}>
       <span className="createAccount-label createAccount-title mb-1 fw-700">
         Account Created
       </span>
@@ -43,69 +59,93 @@ export default function CreateAccountWorker2(props) {
         Profile Details
       </span>
       <span className="createAccount-label createAccount-subtitle mb-1">
-        T-Shirt size
+        T-Shirt size{" "}
+        {!watchAll.tshirt && (
+          <span
+            className="createAccount-label fw-300 mb-2"
+            style={{ color: "red", fontSize: "11px" }}
+          >
+            *required
+          </span>
+        )}
       </span>
       <select
         className="createAccount-dropdown mb-2"
-        onChange={handleTshirtChange}
+        {...register("tshirt", {
+          required: true,
+        })}
       >
-        <option value="0" selected disabled>
+        <option value="" selected disabled>
           - Select Size -
         </option>
-        <option>XS</option>
-        <option>S</option>
-        <option>M</option>
-        <option>L</option>
-        <option>XL</option>
-        <option>XXL</option>
-        <option>XXXL</option>
-        <option>XXXXL</option>
-        <option>XXXXXL</option>
-        <option>XXXXXXL</option>
+        <option value="xs">XS</option>
+        <option value="s">S</option>
+        <option value="m">M</option>
+        <option value="l">L</option>
+        <option value="xl">XL</option>
+        <option value="xxl">XXL</option>
       </select>
       <span className="createAccount-label createAccount-subtitle mb-1">
-        Shoe size
+        Shoe size{" "}
+        {!watchAll.shoe && (
+          <span
+            className="createAccount-label fw-300 mb-2"
+            style={{ color: "red", fontSize: "11px" }}
+          >
+            *required
+          </span>
+        )}
       </span>
       <select
         className="createAccount-dropdown mb-2"
-        onChange={handleShoeChange}
+        {...register("shoe", {
+          required: true,
+        })}
       >
-        <option value="0" selected disabled>
+        <option value="" selected disabled>
           - Select Size -
         </option>
-        <option>36</option>
-        <option>37</option>
-        <option>38</option>
-        <option>39</option>
-        <option>40</option>
-        <option>41</option>
-        <option>42</option>
-        <option>43</option>
-        <option>44</option>
-        <option>45</option>
+        <option value="36">36</option>
+        <option value="37">37</option>
+        <option value="38">38</option>
+        <option value="39">39</option>
+        <option value="40">40</option>
+        <option value="41">41</option>
+        <option value="42">42</option>
+        <option value="43">43</option>
+        <option value="44">44</option>
+        <option value="45">45</option>
       </select>
       <span className="createAccount-label createAccount-subtitle mb-1">
-        Dietary requirement
+        Dietary requirement{" "}
+        {!watchAll.diet && (
+          <span
+            className="createAccount-label fw-300 mb-2"
+            style={{ color: "red", fontSize: "11px" }}
+          >
+            *required
+          </span>
+        )}
       </span>
       <select
         className="createAccount-dropdown mb-2"
-        onChange={handleDietChange}
+        {...register("diet", {
+          required: true,
+        })}
       >
-        <option value="0" selected disabled>
-          None
+        <option value="" selected disabled>
+          - Select Diet -
         </option>
-        <option>Vegan</option>
-        <option>Kosher</option>
-        <option>No Seafood</option>
-        <option>No Vegetable</option>
-        <option>No Food</option>
+        <option value="none">None</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="vegan">Vegan</option>
+        <option value="kosher">Kosher</option>
+        <option value="halal">Halal</option>
+        <option value="no seafood">No Seafood</option>
+        <option value="no nuts">No Nuts</option>
       </select>
 
-      <button
-        className="createAccount-button mt-2 mb-4"
-        onClick={() => props.setCurrentPage("worker4")}
-        ref={buttonRef}
-      >
+      <button className="createAccount-button mt-2 mb-4" ref={buttonRef}>
         Create Account
       </button>
       <div className="row">
@@ -119,6 +159,8 @@ export default function CreateAccountWorker2(props) {
           <circle cx="5" cy="5" r="5" fill="rgb(var(--blue))" />
         </svg>
       </div>
-    </div>
+    </form>
   );
-}
+});
+
+export default CreateAccountWorker3;
