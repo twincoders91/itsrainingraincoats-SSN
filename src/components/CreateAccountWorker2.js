@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { countries } from "../datasets/countries";
 
 const CreateAccountWorker2 = React.forwardRef((props, ref) => {
-  const { register, handleSubmit, watch, getValues } = useForm();
+  const { register, handleSubmit, watch } = useForm();
   const buttonRef = useRef();
   const watchAll = watch();
 
@@ -44,7 +44,7 @@ const CreateAccountWorker2 = React.forwardRef((props, ref) => {
   }, [watchAll]);
 
   return (
-    <form className="col" onClick={handleSubmit(onSubmit)}>
+    <form className="col" onSubmit={handleSubmit(onSubmit)}>
       <span className="createAccount-label createAccount-title mb-1 fw-700">
         Account Created
       </span>

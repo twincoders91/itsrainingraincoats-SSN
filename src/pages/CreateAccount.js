@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 
-import Header from "../Header";
 import CreateAccountSelection from "../components/CreateAccountSelection";
 import CreateAccountWorker1 from "../components/CreateAccountWorker1";
 import CreateAccountWorker2 from "../components/CreateAccountWorker2";

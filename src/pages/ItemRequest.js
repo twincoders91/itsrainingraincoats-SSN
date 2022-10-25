@@ -10,7 +10,7 @@ import ItemRequestSuccess from "../components/ItemRequestSuccess";
 import HeaderTopNavigation from "../components/HeaderTopNavigation";
 import ItemRequestModals from "../components/ItemRequestModals";
 
-export default function ItemRequest() {
+export default function ItemRequest(props) {
   const [currentPage, setCurrentPage] = useState("addItem");
   const [category, setCategory] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
@@ -21,14 +21,13 @@ export default function ItemRequest() {
 
   return (
     <>
-      {/* <HeaderGeneric profile={false} /> */}
       <HeaderTopNavigation
         text={headerTitle}
         setCurrentPage={setCurrentPage}
         pageHistory={pageHistory}
         setPageHistory={setPageHistory}
         setDisplayModal={setDisplayModal}
-        home={true}
+        home={currentPage === "success" ? false : true}
       />
       <div className="request-body-container">
         {currentPage === "addItem" && (
@@ -84,6 +83,7 @@ export default function ItemRequest() {
             deliveryMethod={deliveryMethod}
             setHeaderTitle={setHeaderTitle}
             setPageHistory={setPageHistory}
+            userId={props.userId}
           />
         )}
         {currentPage === "success" && (
