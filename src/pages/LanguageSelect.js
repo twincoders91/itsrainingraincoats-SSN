@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
 import { NavLink } from "react-router-dom";
 
 import Header from "../Header";
 import Button from "../components/Button";
+import Context from "../context/context";
 
 export default function LanguageSelect() {
+  // to useContext
+  const context = useContext(Context);
+
   const [activeButton, setActiveButton] = useState("");
   const buttonRef = useRef();
 
@@ -22,6 +26,9 @@ export default function LanguageSelect() {
 
   return (
     <>
+      {/* jump to Home page if user has already logged in, skip language select and login page */}
+      {localStorage.refreshToken && <Navigate to="/home" />}
+
       <div className="main-header-container">
         <Header />
       </div>
