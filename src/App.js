@@ -13,6 +13,7 @@ import DonateItems2 from "./pages/DonateItems2";
 import DonateConfirmation from "./pages/DonateConfirmation";
 import DonateApplication from "./pages/DonateApplication";
 import Context from "./context/context";
+import Application from "./pages/Application";
 
 function App() {
   const [openModalDonateInstructions, setopenModalDonateInstructions] =
@@ -65,6 +66,9 @@ function App() {
               />
             }
           />
+
+          <Route path="/application" element={<Application />} />
+
           <Route
             path="/donate"
             element={

@@ -17,7 +17,7 @@ const NavBar = () => {
       </div>
       <div className="navbar-individual-boxes">
         <div className="navbar-icon-box">
-          <Link to="/donate-application">
+          <Link to="/application">
             <img
               src={applicationunfilled}
               className="navbar-icon"

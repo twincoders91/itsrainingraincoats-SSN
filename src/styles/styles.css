@@ -36,6 +36,12 @@ body {
   color: rgb(var(--black));
 }
 
+body,
+#root,
+.main-app-container {
+  height: 100vh;
+}
+
 a {
   text-decoration: none;
 }
@@ -219,7 +225,7 @@ select {
   .header-titleText {
     font-size: var(--titleText);
     font-weight: 700;
-    line-height: 32px;
+    line-height: 48px;
 
     flex: 1;
   }

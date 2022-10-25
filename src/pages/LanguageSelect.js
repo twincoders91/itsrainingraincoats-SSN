@@ -1,7 +1,5 @@
-import React, { useContext, useState } from "react";
-import { useEffect } from "react";
-import { useRef } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useContext, useRef, useState } from "react";
+import { NavLink, Navigate } from "react-router-dom";
 
 import Header from "../Header";
 import Button from "../components/Button";
