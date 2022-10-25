@@ -1480,6 +1480,7 @@ select {
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.4);
+  z-index: 5;
 }
 
 .request-modal-discard-container {
