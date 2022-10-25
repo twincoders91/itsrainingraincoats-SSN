@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
 
 import Context from "../context/context";
@@ -5,7 +6,6 @@ import Context from "../context/context";
 import HeaderGeneric from "../components/HeaderGeneric";
 import NavBar from "../navbar/NavBar";
 
-import { capitaliseFirstLetter } from "../components/utility";
 import WorkerApplicationItem from "../components/WorkerApplicationItem";
 
 const Application = () => {
@@ -45,6 +45,7 @@ const Application = () => {
               key={index}
               index={index}
               setDisplayArray={setDisplayArray}
+              setRequestCount={setRequestCount}
             />
           );
         })}

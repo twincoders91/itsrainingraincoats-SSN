@@ -9,6 +9,7 @@ const WorkerApplicationItem = (props) => {
       props.setDisplayArray((prevState) => {
         const array = [...prevState];
         array.splice(props.index, 1);
+        props.setRequestCount(array.length);
         return array;
       });
     }
