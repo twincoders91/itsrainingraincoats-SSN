@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 
 const CreateAccountWorker3 = React.forwardRef((props, ref) => {
-  const { register, handleSubmit, watch, getValues } = useForm();
+  const { register, handleSubmit, watch } = useForm();
   const buttonRef = useRef();
   const watchAll = watch();
 

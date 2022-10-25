@@ -139,7 +139,7 @@ function App() {
             />
           }
         />
-        <Route path="/item-request" element={<ItemRequest />} />
+        <Route path="/item-request" element={<ItemRequest userId={userId} />} />
       </Routes>
     </div>
   );

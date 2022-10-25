@@ -219,6 +219,7 @@ select {
   .header-titleText {
     font-size: var(--titleText);
     font-weight: 700;
+    line-height: 32px;
 
     flex: 1;
   }
@@ -737,9 +738,9 @@ select {
   font-size: var(--subtitleText);
   font-weight: 700;
 }
-.donate-location-container {
-  /* position: relative; */
-}
+/* .donate-location-container {
+  position: relative;
+} */
 .map-container {
   position: relative;
   z-index: 0;
@@ -902,8 +903,8 @@ select {
   justify-content: center;
 }
 /* ================================= Donate (Item Cateogry) ================================= */
-.donate-items-category-container {
-}
+/* .donate-items-category-container {
+} */
 .donate-item-category-box {
   justify-content: space-between;
   display: grid;
@@ -1288,6 +1289,7 @@ select {
 
 .createAccount-dropdown {
   -webkit-appearance: none;
+  appearance: none;
 
   background-image: linear-gradient(
       45deg,
