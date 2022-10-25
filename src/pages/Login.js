@@ -19,6 +19,18 @@ export default function Login(props) {
     };
     const res = await postUser(url, "POST", body);
     console.log(res);
+
+    // to store refresh token from login response to localstorage
+    localStorage.setItem("refreshToken", res.refreshToken);
+
+    // to store persona from login response to localstorage
+    localStorage.setItem("persona", res.persona);
+
+    // to store userId from login response to localstorage
+    localStorage.setItem("id", res.id);
+
+    // console.log(localStorage.refreshToken);
+
     if (res.status === "error") {
       setErrorMessage(res.message);
       return;
