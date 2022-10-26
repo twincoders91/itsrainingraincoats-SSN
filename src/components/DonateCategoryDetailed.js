@@ -14,11 +14,11 @@ const DonateCategoryDetailed = (props) => {
   const filterCategoryDonate = donateCategory.filter(
     (d, i) => d.name === donateCategoryChoice
   );
-  console.log(filterCategoryDonate);
-  console.log(filterCategoryDonate[0]);
+  // console.log(filterCategoryDonate);
+  // console.log(filterCategoryDonate[0]);
 
   const handleSetDonateDetailedItemChoice = (event) => {
-    setDonateDetailedItemChoice(event.name);
+    setDonateDetailedItemChoice(event);
     setRequireSelection(true);
     setDonateDetailedItemArray(event);
   };
@@ -34,7 +34,7 @@ const DonateCategoryDetailed = (props) => {
             >
               <div
                 className={
-                  donateDetailedItemChoice === items.name
+                  donateDetailedItemChoice.name === items.name
                     ? `donate-item-category-icon-box-detailed2 bs`
                     : `donate-item-category-icon-box-detailed bs`
                 }

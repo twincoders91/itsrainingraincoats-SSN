@@ -39,7 +39,7 @@ const DonateLocation = (props) => {
   const filterDataToAreas = volunteerData.filter(
     (d, i) => d.area === areaSelection
   );
-  console.log(filterDataToAreas);
+  // console.log(filterDataToAreas);
 
   useEffect(() => {
     setPrevPage("/donate");

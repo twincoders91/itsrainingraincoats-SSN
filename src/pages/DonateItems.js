@@ -14,9 +14,9 @@ const DonateItems = ({
 }) => {
   const [requireSelection, setRequireSelection] = useState(false);
   const [donateSteps, setDonateSteps] = useState(1);
-  console.log(donateCategoryChoice);
+  // console.log(donateCategoryChoice);
 
-  console.log(donateSteps);
+  // console.log(donateSteps);
 
   useEffect(() => {
     setPrevPage("/donate-location");

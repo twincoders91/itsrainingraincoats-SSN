@@ -9,6 +9,7 @@ const DonateCategory = (props) => {
     donateCategoryChoice,
   } = props;
   const handleSetRequireSelection = (event) => {
+    console.log(event);
     setRequireSelection(true);
     setDonateCategoryChoice(event);
   };

@@ -10,7 +10,7 @@ const MapEast = ({
   dropoffClick,
   setPrevPage,
 }) => {
-  console.log(filterDataToAreas);
+  // console.log(filterDataToAreas);
   return (
     <div>
       <div className="donate-location-fonts-box ">

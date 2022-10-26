@@ -9,8 +9,8 @@ const DropoffInformation = ({
 }) => {
   //========== filter volunteer in West by Location =============
   const x = filterDataToAreas.filter((d, i) => d.locationTown === locationPick);
-  console.log(x);
-  console.log(locationPick);
+  // console.log(x);
+  // console.log(locationPick);
 
   const handlePrevPage = () => {
     setPrevPage("/donate-location");

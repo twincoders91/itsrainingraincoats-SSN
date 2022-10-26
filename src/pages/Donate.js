@@ -28,7 +28,7 @@ const Donate = (props) => {
     setOpenModalHowToDonate(true);
     setPrevPage("/donate");
   };
-  console.log(donateCategoryPopulate);
+  // console.log(donateCategoryPopulate);
 
   useEffect(() => {
     setPrevPage("/home");
