@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import DonateApplicationCard from "../components/DonateApplicationCard";
 import NavBar from "../navbar/NavBar";
 
 const DonateApplication = (props) => {
   const { donateCart, setDonateCart } = props;
+  const [donateLength, setDonateLength] = useState(0);
   return (
     <>
       <div className="main-header-container">
@@ -14,10 +15,11 @@ const DonateApplication = (props) => {
         </div>
       </div>
       <div className="donate-application-container ml-2 mr-2 mt-2">
-        <span className="fs-14 fw-600">{`Donation application: ${donateCart.length}`}</span>
+        <span className="fs-14 fw-600">{`Donation application: ${donateLength}`}</span>
         <DonateApplicationCard
           donateCart={donateCart}
           setDonateCart={setDonateCart}
+          setDonateLength={setDonateLength}
         />
       </div>
       <div className="navbar--absolute">

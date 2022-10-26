@@ -40,7 +40,7 @@ const Home = (props) => {
             position: "fixed",
             bottom: 0,
             backgroundColor: "rgb(var(--white))",
-            zIndex: 2,
+            // zIndex: 2,
             borderTop: "1px solid rgba(var(--black) / 0.2)",
           }}
         >
