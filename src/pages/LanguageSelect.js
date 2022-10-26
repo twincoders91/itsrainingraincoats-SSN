@@ -27,7 +27,7 @@ export default function LanguageSelect() {
   return (
     <>
       {/* jump to Home page if user has already logged in, skip language select and login page */}
-      {localStorage.refreshToken && <Navigate to="/home" />}
+      {context.refreshToken && <Navigate to="/home" />}
 
       <div className="main-header-container">
         <Header />

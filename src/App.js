@@ -30,8 +30,10 @@ function App() {
   const [persona, setPersona] = useState("");
   const [name, setName] = useState("");
   const [userId, setUserId] = useState("");
+  const [refreshToken, setRefreshToken] = useState("");
 
   const [logOut, setLogOut] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleAreaSelection = (event) => {
     setAreaSelection(event);
@@ -48,16 +50,34 @@ function App() {
     if (localStorage !== null) {
       setUserId(localStorage.id);
       setPersona(localStorage.persona);
+      setRefreshToken(localStorage.refreshToken);
+      setIsLoggedIn(true);
     }
   }, []);
 
   return (
     <Context.Provider
-      value={{ persona, setPersona, userId, setUserId, logOut, setLogOut }}
+      value={{
+        persona,
+        setPersona,
+        userId,
+        setUserId,
+        logOut,
+        setLogOut,
+        refreshToken,
+        setRefreshToken,
+        isLoggedIn,
+        setIsLoggedIn,
+      }}
     >
       <div className="main-app-container">
         <Routes>
-          <Route path="/" element={<Navigate to="/language-select" />} />
+          <Route
+            path="/"
+            element={
+              <Navigate to={isLoggedIn ? "/home" : "/language-select"} />
+            }
+          />
           <Route
             path="/home"
             element={

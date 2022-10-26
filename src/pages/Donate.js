@@ -45,7 +45,7 @@ const Donate = (props) => {
           />
           <div className="donate-inneedof-box mt-4">
             <span className="donate-font1 mr-1">
-              We are currently in need of...
+              Current item availability:
             </span>
             <img
               className="infoicon"

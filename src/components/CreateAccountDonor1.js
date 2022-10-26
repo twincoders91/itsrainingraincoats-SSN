@@ -1,7 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 
+import Context from "../context/context";
+
 export default function CreateAccountDonor1(props) {
+  const context = useContext(Context);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,10 +38,13 @@ export default function CreateAccountDonor1(props) {
 
     // to store refresh token from login response to localstorage
     localStorage.setItem("refreshToken", res.refreshToken);
+    context.setRefreshToken(res.refreshToken);
     // to store persona from login response to localstorage
     localStorage.setItem("persona", res.persona);
+    context.setPersona(res.persona);
     // to store userId from login response to localstorage
     localStorage.setItem("id", res.id);
+    context.setUserId(res.id);
     // console.log(localStorage.refreshToken);
     if (res.status === "error") {
       setErrorMessage(res.message);

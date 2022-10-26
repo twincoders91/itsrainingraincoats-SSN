@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
+
 import union from "./assets/union.svg";
 import irrlogo from "./assets/irrlogo.svg";
 import Context from "./context/context";
@@ -11,7 +13,10 @@ const Header = () => {
   // logout function: when user clicks button to logout, clear all localStorage and setLogOut true
   const logout = () => {
     localStorage.clear();
-    context.setLogOut(true);
+    context.setUserId("");
+    context.setPersona("");
+    context.setRefreshToken("");
+    context.setIsLoggedIn(false);
   };
 
   return (
@@ -20,12 +25,14 @@ const Header = () => {
         <img className="nav-logo-image" src={irrlogo} alt="raincoatlogo" />
       </div>
       <div className="nav-left-item">
-        <img
-          src={union}
-          className="nav-user-icon"
-          alt="user-profile"
-          onClick={logout}
-        />
+        <NavLink to="/">
+          <img
+            src={union}
+            className="nav-user-icon"
+            alt="user-profile"
+            onClick={logout}
+          />
+        </NavLink>
       </div>
     </div>
   );

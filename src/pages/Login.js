@@ -1,10 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { NavLink, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+
+import Context from "../context/context";
 
 import Header from "../Header";
 
 export default function Login(props) {
+  const context = useContext(Context);
+
   const [errorMessage, setErrorMessage] = useState("");
   const { register, handleSubmit, watch } = useForm();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -22,12 +26,15 @@ export default function Login(props) {
 
     // to store refresh token from login response to localstorage
     localStorage.setItem("refreshToken", res.refreshToken);
+    context.setRefreshToken(res.refreshToken);
 
     // to store persona from login response to localstorage
     localStorage.setItem("persona", res.persona);
+    context.setPersona(res.persona);
 
     // to store userId from login response to localstorage
     localStorage.setItem("id", res.id);
+    context.setUserId(res.id);
 
     // console.log(localStorage.refreshToken);
 
