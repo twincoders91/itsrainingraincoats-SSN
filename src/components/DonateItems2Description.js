@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 import pagecontrols2 from "../assets/pagecontrols2.svg";
 import infoicon from "../assets/info.svg";
 import upload from "../assets/upload.svg";
 import UploadDonatePhoto from "./UploadDonatePhoto";
+import Context from "../context/context";
 
 const DonateItems2Description = (props) => {
+  const context = useContext(Context);
+
   const { donateDetailedItemArray, setDonateCart, donateCart } = props;
   console.log(donateDetailedItemArray);
 
@@ -75,23 +78,36 @@ const DonateItems2Description = (props) => {
   // };
   // console.log(donateCart);
   console.log(donateImage);
+
   //function to add into backend DB
   const createDonateItemsDB = async () => {
-    const res = await fetch("http://127.0.0.1:5001/donate/newdonateitems", {
+    const res = await fetch("http://127.0.0.1:5001/donate/create", {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      method: "PUT",
+      method: "POST",
       body: JSON.stringify({
-        img: donateImage,
-        items: donateDetailedItemArray.name,
-        quantity: donateQuantity,
-        condition: donateCondition,
-        comments: comments,
+        account_id: context.userId,
+        area_select: props.areaSelection,
+        dropoff: props.dropMenuClick,
+        donation_category: props.donateCategoryChoice,
+        donation_details: props.donateDetailedItemChoice,
+        donate_quantity: donateQuantity,
+        item_condition: donateCondition,
+        item_photo: donateImage,
+        item_comment: comments,
+        status: "Request Submitted",
       }),
     });
+    console.log(res);
   };
+
+  // img: donateImage,
+  // items: donateDetailedItemArray.name,
+  // quantity: donateQuantity,
+  // condition: donateCondition,
+  // comments: comments,
 
   return (
     <div>
