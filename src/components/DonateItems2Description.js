@@ -70,11 +70,11 @@ const DonateItems2Description = (props) => {
     comments: comments,
   };
 
-  const addToCart = () => {
-    setDonateCart([...donateCart, donationApplicationArray]);
-  };
-  console.log(donateCart);
-
+  // const addToCart = () => {
+  //   setDonateCart([...donateCart, donationApplicationArray]);
+  // };
+  // console.log(donateCart);
+  console.log(donateImage);
   //function to add into backend DB
   const createDonateItemsDB = async () => {
     const res = await fetch("http://127.0.0.1:5001/donate/newdonateitems", {
@@ -84,7 +84,7 @@ const DonateItems2Description = (props) => {
       },
       method: "PUT",
       body: JSON.stringify({
-        img: "https://i.imgur.com/VmCCie5.jpg",
+        img: donateImage,
         items: donateDetailedItemArray.name,
         quantity: donateQuantity,
         condition: donateCondition,
@@ -192,6 +192,7 @@ const DonateItems2Description = (props) => {
               <UploadDonatePhoto
                 donateDetailedItemArray={donateDetailedItemArray}
                 setDonateImage={setDonateImage}
+                donateImage={donateImage}
               />
             ) : (
               <></>

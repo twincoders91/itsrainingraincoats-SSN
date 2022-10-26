@@ -3,7 +3,7 @@ import pendingstatus from "../assets/pendingstatus.svg";
 import noimage from "../assets/noimage.png";
 
 const DonateApplicationCard = (props) => {
-  const { donateCart, setDonateCart } = props;
+  const { donateCart, setDonateLength } = props;
   console.log(donateCart);
   const [data, setData] = useState([]);
   const [state, setState] = useState(false);
@@ -24,6 +24,7 @@ const DonateApplicationCard = (props) => {
     const res = await fetch("http://127.0.0.1:5001/donate/alldonateitems");
     const data = await res.json();
     setData(data);
+    setDonateLength(data.length);
   };
 
   const deleteDonateItemsByID = async (id) => {
@@ -54,7 +55,7 @@ const DonateApplicationCard = (props) => {
           <>
             <div
               className="donate-application-card bs mt-2"
-              key={eachItem.items}
+              key={eachItem.items + Math.random() * 1000}
             >
               <div className="donate-application-card-body  ">
                 <span className="fs-12 fw-300 ml-2 mt-2">
