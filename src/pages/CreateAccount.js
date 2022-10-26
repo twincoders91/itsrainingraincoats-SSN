@@ -53,7 +53,12 @@ export default function CreateAccount(props) {
           <CreateAccountWorker4 setCurrentPage={setCurrentPage} />
         )}
         {currentPage === "donor1" && (
-          <CreateAccountDonor1 setCurrentPage setName={setName} />
+          <CreateAccountDonor1
+            setCurrentPage={setCurrentPage}
+            setName={setName}
+            persona={persona}
+            setUserId={props.setUserId}
+          />
         )}
       </div>
     </>

@@ -75,6 +75,24 @@ const DonateItems2Description = (props) => {
   };
   console.log(donateCart);
 
+  //function to add into backend DB
+  const createDonateItemsDB = async () => {
+    const res = await fetch("http://127.0.0.1:5001/donate/newdonateitems", {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "PUT",
+      body: JSON.stringify({
+        img: "https://i.imgur.com/VmCCie5.jpg",
+        items: donateDetailedItemArray.name,
+        quantity: donateQuantity,
+        condition: donateCondition,
+        comments: comments,
+      }),
+    });
+  };
+
   return (
     <div>
       <div className="donate-items-category-container">
@@ -215,7 +233,8 @@ const DonateItems2Description = (props) => {
                       ? true
                       : false
                   }
-                  onClick={() => addToCart()}
+                  onClick={() => createDonateItemsDB()}
+                  // onClick={() => addToCart()}
                 >
                   Submit Application
                 </button>

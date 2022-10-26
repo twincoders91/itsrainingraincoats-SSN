@@ -35,6 +35,7 @@ function App() {
     setAreaSelection(event);
     setDropMenuClick(false);
   };
+  //name and icon
   console.log(donateDetailedItemArray);
   console.log(donateCart);
 
