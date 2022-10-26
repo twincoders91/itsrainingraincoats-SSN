@@ -1,13 +1,13 @@
 import React from "react";
+
 import Header from "../Header";
 import NavBar from "../navbar/NavBar";
 
 import ModalDonateInstructions from "../components/donateModals/ModalDonateInstructions";
-import DonorHome from "./DonorHome";
-import WorkerHome from "./WorkerHome";
+import DonorHome from "../components/DonorHome";
+import WorkerHome from "../components/WorkerHome";
 
 const Home = (props) => {
-  console.log(props);
   const {
     openModalDonateInstructions,
     setopenModalDonateInstructions,

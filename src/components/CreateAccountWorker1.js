@@ -1,8 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
+import Context from "../context/context";
+
 export default function CreateAccountWorker1(props) {
+  const context = useContext(Context);
   const [errorMessage, setErrorMessage] = useState("");
   const { register, handleSubmit, watch, getValues } = useForm();
   const buttonRef = useRef();
@@ -20,12 +23,15 @@ export default function CreateAccountWorker1(props) {
 
     // to store refresh token from login response to localstorage
     localStorage.setItem("refreshToken", res.refreshToken);
+    context.setRefreshToken(res.refreshToken);
 
     // to store persona from login response to localstorage
     localStorage.setItem("persona", res.persona);
+    context.setPersona(res.persona);
 
     // to store userId from login response to localstorage
     localStorage.setItem("id", res.id);
+    context.setUserId(res.id);
 
     // console.log(localStorage.refreshToken);
 

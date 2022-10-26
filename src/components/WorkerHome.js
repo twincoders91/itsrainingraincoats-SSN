@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { Navigate } from "react-router-dom";
+import React, { useState } from "react";
 
 import itemApplication from "../assets/itemApplication.svg";
 import calendarWorker from "../assets/calendarWorker.svg";
@@ -7,19 +6,12 @@ import lesson from "../assets/lesson.svg";
 import medical from "../assets/medical.svg";
 import HomeModals from "../components/HomeModals";
 
-import Context from "../context/context";
-
 const WorkerHome = (props) => {
   const [displayModal, setDisplayModal] = useState(false);
   const { name } = props;
 
-  const context = useContext(Context);
-
   return (
     <div>
-      {/* jump to language-select page if user has logged out */}
-      {context.logOut && <Navigate to="/language-select" />}
-
       <div className="home-container">
         <div className="home-top-section">
           <h1 className="home-h1-22">{`Hi, ${name}`}</h1>

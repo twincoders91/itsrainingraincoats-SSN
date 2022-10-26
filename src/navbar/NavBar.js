@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import home from "../assets/homeunfilled2.svg";
 import applicationunfilled from "../assets/applicationunfilled.svg";
 import moredots from "../assets/moredots.png";
 import { Link } from "react-router-dom";
 
+import Context from "../context/context";
+
 const NavBar = () => {
+  const context = useContext(Context);
   return (
     <div className="navbar-container mt-4">
       <div className="navbar-individual-boxes">
@@ -17,7 +20,13 @@ const NavBar = () => {
       </div>
       <div className="navbar-individual-boxes">
         <div className="navbar-icon-box">
-          <Link to="/application">
+          <Link
+            to={
+              context.persona === "worker"
+                ? "/application"
+                : "/donate-application"
+            }
+          >
             <img
               src={applicationunfilled}
               className="navbar-icon"

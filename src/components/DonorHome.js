@@ -1,17 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
-import { Navigate } from "react-router-dom";
 
 import donateInNeed from "../datasets/donateInNeed";
 import donate from "../assets/donate.svg";
 import education from "../assets/education.svg";
 import love from "../assets/love.svg";
 import corporatepartnership from "../assets/corporatepartnership.svg";
-import { useContext } from "react";
-import Context from "../context/context";
 
 const DonorHome = (props) => {
-  const context = useContext(Context);
-
   const { handleModalOpen, setSortedByStatus, name } = props;
 
   const runSorting = () => {
@@ -29,9 +25,6 @@ const DonorHome = (props) => {
 
   return (
     <div>
-      {/* jump to language-select page if user has logged out */}
-      {context.logOut && <Navigate to="/language-select" />}
-
       <div className="home-container">
         <div className="home-top-section">
           <h1 className="home-h1-22">{`Hi, ${name}`}</h1>
