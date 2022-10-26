@@ -23,7 +23,7 @@ function App() {
   const [areaSelection, setAreaSelection] = useState(" - select area -");
   const [dropMenuClick, setDropMenuClick] = useState(false);
   const [donateCategoryChoice, setDonateCategoryChoice] = useState("");
-  const [donateDetailedItemChoice, setDonateDetailedItemChoice] = useState("");
+  const [donateDetailedItemChoice, setDonateDetailedItemChoice] = useState({});
   const [donateDetailedItemArray, setDonateDetailedItemArray] = useState("");
   const [donateCart, setDonateCart] = useState([]);
   const [sortedByStatus, setSortedByStatus] = useState();
@@ -40,10 +40,10 @@ function App() {
     setDropMenuClick(false);
   };
   //name and icon
-  console.log(donateDetailedItemArray);
-  console.log(donateCart);
+  // console.log(donateDetailedItemArray);
+  // console.log(donateCart);
 
-  console.log(name);
+  // console.log(name);
 
   useEffect(() => {
     // if local storage has token, setState in the context store

@@ -11,7 +11,7 @@ const DonateItems2Description = (props) => {
   const context = useContext(Context);
 
   const { donateDetailedItemArray, setDonateCart, donateCart } = props;
-  console.log(donateDetailedItemArray);
+  // console.log(donateDetailedItemArray);
 
   const [donateQuantityButton1, setDonateQuantityButton1] = useState(false);
   const [donateQuantityButton2, setDonateQuantityButton2] = useState(false);
@@ -77,7 +77,7 @@ const DonateItems2Description = (props) => {
   //   setDonateCart([...donateCart, donationApplicationArray]);
   // };
   // console.log(donateCart);
-  console.log(donateImage);
+  // console.log(donateImage);
 
   //function to add into backend DB
   const createDonateItemsDB = async () => {
@@ -92,11 +92,12 @@ const DonateItems2Description = (props) => {
         area_select: props.areaSelection,
         dropoff: props.dropMenuClick,
         donation_category: props.donateCategoryChoice,
-        donation_details: props.donateDetailedItemChoice,
+        donation_details: props.donateDetailedItemChoice.name,
         donate_quantity: donateQuantity,
         item_condition: donateCondition,
         item_photo: donateImage,
         item_comment: comments,
+        icon: props.donateDetailedItemChoice.icon,
         status: "Request Submitted",
       }),
     });
