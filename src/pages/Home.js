@@ -34,7 +34,16 @@ const Home = (props) => {
           />
         )}
         {persona === "worker" && <WorkerHome name={name} />}
-        <div className="main-navbar">
+        <div
+          className="main-navbar"
+          style={{
+            position: "fixed",
+            bottom: 0,
+            backgroundColor: "rgb(var(--white))",
+            zIndex: 2,
+            borderTop: "1px solid rgba(var(--black) / 0.2)",
+          }}
+        >
           <NavBar />
         </div>
       </div>

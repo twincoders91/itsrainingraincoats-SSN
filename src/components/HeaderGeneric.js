@@ -8,7 +8,13 @@ export default function HeaderGeneric(props) {
       {props.profile && (
         <div className="spacer" style={{ width: "32px" }}></div>
       )}
-      <Logo style={{ height: "48px", flex: 1 }} />
+      {props.headerTitle ? (
+        <span className="header-titleText" style={{ textAlign: "center" }}>
+          {props.headerTitle}
+        </span>
+      ) : (
+        <Logo style={{ height: "48px", flex: 1 }} />
+      )}
       {props.profile && <Profile />}
     </div>
   );
