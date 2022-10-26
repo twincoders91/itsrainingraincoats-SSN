@@ -7,6 +7,7 @@ export default function CreateAccountDonor1(props) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const buttonRef = useRef();
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -20,6 +21,46 @@ export default function CreateAccountDonor1(props) {
   };
   const handleConfirmPasswordChange = (event) => {
     setConfirmPassword(event.target.value);
+  };
+
+  const onSubmit = async () => {
+    const url = "http://127.0.0.1:5001/user/create";
+    const body = {
+      username: name,
+      password: password,
+      user_type: props.persona,
+    };
+    const res = await putNewUser(url, "PUT", body);
+    console.log(res);
+
+    // to store refresh token from login response to localstorage
+    localStorage.setItem("refreshToken", res.refreshToken);
+    // to store persona from login response to localstorage
+    localStorage.setItem("persona", res.persona);
+    // to store userId from login response to localstorage
+    localStorage.setItem("id", res.id);
+    // console.log(localStorage.refreshToken);
+    if (res.status === "error") {
+      setErrorMessage(res.message);
+      return;
+    }
+
+    if (res.status === "ok") {
+      console.log(res.id);
+      props.setUserId(res.id);
+      props.setCurrentPage("worker2");
+    }
+  };
+  const putNewUser = async (url, method = "GET", body = null) => {
+    const res = await fetch(url, {
+      method: method,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+
+    const message = res.json();
+
+    return message;
   };
 
   useEffect(() => {
@@ -84,6 +125,7 @@ export default function CreateAccountDonor1(props) {
         <button
           className="createAccount-button button-active fw-600"
           ref={buttonRef}
+          onClick={() => onSubmit()}
         >
           Create Account
         </button>
