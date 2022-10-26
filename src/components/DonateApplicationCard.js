@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import pendingstatus from "../assets/pendingstatus.svg";
 import noimage from "../assets/noimage.png";
+import Context from "../context/context";
 
 const DonateApplicationCard = (props) => {
+  const context = useContext(Context);
+
   const { donateCart, setDonateLength } = props;
   console.log(donateCart);
   const [data, setData] = useState([]);
@@ -21,25 +24,37 @@ const DonateApplicationCard = (props) => {
   const date = "" + year + month + day;
 
   const findDonateItemsDB = async () => {
-    const res = await fetch("http://127.0.0.1:5001/donate/alldonateitems");
-    const data = await res.json();
-    setData(data);
-    setDonateLength(data.length);
+    try {
+      const res = await fetch(`http://127.0.0.1:5001/donate/${context.userId}`);
+      const data = JSON.stringify(res);
+      // console.log(res);
+      // setData(data);
+      // setDonateLength(data.length);
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
+  // const findDonateItemsDB = async () => {
+  //   const res = await fetch("http://127.0.0.1:5001/donate/alldonateitems");
+  //   const data = await res.json();
+  //   setData(data);
+  //   setDonateLength(data.length);
+  // };
+
   const deleteDonateItemsByID = async (id) => {
-    setState(true);
-    const res = await fetch("http://127.0.0.1:5001/donate/deletedonateitems", {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      method: "DELETE",
-      body: JSON.stringify({
-        _id: id,
-      }),
-    });
-    setState(false);
+    // setState(true);
+    // const res = await fetch("http://127.0.0.1:5001/donate/deletedonateitems", {
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   method: "DELETE",
+    //   body: JSON.stringify({
+    //     _id: id,
+    //   }),
+    // });
+    // setState(false);
   };
 
   console.log(data);

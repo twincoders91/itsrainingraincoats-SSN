@@ -147,6 +147,9 @@ function App() {
                 donateDetailedItemArray={donateDetailedItemArray}
                 setDonateCart={setDonateCart}
                 donateCart={donateCart}
+                // added below
+                areaSelection={areaSelection}
+                dropMenuClick={dropMenuClick}
               />
             }
           />
