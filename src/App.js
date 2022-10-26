@@ -31,6 +31,8 @@ function App() {
   const [name, setName] = useState("");
   const [userId, setUserId] = useState("");
 
+  const [logOut, setLogOut] = useState(false);
+
   const handleAreaSelection = (event) => {
     setAreaSelection(event);
     setDropMenuClick(false);
@@ -50,7 +52,9 @@ function App() {
   }, []);
 
   return (
-    <Context.Provider value={{ persona, setPersona, userId, setUserId }}>
+    <Context.Provider
+      value={{ persona, setPersona, userId, setUserId, logOut, setLogOut }}
+    >
       <div className="main-app-container">
         <Routes>
           <Route path="/" element={<Navigate to="/language-select" />} />
