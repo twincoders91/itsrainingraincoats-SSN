@@ -34,6 +34,7 @@ function App() {
 
   const [logOut, setLogOut] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [hasProfile, setHasProfile] = useState(false);
 
   const handleAreaSelection = (event) => {
     setAreaSelection(event);
@@ -47,7 +48,8 @@ function App() {
 
   useEffect(() => {
     // if local storage has token, setState in the context store
-    if (localStorage !== null) {
+    if (localStorage.refreshToken) {
+      console.log(localStorage);
       setUserId(localStorage.id);
       setPersona(localStorage.persona);
       setRefreshToken(localStorage.refreshToken);
@@ -68,6 +70,8 @@ function App() {
         setRefreshToken,
         isLoggedIn,
         setIsLoggedIn,
+        hasProfile,
+        setHasProfile,
       }}
     >
       <div className="main-app-container">
