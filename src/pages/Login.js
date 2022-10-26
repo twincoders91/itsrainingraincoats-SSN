@@ -8,10 +8,10 @@ import Header from "../Header";
 
 export default function Login(props) {
   const context = useContext(Context);
+  console.log(context);
 
   const [errorMessage, setErrorMessage] = useState("");
   const { register, handleSubmit, watch } = useForm();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const buttonRef = useRef();
   const watchAll = watch();
 
@@ -44,10 +44,16 @@ export default function Login(props) {
     }
 
     if (res.status === "ok") {
-      console.log(res.id);
       props.setUserId(res.id);
       props.setPersona(res.persona);
-      setIsLoggedIn(true);
+      context.setHasProfile(true);
+      context.setIsLoggedIn(true);
+    }
+
+    if (res.status === "incomplete") {
+      props.setUserId(res.id);
+      props.setPersona(res.persona);
+      context.setIsLoggedIn(true);
     }
   };
 
@@ -118,7 +124,10 @@ export default function Login(props) {
           </NavLink>
         </form>
       </div>
-      {isLoggedIn && <Navigate to="/home" />}
+      {context.isLoggedIn && context.hasProfile && <Navigate to="/home" />}
+      {context.isLoggedIn && !context.hasProfile && (
+        <Navigate to="/create-account" />
+      )}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 import CreateAccountSelection from "../components/CreateAccountSelection";
 import CreateAccountWorker1 from "../components/CreateAccountWorker1";
@@ -8,10 +8,19 @@ import CreateAccountWorker4 from "../components/CreateAccountWorker4";
 import CreateAccountDonor1 from "../components/CreateAccountDonor1";
 import NavBarCreateAccount from "../navbar/NavBarCreateAccount";
 
+import Context from "../context/context";
+
 export default function CreateAccount(props) {
+  const context = useContext(Context);
   const { persona, setPersona, setName } = props;
   const [currentPage, setCurrentPage] = useState("selection");
   const fetchBody = useRef({});
+
+  useEffect(() => {
+    if (context.isLoggedIn && !context.hasProfile) {
+      setCurrentPage("worker2");
+    }
+  }, []);
 
   return (
     <>
