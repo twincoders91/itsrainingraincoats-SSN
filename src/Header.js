@@ -17,6 +17,7 @@ const Header = () => {
     context.setPersona("");
     context.setRefreshToken("");
     context.setIsLoggedIn(false);
+    context.setHasProfile(false);
   };
 
   return (

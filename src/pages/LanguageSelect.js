@@ -27,7 +27,13 @@ export default function LanguageSelect() {
   return (
     <>
       {/* jump to Home page if user has already logged in, skip language select and login page */}
-      {context.refreshToken && <Navigate to="/home" />}
+      {context.isLoggedIn &&
+        (context.persona === "donor" || context.hasProfile) && (
+          <Navigate to="/home" />
+        )}
+      {context.isLoggedIn &&
+        !context.hasProfile &&
+        context.persona === "worker" && <Navigate to="/create-account" />}
 
       <div className="main-header-container">
         <Header />

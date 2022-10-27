@@ -124,10 +124,13 @@ export default function Login(props) {
           </NavLink>
         </form>
       </div>
-      {context.isLoggedIn && context.hasProfile && <Navigate to="/home" />}
-      {context.isLoggedIn && !context.hasProfile && (
-        <Navigate to="/create-account" />
-      )}
+      {context.isLoggedIn &&
+        (context.persona === "donor" || context.hasProfile) && (
+          <Navigate to="/home" />
+        )}
+      {context.isLoggedIn &&
+        !context.hasProfile &&
+        context.persona === "worker" && <Navigate to="/create-account" />}
     </>
   );
 }
